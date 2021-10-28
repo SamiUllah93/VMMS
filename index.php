@@ -40,25 +40,26 @@
 							<b>Drivers</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-car"></i>
+							
+							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-drivers-license"></i>
 						</p></a>
 						
 						</div>
 					</div>
-					
+					<a href="Maintainance.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
 							<span style="font-size:3.0em;">20</span><br />
-							<b>Maintainance</b>
+							<b>Maintenance</b>
 							<br />
 							<br />
 							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>
 						</p>
 						
-						</div>
+						</div></a>
 					</div>
-					
+					<a href="alerts.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
@@ -70,8 +71,66 @@
 						</p>
 						
 						</div>
-					</div>
+					</div></a>
 				</div>
+				<!-- 2nd row --> 
+				<div class="row box">
+					<a href="fuelconsumption.php">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
+						<div class="well">
+						<p>
+							<span style="font-size:3.0em;">156.9 KM/H</span><br />
+							<b>Average Fuel Consumption</b>
+							<br />
+							<br />
+							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-tachometer"></i>
+						</p>
+						
+						</div>
+					</div> </a>
+					<a href="drivers.php">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
+						<div class="well">
+						<p>
+							<span style="font-size:3.0em;">2000 KM</span><br />
+							<b>Total Running</b>
+							<br />
+							<br />
+							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-calculator"></i>
+						</p></a>
+						
+						</div>
+					</div>
+					<a href="Maintainance.php">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
+						<div class="well">
+						<p>
+							<span style="font-size:3.0em;">20</span><br />
+							<b>Maintenance</b>
+							<br />
+							<br />
+							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>
+						</p>
+						
+						</div></a>
+					</div>
+					<a href="alerts.php">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
+						<div class="well">
+						<p>
+							<span style="font-size:3.0em;">20</span><br />
+							<b>Alerts</b>
+							<br />
+							<br />
+							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+						</p>
+						
+						</div>
+					</div></a>
+				</div>
+				
+				
+				
 			</div>
 		</div>
 

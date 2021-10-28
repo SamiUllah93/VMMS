@@ -26,10 +26,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Drivers</h4>
+										<h4 style="color:#449D44;">Alerts</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_drivers.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Driver</button></a>
+
 									</div>
 								</div>
 							</div>
@@ -37,41 +37,40 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>ARMY NO</th>
-								<th>Driver Name</th>
-								<th>Car Assigned to</th>
-								<th>Added On</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th>BA NO</th>
+								<th>Total Fuel Added</th>
+								<th>Total Running</th>
+								<th>Fuel Average</th>
+
 							</tr>
 						
 							<tr>
 								<td>1</td>
-								<td>PA-55693</td>
-								<td>Ghafoor</td>
-								<td>RLG-566</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>RLG-456</td>
+								<td>15 l</td>
+								<td>500 KM</td>								
+								<td>20.6 Km/l</td>
 							</tr>
-														<tr>
+							<tr>
 								<td>2</td>
-								<td>PA-89653</td>
-								<td>Asif</td>
-								<td>RLA-452</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>RLA-489</td>
+								<td>150 l</td>
+								<td>2500 KM</td>								
+								<td>15.8 Km/l</td>
 							</tr>
-							
-														<tr>
+							<tr>
 								<td>3</td>
-								<td>PA-55693</td>
-								<td>Ahsan</td>
-								<td>RL-12-156</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>RLC-563</td>
+								<td>100 l</td>
+								<td>1500 KM</td>								
+								<td>18.6 Km/l</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>RL-12-236</td>
+								<td>75 l</td>
+								<td>1000 KM</td>								
+								<td>20.6 Km/l</td>
 							</tr>
 							
 						  </table>

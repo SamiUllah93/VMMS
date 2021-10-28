@@ -26,10 +26,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Drivers</h4>
+										<h4 style="color:#449D44;">Maintenance</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_drivers.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Driver</button></a>
+										<a  href="add_maintenance.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add New Maintainance Type</button></a>
 									</div>
 								</div>
 							</div>
@@ -37,9 +37,7 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>ARMY NO</th>
-								<th>Driver Name</th>
-								<th>Car Assigned to</th>
+								<th>Maintainance Type</th>
 								<th>Added On</th>
 								<th>Edit</th>
 								<th>Delete</th>
@@ -47,33 +45,44 @@
 						
 							<tr>
 								<td>1</td>
-								<td>PA-55693</td>
-								<td>Ghafoor</td>
-								<td>RLG-566</td>
+								<td>Engine oil Change</td>
 								<td>21-10-2019</td>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
-														<tr>
+							<tr>
 								<td>2</td>
-								<td>PA-89653</td>
-								<td>Asif</td>
-								<td>RLA-452</td>
+								<td>Oil Filter Change</td>
 								<td>21-10-2019</td>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
 							
-														<tr>
+							<tr>
 								<td>3</td>
-								<td>PA-55693</td>
-								<td>Ahsan</td>
-								<td>RL-12-156</td>
+								<td>Air Filter Cleaning</td>
 								<td>21-10-2019</td>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
 							
+							
+							<tr>
+								<td>4</td>
+								<td>Air Filter Change</td>
+								<td>21-10-2019</td>
+								<td>Edit</a></td>
+								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+							</tr>
+							
+							
+							<tr>
+								<td>5</td>
+								<td>Fuel Filter Cleaning </td>
+								<td>21-10-2019</td>
+								<td>Edit</a></td>
+								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+							</tr>
 						  </table>
 						  </div>
 

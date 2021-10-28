@@ -104,6 +104,13 @@
 									</div>
 								</div>
 							</div>
+							<div class="row" style="padding-top:10px;">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom:5px;text-align:right;">
+								<span style="color:red;"></span><br />
+								 <input type="submit"  name="submit" class="btn btn-success" value="Add Vehicle"   />
+							</div>
+							
+						</div>
 							</div>
 						
 						

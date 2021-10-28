@@ -26,10 +26,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Drivers</h4>
+										<h4 style="color:#449D44;">Alerts</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_drivers.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Driver</button></a>
+
 									</div>
 								</div>
 							</div>
@@ -37,41 +37,53 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>ARMY NO</th>
-								<th>Driver Name</th>
-								<th>Car Assigned to</th>
-								<th>Added On</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th>Maintainance Type</th>
+								<th>BA NO</th>
+								<th>Driver</th>
+								<th>Pending On</th>
+								<th>Remaining Days</th>
+
 							</tr>
 						
 							<tr>
 								<td>1</td>
-								<td>PA-55693</td>
-								<td>Ghafoor</td>
-								<td>RLG-566</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>Engine oil Change</td>
+								<td>RLG-456</td>
+								<td>Ghafoor</td>								
+								<td>25-11-2021</td>
+								<td>20</td>
 							</tr>
 														<tr>
 								<td>2</td>
-								<td>PA-89653</td>
-								<td>Asif</td>
-								<td>RLA-452</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>Air Filter</td>
+								<td>RLG-456</td>
+								<td>Asif</td>								
+								<td>15-11-2021</td>
+								<td>23</td>
 							</tr>
-							
 														<tr>
 								<td>3</td>
-								<td>PA-55693</td>
-								<td>Ahsan</td>
-								<td>RL-12-156</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>Oil Filter</td>
+								<td>RLG-456</td>
+								<td>Chohan</td>								
+								<td>12-11-2021</td>
+								<td>15</td>
+							</tr>
+														<tr>
+								<td>4</td>
+								<td>Brake Line Checking</td>
+								<td>RLG-456</td>
+								<td>Ahsan</td>								
+								<td>09-11-2021</td>
+								<td>26</td>
+							</tr>
+														<tr>
+								<td>5</td>
+								<td>Tyre Change</td>
+								<td>RLG-456</td>
+								<td>Usman</td>								
+								<td>12-11-2021</td>
+								<td>5</td>
 							</tr>
 							
 						  </table>
