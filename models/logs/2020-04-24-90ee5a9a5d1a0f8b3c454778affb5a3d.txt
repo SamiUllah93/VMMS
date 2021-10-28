@@ -1,0 +1,23 @@
+Time : 21:28:56
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'accounting.news_update' doesn't exist
+Raw SQL : INSERT INTO news_update (title, description, youtube) VALUES(?, ?, ?)
+
+Time : 21:18:53
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'accounting.news_update' doesn't exist
+Raw SQL : SELECT * FROM news_update
+
+Time : 18:27:16
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'taxreturn.created_as' in 'field list'
+Raw SQL : SELECT taxreturn.*, users.*,  taxreturn.created_as as created FROM taxreturn, users WHERE taxreturn.user_id = users.user_id ORDER BY created_at DESC
+
+Time : 18:26:59
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'created_as as created FROM taxreturn, users WHERE taxreturn.user_id = users.user' at line 1
+Raw SQL : SELECT taxreturn.*, users.*,  taxreturn.*created_as as created FROM taxreturn, users WHERE taxreturn.user_id = users.user_id ORDER BY created_at DESC
+
+Time : 18:26:22
+SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'created_at' in order clause is ambiguous
+Raw SQL : SELECT taxreturn.*, users.* FROM taxreturn, users WHERE taxreturn.user_id = users.user_id ORDER BY created_at DESC
+
+Time : 18:25:40
+SQLSTATE[42S02]: Base table or view not found: 1051 Unknown table 'accounting.users'
+Raw SQL : SELECT taxreturn.*, users.* FROM taxreturn WHERE taxreturn.user_id = users.user_id ORDER BY created_at DESC

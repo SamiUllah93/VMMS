@@ -1,0 +1,19 @@
+Time : 15:56:37
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'category_id' cannot be null
+Raw SQL : INSERT INTO post (title, short_des, des, file, preview_image, main_image, preview_link,  category_id)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+
+Time : 15:56:14
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'file' cannot be null
+Raw SQL : INSERT INTO post (title, short_des, des, file, preview_image, main_image, preview_link,  category_id)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+
+Time : 15:54:46
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'file' cannot be null
+Raw SQL : INSERT INTO post (title, short_des, des, file, preview_image, main_image, preview_link,  category_id)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+
+Time : 15:54:18
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'file' cannot be null
+Raw SQL : INSERT INTO post (title, short_des, des, file, preview_image, main_image, preview_link,  category_id)
+                    VALUES(?, ?, ?, ?, ?, ?, ?, ?)

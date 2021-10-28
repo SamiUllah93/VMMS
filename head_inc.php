@@ -1,0 +1,1 @@
+<link href="static/css/bootstrap.min.css" rel="stylesheet">    <link href="static/css/custom.css" rel="stylesheet">    <link href="static/css/fontawesome.css" rel="stylesheet">    <link href="static/css/brands.css" rel="stylesheet">    <link href="static/css/solid.css" rel="stylesheet">

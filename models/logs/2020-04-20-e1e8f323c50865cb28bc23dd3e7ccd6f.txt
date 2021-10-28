@@ -1,0 +1,7 @@
+Time : 21:57:39
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATEusers SET Status=1 WHERE md5(email)=?' at line 1
+Raw SQL : UPDATEusers SET Status=1 WHERE md5(email)=?
+
+Time : 21:56:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'UPDATEusers SET Status=1 WHERE md5(email)=?' at line 1
+Raw SQL : UPDATEusers SET Status=1 WHERE md5(email)=?

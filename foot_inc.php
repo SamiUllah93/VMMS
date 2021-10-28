@@ -1,0 +1,1 @@
+<!-- Bootstrap core JavaScript --><script src="static/js/jquery.slim.min.js"></script><script src="static/js/bootstrap.bundle.min.js"></script>

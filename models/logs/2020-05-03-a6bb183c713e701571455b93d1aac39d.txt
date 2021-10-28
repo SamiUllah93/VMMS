@@ -1,0 +1,7 @@
+Time : 00:53:46
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'categori_id' in 'order clause'
+Raw SQL : SELECT * FROM categories  ORDER BY categori_id DESC
+
+Time : 00:39:05
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'codewizard.news_updates' doesn't exist
+Raw SQL : SELECT * FROM news_updates  ORDER BY created_at DESC

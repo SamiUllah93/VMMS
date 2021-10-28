@@ -1,0 +1,11 @@
+Time : 00:27:40
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*) AS numb FROM admin WHERE email='?'' at line 1
+Raw SQL : SELECT COUNT (*) AS numb FROM admin WHERE email='?'
+
+Time : 00:27:28
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*) AS numb FROM admin WHERE email=?' at line 1
+Raw SQL : SELECT COUNT (*) AS numb FROM admin WHERE email=?
+
+Time : 00:26:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*) AS numb FROM admin WHERE email=?' at line 1
+Raw SQL : SELECT COUNT (*) AS numb FROM admin WHERE email=?

@@ -1,0 +1,15 @@
+Time : 21:47:17
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+Raw SQL : INSERT INTO appointments (fullname, email, phone, dated, slot, details) VALUES (?,?,?,?,?,?,)
+
+Time : 21:18:09
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : SELECT slot FROM appointments WHERE dated=?
+
+Time : 21:17:38
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : SELECT slot FROM appointments WHERE dated=?
+
+Time : 21:16:11
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : SELECT slot FROM appointments WHERE dated=?

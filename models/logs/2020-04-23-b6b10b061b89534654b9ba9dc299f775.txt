@@ -1,0 +1,43 @@
+Time : 23:35:54
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' status=2' at line 1
+Raw SQL : UPDATE taxreturn SET payment_done=1 WHERE tax_return_id=? , status=2
+
+Time : 21:52:08
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_return_idr' in 'where clause'
+Raw SQL : SELECT count(*) AS numb FROM taxreturn WHERE user_id=? AND tax_return_idr=?
+
+Time : 21:51:48
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tax_return_number' in 'where clause'
+Raw SQL : SELECT count(*) AS numb FROM taxreturn WHERE user_id=? AND tax_return_number=?
+
+Time : 01:21:36
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`accounting`.`taxreturn`, CONSTRAINT `taxreturn_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO taxreturn (
+        employeed, selfemployeed, cis, cis_tax, total_income, tools_cost, car_cost, materials_cost, transport_cost, 
+        car_van, car_van_cost, rents, rent_tax, office_expense, bank_charges, ads_cost, legal_cost, other_costs, 
+        other_cost_de, other_tax, other_info, tax_file_1, tax_file_2, tax_file_3, user_id) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+Time : 01:15:01
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'accounting.taxreturns' doesn't exist
+Raw SQL : INSERT INTO taxreturns (
+        employeed, selfemployeed, cis, cis_tax, total_income, tools_cost, car_cost, materials_cost, transport_cost, 
+        car_van, car_van_cost, rents, rent_tax, office_expense, bank_charges, ads_cost, legal_cost, other_costs, 
+        other_cost_de, other_tax, other_info, tax_file_1, tax_file_2, tax_file_3, user_id) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+Time : 01:14:58
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'accounting.taxreturns' doesn't exist
+Raw SQL : INSERT INTO taxreturns (
+        employeed, selfemployeed, cis, cis_tax, total_income, tools_cost, car_cost, materials_cost, transport_cost, 
+        car_van, car_van_cost, rents, rent_tax, office_expense, bank_charges, ads_cost, legal_cost, other_costs, 
+        other_cost_de, other_tax, other_info, tax_file_1, tax_file_2, tax_file_3, user_id) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+
+Time : 01:14:45
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'accounting.taxreturns' doesn't exist
+Raw SQL : INSERT INTO taxreturns (
+        employeed, selfemployeed, cis, cis_tax, total_income, tools_cost, car_cost, materials_cost, transport_cost, 
+        car_van, car_van_cost, rents, rent_tax, office_expense, bank_charges, ads_cost, legal_cost, other_costs, 
+        other_cost_de, other_tax, other_info, tax_file_1, tax_file_2, tax_file_3, user_id) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
