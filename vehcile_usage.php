@@ -26,52 +26,67 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Fuel Records</h4>
+										<h4 style="color:#449D44;">Vehicles Usage</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-
+										<a  href="add_usage.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Usage</button></a>
 									</div>
 								</div>
 							</div>
 						  <div class="panel-body">
+						  <b>Vehicle: </b> Suzuki <br />
+						  <b>Type: </b> Car <br />
+						  <b>Year of Make: </b> 2019
+						  <br />
+						  <hr />
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>BA NO</th>
-								<th>Total Fuel Added</th>
-								<th>Total Running</th>
-								<th>Fuel Average</th>
-
+								<th>Date</th>
+								<th>Fuel Type</th>
+								<th>Qty</th>
 							</tr>
 						
 							<tr>
 								<td>1</td>
-								<td>RLG-456</td>
-								<td>15 l</td>
-								<td>500 KM</td>								
-								<td>20.6 Km/l</td>
+								<td>2020-08-16</td>
+								<td>Diesel</td>
+								<td>24.98</td>
+								
 							</tr>
+							
 							<tr>
 								<td>2</td>
-								<td>RLA-489</td>
-								<td>150 l</td>
-								<td>2500 KM</td>								
-								<td>15.8 Km/l</td>
+								<td>2020-08-16</td>
+								<td>Diesel</td>
+								<td>24.98</td>
+								
 							</tr>
+							
 							<tr>
 								<td>3</td>
-								<td>RLC-563</td>
-								<td>100 l</td>
-								<td>1500 KM</td>								
-								<td>18.6 Km/l</td>
+								<td>2020-08-16</td>
+								<td>Diesel</td>
+								<td>24.98</td>
+								
 							</tr>
+							
 							<tr>
 								<td>4</td>
-								<td>RL-12-236</td>
-								<td>75 l</td>
-								<td>1000 KM</td>								
-								<td>20.6 Km/l</td>
+								<td>2020-08-16</td>
+								<td>Diesel</td>
+								<td>24.98</td>
+								
 							</tr>
+							
+							<tr>
+								<td>5</td>
+								<td>2020-08-16</td>
+								<td>Diesel</td>
+								<td>24.98</td>
+								
+							</tr>
+							
 							
 						  </table>
 						  </div>
