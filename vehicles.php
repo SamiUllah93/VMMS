@@ -42,6 +42,7 @@
 								<th>Make</th>
 								<th>Year of Mfr</th>
 								<th>Added On</th>
+								<th>Usages</th>
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -53,6 +54,7 @@
 								<td>Toyota</td>
 								<td>2015</td>
 								<td>21-10-2019</td>
+								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
@@ -63,6 +65,7 @@
 								<td>Toyota</td>
 								<td>2010</td>
 								<td>21-10-2019</td>
+								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
@@ -74,6 +77,7 @@
 								<td>FORD</td>
 								<td>2012</td>
 								<td>21-10-2019</td>
+								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>

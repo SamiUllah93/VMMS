@@ -83,27 +83,33 @@
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
 								<b>Type of Maintainance</b>
 							</div>
-							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+							<?php
+								$main_types = ["Oil Change", "Oil Filter Change", "Air Filter Change", "Brakes Service", "Tire Rotation", "Air Pressure"];
+							?>
 							
-								<b>Engine Oil </b> <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> 
-									<div  id="ifYes" style="visibility:hidden">
-										Running <input class="form-control" type='text' id='yes' name='yes'><br><br>
-										Time Period <input class="form-control" type='text' id='acc' name='acc'>
+							
+							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+								<?php foreach($main_types as $main){ ?>
+									<div class="row">
+									<div class="col-md-2">
+										<input type="checkbox" /> <?php echo $main; ?>
 									</div>
-									
-									<b>Oil Filter Change <b> <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"> 
-									<div id="ifYes" >
-										Running <input class="form-control" 'text' id='yes' name='yes'><br><br>
-										Time Period <input class="form-control" type='text' id='acc' name='acc'>
-									</div>
-									<br>
-									<b>Air Filter Cleaning <b> <input type="radio"  name="yesno" id="yesCheck"> 
-									<div id="ifYes" >
-										Running <input class="form-control" type='text' id='yes' name='yes'><br><br>
-										Time Period <input class="form-control" type='text' id='acc' name='acc'>
+									<div class="col-md-6">
+										<div class="row">
+											<div class="col-md-6">
+												<input placeholder="Duration in days" class="form-control" type='text' id='timeperiod' name='timeperiod'>
+											</div>
+											<div class="col-md-6">
+												<input placeholder="KMs" class="form-control" type='text' id='timeperiod' name='timeperiod'>
+											</div>
+										</div>
 									</div>
 								</div>
+								<?php } ?>
 							</div>
+							
+								
+							
 							<div class="row" style="padding-top:10px;">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom:5px;text-align:right;">
 								<span style="color:red;"></span><br />
@@ -115,7 +121,7 @@
 						
 						
 						</form>
-						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+						
 					</div>
 					
 					 
