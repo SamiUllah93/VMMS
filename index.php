@@ -16,7 +16,7 @@
        <div id="page-content-wrapper">
             <div class="container-fluid">
 			
-				<h4 style="text-align:center;font-size:2.0em;color:#7cc15a;">Dashboard information and statistics</h4>
+				<h4 style="text-align:center;font-size:2.0em;color:#7cc15a;">Dashboard Information & Statistics</h4>
 				<BR>
 				<div class="row box">
 					<a href="vehicles.php">
@@ -29,7 +29,6 @@
 							<br />
 							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-car"></i>
 						</p>
-						
 						</div>
 					</div> </a>
 					<a href="drivers.php">

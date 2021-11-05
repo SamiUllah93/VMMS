@@ -1,22 +1,13 @@
 <?php
 
 
-class User extends Person
+class User extends QueryManager
 {
     public $UserID = 0;
-    public $FirstName = '';
-    public $MiddleName = '';
-    public $Surname = '';
-    public $UTRNumber = '';
-    public $NINumber = '';
-    public $StreetAddress = '';
-    public $AddressLine2 = '';
-    public $City = '';
-    public $Country = '';
-    public $PostalCode = '';
-    public $Phone = '';
-
-    private $pasword = '';
+    public $Name = '';
+    public $Email = '';
+    private $Password = '';
+    public $isAdmin = false;
     public $CreatedAt = '';
     public $UpdatedAt = '';
     public $Status = 0;
@@ -28,7 +19,6 @@ class User extends Person
 
     public function __CONSTRUCT($email = null)
     {
-        parent::__CONSTRUCT('users', 'user_id', 'UserEmail');
         if ($email) {
             $this->SetDetails($email);
         }
@@ -38,24 +28,15 @@ class User extends Person
     {
         $query = "SELECT * FROM " . $this->TableName . " WHERE email=? ";
         $user_data = $this->_db->query($query, array($email));
-
+        
         if (sizeof($user_data) == 1) {
             $this->UserID = $user_data[0]['user_id'];
-            $this->FirstName = $user_data[0]['first_name'];
-            $this->MiddleName = $user_data[0]['middle_name'];
-            $this->Surname = $user_data[0]['surname'];
-            $this->UTRNumber = $user_data[0]['utr_number'];
-            $this->NINumber = $user_data[0]['ni_number'];
-            $this->StreetAddress = $user_data[0]['street_address'];
-            $this->AddressLine2 = $user_data[0]['address_line_2'];
-            $this->City = $user_data[0]['city'];
-            $this->Country = $user_data[0]['country'];
-            $this->PostalCode = $user_data[0]['postal_code'];
-            $this->Phone = $user_data[0]['phone'];
+            $this->Name = $user_data[0]['first_name'];
             $this->Email = $user_data[0]['email'];
+            $this->Status = $user_data[0]['status'];
+            $this->isAdmin = $user_data[0]['isAdmin'];
             $this->CreatedAt = $user_data[0]['created_at'];
             $this->UpdatedAt = $user_data[0]['updated_at'];
-            $this->Status = $user_data[0]['status'];
             return True;
         } else {
             $this->Message = "No user exists with provided email.";
@@ -69,7 +50,7 @@ class User extends Person
             if (!$this->Exists()) {
                 $this->Message = "Profile created.";
                 if($this->Insert()){
-                    return $this->SendActivationEmail();
+                    return true;
                 }else{
                     return False;
                 }
@@ -81,6 +62,24 @@ class User extends Person
         } else {
             $this->Message = "Fields with * are required.";
             return false;
+        }
+    }
+
+    protected function Exists(): bool
+    {
+        $query = "SELECT COUNT(*) AS numb FROM " . $this->TableName . " WHERE email=?";
+        $email_counts = $this->_db->query($query, array($this->Email));
+        return $email_counts[0]['numb'] > 0;
+    }
+
+    public function Activate($encodedid){
+        $query = "UPDATE " . $this->TableName . " SET Status=1 WHERE md5(email)=? ";
+        if($this->_db->query($query, array($encodedid))!=NULL){
+            $this->Message = "Acount activated.";
+            return True;
+        }else{
+            $this->Message = "Failed to activate account.";
+            return False;
         }
     }
 
@@ -104,16 +103,11 @@ class User extends Person
     {
         // change to single if with ors.
         if (!filter_var($this->Email, FILTER_VALIDATE_EMAIL)
-            || empty($this->FirstName)
-            || empty($this->MiddleName)
-            || empty($this->Surname)
-            || empty($this->Phone)
+            || empty($this->Name)
+            || empty($this->Email)
             || empty($this->Password)
-            || empty($this->StreetAddress)
-            || empty($this->PostalCode)
-            || empty($this->City)
-            || empty($this->UTRNumber)
-            || empty($this->NINumber) ) {
+            || empty($this->isAdmin)
+            ) {
             return False;
         } else {
             return true;
@@ -121,25 +115,46 @@ class User extends Person
     }
 
 
-    private function SendActivationEmail(){
-        $link = "https://acumenaccounting.co.uk/activate.php?in=".md5($this->Email);
-        $body = "Dear ".$this->FirstName. " " .$this->MiddleName." ".$this->Surname;
-        $body .= "<br /><br />";
-        $body .= "Please click this link to <a href='".$link."'><u>Activate</u></a> your email. If it does not work copy and paste the link below into your browser.";
-        $body .= "<br /><br />";
-        $body .= "<a href='".$link."'>".$link."</a>";
-        $body .= "<br /><br />";
-        $body .= "Acumen Accounting UK Team.";
-        $body .= "<br />https://acumenaccounting.co.uk";
-        $mail = new Mail();
-        if($mail->SendMail($this->Email, "Verify Email, Acument Accounting UK.", $body)){
-            $this->Message = "Account created, check your email for the activation link.";
-            return true;
-        }else{
-            $this->Message = "Failed to create email. Contact aministrator of the website.";
+    public function SetPassword(string $password): void
+    {
+        $this->Password = md5($password);
+    }
+
+
+    public function Authenticate(): bool
+    {
+        if (empty($this->Email) || empty($this->Password)) {
+            $this->Message = 'Empty email/password!';
             return false;
+        } else {
+            $query = "SELECT * FROM " . $this->TableName . " WHERE email = ? and password = ? ";
+            $auth_data = $this->_db->query($query, array($this->Email, $this->Password));
+            if (sizeof($auth_data) == 1) {
+                Debug::Show("Auth: Creating Sessions");
+                $Sm = SessionManager::GetSessionManager();
+                return $Sm->StartSession($this->SessionPK, $this->Email);
+            } else {
+                Debug::Show("Auth: Failed");
+                $this->Message = "Invalid email/password!";
+                return false;
+            }
         }
     }
 
+    function Logout(): bool
+    {
+        $Sm = SessionManager::GetSessionManager();
+        return $Sm->EndSession($this->SessionPK);
+    }
+
+    function IsLoggedIn(): bool
+    {
+        $sm = SessionManager::GetSessionManager();
+        if ($sm->SessionExists($this->SessionPK)) {
+            return $this->SetDetails($_SESSION[$this->SessionPK]);
+        } else {
+            return false;
+        }
+    }
 
 }

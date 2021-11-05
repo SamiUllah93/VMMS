@@ -17,7 +17,7 @@
             $this->TableName = $table_name;
             $this->TablePK = $table_pk;
         }
-
+        
         /*
          * params:
          * 1. limit(int) : number of rows to return
@@ -38,6 +38,18 @@
         public function get_all_keyval($key, $val){
             $query = "SELECT * FROM ".$this->TableName." WHERE ".$key." = ? ORDER BY created_at DESC";
             return $this->_db->query($query, array($val));
+        }
+
+        public function get_count(){
+            $query = "SELECT count(*) as 'numb' FROM ".$this->TableName;
+            $count_data =  $this->_db->query($query);
+            return $count_data[0]['numb']; // might not be array
+        }
+
+        public function get_count_keyval($key, $val){
+            $query = "SELECT count(*) as 'numb' FROM ".$this->TableName." WHERE ".$key." = ?";
+            $count_data =  $this->_db->query($query, array($val));
+            return $count_data[0]['numb']; // might not be array
         }
 
 

@@ -1,15 +1,9 @@
 <?php
 
-define(BASE_URL, "http://localhost/framework/");
+spl_autoload_register(function ($class_name) {
+    include('models/'.$class_name . '.php');
+});
 
-// Database Credentials
-define(DB_SETTINGS, array(
-    "host" => "localhost",
-    "database" => "codewizard",
-    "user" => "root",
-    "password" => ""
-    )
-);
 
 
 

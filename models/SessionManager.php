@@ -40,19 +40,12 @@
         static function GetSessionValue($key){
 		    return $_SESSION[$key];
         }
-
+		
 		function EndSession($Key){
             Debug::Show("Checking sess exists?");
 			if($this->SessionExists($Key)){
                 unset($_SESSION[$Key]);
-                return True;
-//				if()){
-//					Debug::Show("Session destroyed successfully against $Key.");
-//					return true;
-//				}else{
-//					Debug::Show("Could not destroy successfully against $Key.");
-//					return false;
-//				}
+                return true;
 			}else{
 				return true;
 			}

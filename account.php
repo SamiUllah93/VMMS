@@ -16,8 +16,6 @@
 
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
 						<span style="font-size:0.95em;color:#449D44;"><b>Update Account</b></span>
-                        
-
 						<form method="POST" action="" >
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-2 col-xs-12" style="padding-top:6px;text-align:right;">
@@ -86,7 +84,7 @@
 						</form>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " >
-					
+
 					</div>
 				</div>
                 <br />

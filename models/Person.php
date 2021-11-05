@@ -58,23 +58,7 @@ class Person extends  QueryManager
         }
     }
 
-    protected function Exists(): bool
-    {
-        $query = "SELECT COUNT(*) AS numb FROM " . $this->TableName . " WHERE email=?";
-        $email_counts = $this->_db->query($query, array($this->Email));
-        return $email_counts[0]['numb'] > 0;
-    }
-
-    public function Activate($encodedid){
-        $query = "UPDATE " . $this->TableName . " SET Status=1 WHERE md5(email)=? ";
-        if($this->_db->query($query, array($encodedid))!=NULL){
-            $this->Message = "Acount activated.";
-            return True;
-        }else{
-            $this->Message = "Failed to activate account.";
-            return False;
-        }
-    }
+    
 	
 	// Need to add roles and roles methods here,
 
