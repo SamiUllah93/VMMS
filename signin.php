@@ -1,7 +1,4 @@
-<?php
-    //require "autoload.php";
-    //require 'core/bootstrap/app.php';
-?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +15,7 @@
 		<div class="text-center">
 			<img src="static/img/logo.png" width="250">
 		</div>
-		<form>
+		
 			<div class="col-md-4"></div>
 			<div class="col-md-4 login-form">
 				<div class="text-center">
@@ -27,18 +24,18 @@
 				<div class="">
 					<hr />
 					Email: <br />
-					<input type="text" placeholder="username/email" name="email" id="email" required class="form-control" />
+					<input type="text" placeholder="username/email" name="email" id="email"  class="form-control" />
 					<br />
 					Password: <br />
-					<input type="password" placeholder="password" name="pass" id="pass" required class="form-control" />
+					<input type="password" placeholder="password" name="pass" id="pass"  class="form-control" />
 					<br />
-					<button class="btn btn-success" style="width: 100%;">Sign In</button>
+					<a href="index.php"> <button class="btn btn-success" style="width: 100%;">Sign In</button></a>
 					<br />
 					<br />
 				</div>
 			</div>
 			<div class="col-md-4"></div>
-		</form>
+		
 	</div>
 	
 	

@@ -35,7 +35,7 @@
 								<b>Email</b>
 							</div>
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-								<input type="text" name="email" class="form-control" value="sami@gmail.com" disabled  />
+								<input type="text" name="email" class="form-control" value="rizwan@gmail.com" disabled  />
 							</div>
 						</div>
 
@@ -44,7 +44,7 @@
 								<b>Name</b>
 							</div>
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-								<input type="text" name="f_name" class="form-control" value="Sami Javaid Trimzi" disabled  />
+								<input type="text" name="f_name" class="form-control" value="Muhammad Rizwan" disabled  />
 							</div>
 						</div>
 
@@ -86,10 +86,8 @@
 						</form>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 " >
-
+					
 					</div>
-
-
 				</div>
                 <br />
 

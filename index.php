@@ -50,7 +50,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">20</span><br />
+							<span style="font-size:2.0em;">30</span><br />
 							<b>Maintenance</b>
 							<br />
 							<br />
@@ -63,7 +63,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">20</span><br />
+							<span style="font-size:2.0em;">10</span><br />
 							<b>Alerts</b>
 							<br />
 							<br />
@@ -88,7 +88,7 @@
 						
 						</div>
 					</div> </a>
-					<a href="drivers.php">
+					<a href="Total_running.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
@@ -105,7 +105,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">20</span><br />
+							<span style="font-size:2.0em;">12</span><br />
 							<b>Pending Today</b>
 							<br />
 							<br />
@@ -114,11 +114,11 @@
 						
 						</div></a>
 					</div>
-					<a href="alerts.php">
+					<a href="vehcile_usage.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">20</span><br />
+							<span style="font-size:2.0em;">30</span><br />
 							<b>Usages</b>
 							<br />
 							<br />
