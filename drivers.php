@@ -5,12 +5,14 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	$driver = new Driver();
+	$all_drivers = $driver->get_all();
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  
+  <title>Drivers</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -48,35 +50,23 @@
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
-						
+							<?php 
+								$c = 1;
+								foreach($all_drivers as $driver_array){
+								?>
 							<tr>
-								<td>1</td>
-								<td>PA-55693</td>
-								<td>Ghafoor</td>
-								<td>RLG-566</td>
-								<td>21-10-2019</td>
+								<td><?php echo $c; ?></td>
+								<td><?php echo $driver_array['armyno']; ?></td>
+								<td><?php echo $driver_array['name']; ?></td>
+								<td>--</td>
+								<td><?php echo $driver_array['created']; ?></td>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
-														<tr>
-								<td>2</td>
-								<td>PA-89653</td>
-								<td>Asif</td>
-								<td>RLA-452</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-							
-														<tr>
-								<td>3</td>
-								<td>PA-55693</td>
-								<td>Ahsan</td>
-								<td>RL-12-156</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
+							<?php
+							$c++; 
+								}
+							?>
 							
 						  </table>
 						  </div>

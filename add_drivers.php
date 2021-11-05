@@ -4,13 +4,30 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+		
+		
+	$post = false;
+
+		
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$driver = new Driver();
+		$post = true;
+
+		$driver->name = addslashes($_POST['name']);
+		$driver->armyno = addslashes($_POST['armyno']);
+
+		if($driver->save()){
+			header('location:drivers.php');
+		}else{
+			$msg = "All fields are required.";
+		}
+	}
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  
+	<title>Add Driver</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -34,7 +51,7 @@
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
-								<input type="text" class="form-control" name="title" placeholder="PA-7895416"  required  />
+								<input type="text" class="form-control" name="armyno" placeholder="PA-7895416"  required  />
 							</div>
 							
 						</div>
@@ -45,7 +62,13 @@
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
-								<input type="text" class="form-control" name="title" placeholder="Alex"  required  />
+								<input type="text" class="form-control" name="name" placeholder="Alex"  required  />
+								<br />
+								<?php
+									if($post==true){
+										echo $msg;
+									}
+								?>
 							</div>
 							
 						</div>

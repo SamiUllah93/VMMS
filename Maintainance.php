@@ -5,6 +5,8 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	$maint = new Maintainance();
+	$all_maint = $maint->get_all();
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,49 +48,19 @@
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
-						
+							<?php
+								$c = 1;
+								 foreach($all_maint as $maint_){
+								 ?>
 							<tr>
-								<td>1</td>
-								<td>Engine oil Change</td>
-								<td>21-10-2019</td>
+								<td><?php echo $c; ?></td>
+								<td><?php echo $maint_['title'];?></td>
+								<td><?php echo $maint_['created'];?></td>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Oil Filter Change</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
+							<?php $c++; } ?>
 							
-							<tr>
-								<td>3</td>
-								<td>Air Filter Cleaning</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-							
-							
-							<tr>
-								<td>4</td>
-								<td>Air Filter Change</td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-							
-							
-							<tr>
-								<td>5</td>
-								<td>Fuel Filter Cleaning </td>
-								<td>21-10-2019</td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-						  </table>
-						  </div>
 
 						  <!-- Table -->
 						  

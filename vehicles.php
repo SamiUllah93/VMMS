@@ -5,6 +5,8 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	$vehicle = new Vehicle();
+	$vehicles = $vehicle->get_all();
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,7 +44,7 @@
 							<tr>
 								<th>#</th>
 								<th>BA.NO</th>
-								<th>Type</th>
+								<th>Make Type</th>
 								<th>Make</th>
 								<th>Year of Mfr</th>
 								<th>Added On</th>
@@ -50,18 +52,20 @@
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
-						
+							<?php $c= 1;
+							foreach($vehicles as $veh){ ?>
 							<tr>
-								<td>1</td>
-								<td>RLG-566</td>
-								<td>Car</td>
-								<td>Toyota</td>
-								<td>2015</td>
-								<td>21-10-2019</td>
+								<td><? echo $c; ?></td>
+								<td><?php echo $veh['BA_NO']; ?></td>
+								<td><?php echo $veh['Make_Type']; ?></td>
+								<td><?php echo $veh['Issued_On']; ?></td>
+								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
+								<td><?php echo $veh['created']; ?></td>
 								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
+							<?php $c++; } ?>
 							<tr>
 								<td>2</td>
 								<td>RLA-452</td>

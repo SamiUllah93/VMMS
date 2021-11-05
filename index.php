@@ -4,7 +4,14 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+	$driver = new Driver();
+	$drivers = $driver->get_count();
+
+	$vehicle = new Vehicle();
+	$vehicles = $vehicle->get_count();
+
+	$maint = new Maintainance();
+	$maints = $maint->get_count();
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,7 +34,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">50</span><br />
+							<span style="font-size:2.0em;"><?php echo $vehicles; ?></span><br />
 							<b>Vehicles</b>
 							<br />
 							<br />
@@ -39,7 +46,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">20</span><br />
+							<span style="font-size:2.0em;"><?php echo $drivers; ?></span><br />
 							<b>Drivers</b>
 							<br />
 							<br />
@@ -53,7 +60,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">30</span><br />
+							<span style="font-size:2.0em;"><?php echo $maints; ?></span><br />
 							<b>Maintenance</b>
 							<br />
 							<br />
@@ -122,10 +129,10 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;">30</span><br />
-							<b>Usages</b>
+							<b>Parts</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-gas-pump" aria-hidden="true"></i>
+							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>
 						</p>
 						
 						</div>

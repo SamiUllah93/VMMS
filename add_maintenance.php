@@ -4,7 +4,22 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+	$post = false;
+
+		
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$maint = new Maintainance();
+		$post = true;
+
+		$maint->title = addslashes($_POST['title']);
+		
+
+		if($maint->save()){
+			header('location:Maintainance.php');
+		}else{
+			$msg = "All fields are required.";
+		}
+	}
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,6 +50,11 @@
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
 								<input type="text" class="form-control" name="title" placeholder="Engine Oil , Oil Filter"  required  />
+								<br />
+								<?php
+									if($post==true){
+										echo $msg;
+									} ?>
 							</div>
 							
 						</div>

@@ -1,3 +1,39 @@
+Time : 21:56:07
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:55:52
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:55:45
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:55:38
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:55:22
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:55:11
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 21:54:29
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'duration_In_days' cannot be null
+Raw SQL : INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)
+
+Time : 20:37:17
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vmss.maintainance' doesn't exist
+Raw SQL : SELECT * FROM maintainance
+
+Time : 20:25:37
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vmss.driver_id' doesn't exist
+Raw SQL : SELECT * FROM driver_id
+
 Time : 19:05:22
 SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vmss.users' doesn't exist
 Raw SQL : SELECT * FROM users WHERE email = ? and password = ?
