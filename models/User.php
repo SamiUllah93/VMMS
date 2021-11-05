@@ -12,13 +12,14 @@ class User extends QueryManager
     public $UpdatedAt = '';
     public $Status = 0;
 
-    protected $TableName = "users";
+    protected $TableName = "user";
     protected $TablePK = "user_id";
 
     protected $SessionPK = "UserEmail";
 
     public function __CONSTRUCT($email = null)
-    {
+    {   
+        parent::__CONSTRUCT($this->TableName, $this->TablePK);
         if ($email) {
             $this->SetDetails($email);
         }
@@ -31,12 +32,12 @@ class User extends QueryManager
         
         if (sizeof($user_data) == 1) {
             $this->UserID = $user_data[0]['user_id'];
-            $this->Name = $user_data[0]['first_name'];
+            $this->Name = $user_data[0]['name'];
             $this->Email = $user_data[0]['email'];
             $this->Status = $user_data[0]['status'];
-            $this->isAdmin = $user_data[0]['isAdmin'];
-            $this->CreatedAt = $user_data[0]['created_at'];
-            $this->UpdatedAt = $user_data[0]['updated_at'];
+            $this->isAdmin = $user_data[0]['isadmin'];
+            $this->CreatedAt = $user_data[0]['created'];
+            $this->UpdatedAt = $user_data[0]['updated'];
             return True;
         } else {
             $this->Message = "No user exists with provided email.";
@@ -117,7 +118,7 @@ class User extends QueryManager
 
     public function SetPassword(string $password): void
     {
-        $this->Password = md5($password);
+        $this->Password = $password;
     }
 
 
@@ -129,6 +130,7 @@ class User extends QueryManager
         } else {
             $query = "SELECT * FROM " . $this->TableName . " WHERE email = ? and password = ? ";
             $auth_data = $this->_db->query($query, array($this->Email, $this->Password));
+            print_r($auth_data);
             if (sizeof($auth_data) == 1) {
                 Debug::Show("Auth: Creating Sessions");
                 $Sm = SessionManager::GetSessionManager();

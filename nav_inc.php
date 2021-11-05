@@ -20,7 +20,7 @@
         <li><a href="Maintainance.php">Add Maintainance</a></li>
         <li><a href="fuelconsumption.php">Fuel Records</a></li>
         <li><a href="account.php"> My Account</a></li>
-        <li><a href="signin.php"> Log Out</a></li>
+        <li><a href="logout.php"> Log Out</a></li>
       </ul>
     </div>
   </div>

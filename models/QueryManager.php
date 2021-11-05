@@ -6,7 +6,7 @@
 
         private $DBHost = '127.0.0.1';
         private $DBPort =  3306;
-        private $DBName = 'codewizard';
+        private $DBName = 'vmss';
         private $DBUser = 'root';
         private $DBPassword = '';
 
@@ -17,7 +17,7 @@
             $this->TableName = $table_name;
             $this->TablePK = $table_pk;
         }
-        
+
         /*
          * params:
          * 1. limit(int) : number of rows to return

@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<br />
 			<br />
 		</div>
-			<form method="post">
+			<form action="" method="post">
 			<div class="col-md-4"></div>
 			<div class="col-md-4 login-form">
 				<div class="text-center">

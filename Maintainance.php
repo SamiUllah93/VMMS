@@ -1,6 +1,10 @@
 <?php
-    //require "autoload.php";
-    //require 'core/bootstrap/app.php';
+	require_once('config.php');
+	Debug::$Debug_Mode = false;
+	
+	// $user obj is created in the inc below.
+	require_once('login_check.php');
+	
 ?>
 <!doctype html>
 <html lang="en">
