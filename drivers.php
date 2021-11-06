@@ -71,7 +71,7 @@
 								<td><?php echo $driver_array['name']; ?></td>
 								<td><?php echo $driver_array['BA_NO']; ?></td>
 								<td><?php echo $driver_array['created']; ?></td>
-								<td>Edit</a></td>
+								<td><a href="edit_drivers.php?id=<?php echo $driver_array['driver_id']; ?>">Edit</a></td>
 								<td>
 									<?php
 										if($driver_array['status']=="0"){
