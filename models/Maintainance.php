@@ -39,7 +39,7 @@ class Maintainance extends QueryManager
 
     public function update(){
         $query = "UPDATE ".$this->TableName." SET  title=?  WHERE ".$this->TablePK."=?";
-        $data_vals = array($this->title,  $this->driver_id, );
+        $data_vals = array($this->title,  $this->pk_value);
         return ($this->_db->query($query, $data_vals)!=false ||  $this->_db->query($query, $data_vals)!=Null);
     }
 
