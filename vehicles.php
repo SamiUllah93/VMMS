@@ -48,6 +48,8 @@
 								<th>Make</th>
 								<th>Year of Mfr</th>
 								<th>Added On</th>
+								<th>History</th>
+								<th>Parts</th>
 								<th>Usages</th>
 								<th>Edit</th>
 								<th>Delete</th>
@@ -61,6 +63,8 @@
 								<td><?php echo $veh['Issued_On']; ?></td>
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
 								<td><?php echo $veh['created']; ?></td>
+								<th><a href="history.php"><button class="btn btn-sm btn-primary">History</button></a></th>
+								<th><a href="parts.php"><button class="btn btn-sm btn-primary">Parts</button></a></th>
 								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>

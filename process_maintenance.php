@@ -5,6 +5,26 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$veh = new Vehicle();
+		$post = true;
+		$veh_m_id = addslashes($_POST['veh_m_id']);
+		$odo = addslashes($_POST['odo']);
+		if($veh->process_maintenance($veh_m_id, $odo)){
+			header("locaiton: alertsToday.php");
+		}else{
+			$msg = "All fields are required.";
+		}
+	}
+
+	if(isset($_GET['id'])){
+		$id = addslashes($_GET['id']);
+		$veh = new Vehicle();
+		$data = $veh->pending_today_by_id($_GET['id']);
+	}else{
+		header("locaiton: alertsToday.php");
+	}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,6 +52,7 @@
 								<b>Process Date</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+								<input type="hidden" name="veh_m_id" readonly value="<?php echo $id; ?>" class="form-control" required  />
 								<input type="text" readonly value="<?php echo date("jS F Y"); ?>" class="form-control" required  />
 							</div>
 							
@@ -42,7 +63,7 @@
 								<b>Vehicle Make</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="Suzuki" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $data[0]['Make_Type']; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
@@ -52,7 +73,7 @@
 								<b>BA Number</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="AVG-790" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $data[0]['BA_NO']; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
@@ -62,7 +83,7 @@
 								<b>Driver</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="Basheer Ali" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $data[0]['name']; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
@@ -72,7 +93,7 @@
 								<b>Maintenance Type</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="Oil Change" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $data[0]['title']; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
@@ -82,7 +103,7 @@
 								<b>ODO Meter Reading</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" class="form-control" name="title" placeholder="Meter Reading"  required  />
+								<input type="number" class="form-control" name="odo" placeholder="Meter Reading"  required  />
 							</div>
 							
 						</div>
