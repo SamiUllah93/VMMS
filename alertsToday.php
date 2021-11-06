@@ -4,7 +4,8 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+	$vehicle = new Vehicle(); 
+	$pending = $vehicle->pending_today();
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,6 +41,7 @@
 						  <div class="panel-body">
 							<table class="table" width="100%">
 							<tr>
+
 								<th>#</th>
 								<th>Maintainance Type</th>
 								<th>BA NO</th>
@@ -49,52 +51,24 @@
 								<th>Action</th>
 
 							</tr>
+						<?php 
+						$c = 1;
+						foreach($pending as $veh){  ?>
+
 						
 							<tr>
-								<td>1</td>
-								<td>Engine oil Change</td>
-								<td>RLG-456</td>
-								<td>Ghafoor</td>								
-								<td><?php echo date("jS F Y"); ?></td>
-								<td>0</td>
+								<td><?php echo $c ?></td>
+								<td><?php echo $veh['title'];  ?></td>
+								<td><?php echo $veh['BA_NO'];  ?></td>
+								<td><?php echo $veh['name'];  ?></td>								
+								<td><?php echo $veh['pending_on'] ?></td>
+								<td><?php echo $veh['Remaing_days'] ?></td>
 								<td><a href="process_maintenance.php"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>
-														<tr>
-								<td>2</td>
-								<td>Air Filter</td>
-								<td>RLG-456</td>
-								<td>Asif</td>								
-								<td><?php echo date("jS F Y"); ?></td>
-								<td>0</td>
-								<td><a href="process_maintenance.php"><button class="btn btn-success btn-sm">Process</button></a></td>
-							</tr>
-														<tr>
-								<td>3</td>
-								<td>Oil Filter</td>
-								<td>RLG-456</td>
-								<td>Chohan</td>								
-								<td><?php echo date("jS F Y"); ?></td>
-								<td>0</td>
-								<td><a href="process_maintenance.php"><button class="btn btn-success btn-sm">Process</button></a></td>
-							</tr>
-														<tr>
-								<td>4</td>
-								<td>Brake Line Checking</td>
-								<td>RLG-456</td>
-								<td>Ahsan</td>								
-								<td><?php echo date("jS F Y"); ?></td>
-								<td>0</td>
-								<td><a href="process_maintenance.php"><button class="btn btn-success btn-sm">Process</button></a></td>
-							</tr>
-														<tr>
-								<td>5</td>
-								<td>Tyre Change</td>
-								<td>RLG-456</td>
-								<td>Usman</td>								
-								<td><?php echo date("jS F Y"); ?></td>
-								<td>0</td>
-								<td><a href="process_maintenance.php"><button class="btn btn-success btn-sm">Process</button></a></td>
-							</tr>
+						<?php $c++;	} ?>		
+							
+																		
+							
 							
 						  </table>
 						  </div>

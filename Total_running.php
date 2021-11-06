@@ -4,6 +4,8 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
+	$vehicle = new Vehicle(); 
+	$pending = $vehicle->total_running();
 	
 ?>
 <!doctype html>
@@ -47,35 +49,18 @@
 								
 
 							</tr>
-						
+							<?php 
+						$c = 1;
+						foreach($pending as $veh){  ?>
+
 							<tr>
-								<td>1</td>
-								<td>RLG-456</td>
+								<td><?php echo $c ?></td>
+								<td><?php echo $veh['BA_NO'] ?></td>
 								
-								<td>500 KM</td>								
+								<td><?php echo $veh['Total_Running']?></td>								
 								
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>RLA-489</td>
-								
-								<td>2500 KM</td>								
-								
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>RLC-563</td>
-								
-								<td>1500 KM</td>								
-								
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>RL-12-236</td>
-							
-								<td>1000 KM</td>								
-							
-							</tr>
+						<?php $c++; } ?>	
 							
 						  </table>
 						  </div>

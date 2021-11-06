@@ -44,5 +44,14 @@ class Vehicle extends QueryManager
         }
     }
 
+    public function pending_today(){
+        $query = "SELECT CURRENT_DATE-Date(`next_due`) AS Remaing_days , name,BA_NO,title,Date(`next_due`) as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()";
+        return $this->_db->query($query);
+    }
 
+
+    public function total_running(){
+        $query = "SELECT SUM(`total_running`) as Total_Running ,BA_NO FROM `fuel_record` left join vehicle on fuel_record.vehicle_id = vehicle.Vehicle_ID GROUP by BA_NO";
+        return $this->_db->query($query);
+    }
 }

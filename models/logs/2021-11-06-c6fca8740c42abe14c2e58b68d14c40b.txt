@@ -1,3 +1,7 @@
+Time : 23:33:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Running ,BA_NO FROM `fuel_record` left join vehicle on fuel_record.vehicle_id...' at line 1
+Raw SQL : SELECT SUM(`total_running`) as Total Running ,BA_NO FROM `fuel_record` left join vehicle on fuel_record.vehicle_id = vehicle.Vehicle_ID GROUP by BA_NO
+
 Time : 22:17:40
 SQLSTATE[42S22]: Column not found: 1054 Unknown column 'created_at' in 'order clause'
 Raw SQL : SELECT * FROM driver WHERE status = ? ORDER BY created_at DESC
