@@ -7,7 +7,7 @@
 	$maint = new Maintainance();
 	$main_all = $maint->get_all();
 	$driver = new Driver();
-	$drivers = $driver->get_all();
+	$drivers = $driver->get_all_keyval('status', '0');
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$vehicle = new Vehicle();

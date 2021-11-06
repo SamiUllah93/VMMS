@@ -2,7 +2,8 @@
 
 
 class User extends QueryManager
-{
+{   
+    public $pk_value = 0;
     public $UserID = 0;
     public $Name = '';
     public $Email = '';

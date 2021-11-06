@@ -41,7 +41,7 @@
 							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-car"></i>
 						</p>
 						</div>
-					</div> </a>
+					</div></a>
 					<a href="drivers.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">

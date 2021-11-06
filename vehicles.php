@@ -55,7 +55,7 @@
 							<?php $c= 1;
 							foreach($vehicles as $veh){ ?>
 							<tr>
-								<td><? echo $c; ?></td>
+								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['BA_NO']; ?></td>
 								<td><?php echo $veh['Make_Type']; ?></td>
 								<td><?php echo $veh['Issued_On']; ?></td>
@@ -66,30 +66,7 @@
 								<td><i class="fa fa-close" style="color:red;"></i></a></td>
 							</tr>
 							<?php $c++; } ?>
-							<tr>
-								<td>2</td>
-								<td>RLA-452</td>
-								<td>Jeep</td>
-								<td>Toyota</td>
-								<td>2010</td>
-								<td>21-10-2019</td>
-								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-							
-							<tr>
-								<td>3</td>
-								<td>RL-12-156</td>
-								<td>Truck</td>
-								<td>FORD</td>
-								<td>2012</td>
-								<td>21-10-2019</td>
-								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
-							</tr>
-							
+						
 						  </table>
 						  </div>
 

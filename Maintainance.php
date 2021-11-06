@@ -7,6 +7,7 @@
 	
 	$maint = new Maintainance();
 	$all_maint = $maint->get_all();
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -46,7 +47,7 @@
 								<th>Maintainance Type</th>
 								<th>Added On</th>
 								<th>Edit</th>
-								<th>Delete</th>
+								
 							</tr>
 							<?php
 								$c = 1;
@@ -56,8 +57,7 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $maint_['title'];?></td>
 								<td><?php echo $maint_['created'];?></td>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td><a href="EditMaintenance.php?id=<?php echo $maint_['maintenance_id']; ?>">Edit</a></td>
 							</tr>
 							<?php $c++; } ?>
 							

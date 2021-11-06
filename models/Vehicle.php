@@ -6,7 +6,7 @@ class Vehicle extends QueryManager
 
     protected $TableName = "vehicle";
     protected $TablePK = "Vehicle_ID";
-
+    public $pk_value = 0;
     public $Vehicle_ID = 0;
     public $BA_NO = "";
     public $Make_type = "";
@@ -35,9 +35,13 @@ class Vehicle extends QueryManager
                 $this->_db->query($query, $data);
             }
 
-
+            // Update driver as assgined
+            $driver = new Driver();
+            $driver->driver_id = $this->Driver_ID;
+            return $driver->set_driver_assigned();
+        }else{
+            return false;
         }
-        
     }
 
 

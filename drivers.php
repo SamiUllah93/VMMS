@@ -6,7 +6,18 @@
 	require_once('login_check.php');
 	
 	$driver = new Driver();
-	$all_drivers = $driver->get_all();
+
+	if (isset($_GET['del'])){
+		$driver->pk_value = addslashes($_GET['del']);
+		if($driver->remove()){
+			header('location: drivers.php');
+		}
+	}
+
+	$all_drivers = $driver->get_drivers();
+
+	
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,10 +69,16 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $driver_array['armyno']; ?></td>
 								<td><?php echo $driver_array['name']; ?></td>
-								<td>--</td>
+								<td><?php echo $driver_array['BA_NO']; ?></td>
 								<td><?php echo $driver_array['created']; ?></td>
 								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>
+									<?php
+										if($driver_array['status']=="0"){
+									?>
+									<a href="drivers.php?del=<?php echo $driver_array['driver_id']; ?>" title="Delete Driver" ><i class="fa fa-close" style="color:red;"></i></a>
+									<?php } ?>
+								</td>
 							</tr>
 							<?php
 							$c++; 

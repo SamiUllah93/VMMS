@@ -1,7 +1,8 @@
 <?php
 
 class Person extends  QueryManager
-{
+{   
+    public $pk_value = 0;
     public $Email = '';
     protected $Password = '';
 

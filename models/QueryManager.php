@@ -36,7 +36,7 @@
         }
 
         public function get_all_keyval($key, $val){
-            $query = "SELECT * FROM ".$this->TableName." WHERE ".$key." = ? ORDER BY created_at DESC";
+            $query = "SELECT * FROM ".$this->TableName." WHERE ".$key." = ?";
             return $this->_db->query($query, array($val));
         }
 
@@ -50,6 +50,11 @@
             $query = "SELECT count(*) as 'numb' FROM ".$this->TableName." WHERE ".$key." = ?";
             $count_data =  $this->_db->query($query, array($val));
             return $count_data[0]['numb']; // might not be array
+        }
+
+        public function remove(){
+            $query = "DELETE FROM ".$this->TableName." WHERE ".$this->TablePK." = ?";
+            return $this->_db->query($query, array($this->pk_value));
         }
 
 
