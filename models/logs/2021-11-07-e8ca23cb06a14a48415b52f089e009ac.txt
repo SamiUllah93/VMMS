@@ -1,3 +1,7 @@
+Time : 22:22:56
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vmss.fuel_records' doesn't exist
+Raw SQL : Select * from fuel_records where vehicle_ID= ?
+
 <<<<<<< HEAD
 Time : 21:36:02
 SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT SUM(`total_fuel_added`) AS total_fuel_added, SUM(total_running) A...' at line 1

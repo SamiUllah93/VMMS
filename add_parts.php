@@ -31,7 +31,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>Add Driver</title>
+	<title>Add New Part Installed Changed</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -45,7 +45,7 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-						<span style="font-size:0.95em;color:#449D44;"><b>Add New Driver</b></span>
+						<span style="font-size:0.95em;color:#449D44;"><b>Add New Part Installed Changed</b></span>
 						<hr />
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						

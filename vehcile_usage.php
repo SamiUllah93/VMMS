@@ -4,7 +4,13 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+	if(isset($_GET['id'])){
+		$vehicle = new Vehicle();
+		$vehicles = $vehicle->vehicle_usage(($_GET['id']));
+		
+	}else{
+		header("location: vehicles.php");
+	}
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,65 +39,29 @@
 										<h4 style="color:#449D44;">Vehicles Usage</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_usage.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Usage</button></a>
+										<a  href="add_usage.php?id=<?php echo addslashes(($_GET['id'])); ?>"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Usage</button></a>
 									</div>
 								</div>
 							</div>
 						  <div class="panel-body">
-						  <b>Vehicle: </b> Suzuki <br />
-						  <b>Type: </b> Car <br />
-						  <b>Year of Make: </b> 2019
-						  <br />
-						  <hr />
+						  
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
 								<th>Date</th>
-								<th>Fuel Type</th>
-								<th>Qty</th>
+								<th>Vehicle Running(KMs)</th>
+								<th>Fuel Qty (lit)</th>
 							</tr>
-						
+							<?php $c= 1;
+							foreach($vehicles as $veh){ ?>
 							<tr>
-								<td>1</td>
-								<td>2020-08-16</td>
-								<td>Diesel</td>
-								<td>24.98</td>
+								<td><?php echo $c; ?></td>
+								<td><?php echo $veh['created']; ?></td>
+								<td><?php echo $veh['total_running']; ?></td>
+								<td><?php echo $veh['total_fuel_added']; ?> Liters</td>
 								
 							</tr>
-							
-							<tr>
-								<td>2</td>
-								<td>2020-08-16</td>
-								<td>Diesel</td>
-								<td>24.98</td>
-								
-							</tr>
-							
-							<tr>
-								<td>3</td>
-								<td>2020-08-16</td>
-								<td>Diesel</td>
-								<td>24.98</td>
-								
-							</tr>
-							
-							<tr>
-								<td>4</td>
-								<td>2020-08-16</td>
-								<td>Diesel</td>
-								<td>24.98</td>
-								
-							</tr>
-							
-							<tr>
-								<td>5</td>
-								<td>2020-08-16</td>
-								<td>Diesel</td>
-								<td>24.98</td>
-								
-							</tr>
-							
-							
+							<?php $c++; } ?>
 						  </table>
 						  </div>
 

@@ -93,15 +93,15 @@ class Vehicle extends QueryManager
     }
 
     public function vehicle_usage($id){
-        $query = "Select * from fuel_records where vehicle_ID= ?";
+        $query = "Select * from fuel_record where vehicle_ID= ?";
         $data = array($id);
         return $this->_db->query($query, $data);
     }
 
     public function insert_usage($vehicle_id,$total_fuel_added,$total_running){
-        $query = "INSERT into parts (vehicle_id, total_fuel_added, total_running) VALUES(?, ?, ?)";
+        $query = "INSERT into fuel_record (vehicle_id, total_fuel_added, total_running) VALUES(?, ?, ?)";
         $data = array($vehicle_id,$total_fuel_added,$total_running);
-        $this->_db->query($query, $data);
+        return $this->_db->query($query, $data);
         }
 
 

@@ -5,6 +5,27 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	$post = false;
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+		$vehicle = new Vehicle();
+		$post = true;
+		$vehicle_id = addslashes($_POST['vehicle_id']);
+		$running = addslashes($_POST['running']);
+		$fuel = addslashes($_POST['fuel']);
+		if($vehicle->insert_usage($vehicle_id, $fuel, $running)){
+			header('location: vehcile_usage.php?id='.$vehicle_id);
+		}else{
+			$msg = "All fields are required.";
+		}
+	}
+
+	
+	if(isset($_GET['id'])){
+		$vehicle = new Vehicle($_GET['id']);		
+	}else{
+		header("location: vehicles.php");
+	}
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,10 +50,11 @@
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Fueling Date</b>
+								<b>Fueling/Usage Date</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								<input type="text" readonly value="<?php echo date("jS F Y"); ?>" class="form-control" required  />
+								<input type="hidden"   value="<?php echo $vehicle->pk_value; ?>" class="form-control" name="vehicle_id"   required  />
 							</div>
 							
 						</div>
@@ -42,7 +64,7 @@
 								<b>Vehicle Make</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="Suzuki" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $vehicle->Make_type; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
@@ -52,27 +74,18 @@
 								<b>BA Number</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="AVG-790" class="form-control" required  />
+								<input type="text" readonly value="<?php echo $vehicle->BA_NO; ?>" class="form-control" required  />
 							</div>
 							
 						</div>
 						
-						<div class="row" style="padding-top:10px;">
-							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Driver</b>
-							</div>
-							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" readonly value="Basheer Ali" class="form-control" required  />
-							</div>
-							
-						</div>
 
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
 								<b>Fuel in Liters</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" class="form-control" name="title" placeholder="Fuel in Liters"  required  />
+								<input type="number" class="form-control" name="fuel" placeholder="Fuel in Liters"  required  />
 							</div>
 							
 						</div>
@@ -82,7 +95,7 @@
 								<b>Running in KMs</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="text" class="form-control" name="title" placeholder="Running in KMs"  required  />
+								<input type="number" class="form-control" name="running" placeholder="Running in KMs"  required  />
 							</div>
 							
 						</div>
