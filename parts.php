@@ -5,14 +5,21 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
-	$vehicle = new Vehicle();
-	$vehicles = $vehicle->get_all();
+	
+	if(isset($_GET['id'])){
+		$vehicle = new Vehicle();
+		$vehicles = $vehicle->get_vehicle_parts(addslashes(($_GET['id'])));
+		
+	}else{
+		header("location: vehicles.php");
+	}
+
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  
+	<title>Vehicle Parts Data</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -32,10 +39,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Vehicles</h4>
+										<h4 style="color:#449D44;">Vehicle Parts Changed/Installed</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_vehicles.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Vehicle</button></a>
+										<a  href="add_parts.php?id=<?php echo addslashes(($_GET['id'])); ?>"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Part Change/Insall Record</button></a>
 									</div>
 								</div>
 							</div>
@@ -43,31 +50,15 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>BA.NO</th>
-								<th>Make Type</th>
-								<th>Make</th>
-								<th>Year of Mfr</th>
-								<th>Added On</th>
-								<th>History</th>
-								<th>Parts</th>
-								<th>Usages</th>
-								<!-- <th>Edit</th> -->
-								<th>Delete</th>
+								<th>Title</th>
+								<th>Date Installed/Changed</th>
 							</tr>
 							<?php $c= 1;
 							foreach($vehicles as $veh){ ?>
 							<tr>
 								<td><?php echo $c; ?></td>
-								<td><?php echo $veh['BA_NO']; ?></td>
-								<td><?php echo $veh['Make_Type']; ?></td>
-								<td><?php echo $veh['Issued_On']; ?></td>
-								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
-								<td><?php echo $veh['created']; ?></td>
-								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maintenance History</button></a></th>
-								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Parts Changed/Installed</button></a></th>
-								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
-								<!-- <td>Edit</a></td> -->
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td><?php echo $veh['title']; ?></td>
+								<td><?php echo $veh['Added_date']; ?></td>
 							</tr>
 							<?php $c++; } ?>
 						
