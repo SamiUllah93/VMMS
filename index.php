@@ -130,11 +130,11 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">30</span><br />
-							<b>Parts</b>
+							<span style="font-size:2.0em;">1</span><br />
+							<b>Users</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>
+							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-user" aria-hidden="true"></i>
 						</p>
 						
 						</div>
