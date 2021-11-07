@@ -18,9 +18,33 @@ class Vehicle extends QueryManager
 
     public $maint_data = [];
 
-    public function __CONSTRUCT(){
+    public function __CONSTRUCT($id = null)
+    {   
         parent::__CONSTRUCT($this->TableName, $this->TablePK);
+        if ($id) {
+            $this->SetDetails($id);
+        }
     }
+
+    public function SetDetails($id): bool
+    {
+        $query = "SELECT * FROM " . $this->TableName . " WHERE ". $this->TablePK ."=? ";
+        $data = $this->_db->query($query, array($id));
+        
+        if (sizeof($data) == 1) {
+            $this->pk_value = $data[0]['Vehicle_ID'];
+            $this->BA_NO = $data[0]['BA_NO'];
+            $this->Make_type = $data[0]['Make_Type'];
+            $this->Year_of_Manufacturer = $data[0]['Year_of_Manufacturer'];
+            $this->created = $data[0]['created'];
+            $this->status = $data[0]['Status'];
+            return True;
+        } else {
+            $this->Message = "No entry with provided email.";
+            return false;
+        }
+    }
+
 
 
     public function save(){
@@ -44,10 +68,10 @@ class Vehicle extends QueryManager
         }
     }
 
-    public function insert_part($title,$Vehicle_ID,$added_date){
-    $query = "INSERT into parts (title, vehicle_ID, Added_date) VALUES(?, ?, ?)";
-    $data = array($title,$Vehicle_ID,$added_date);
-    $this->_db->query($query, $data);
+    public function insert_part($title, $Vehicle_ID, $added_date){
+        $query = "INSERT into parts (title, vehicle_ID, Added_date) VALUES(?, ?, ?)";
+        $data = array($title, $Vehicle_ID, $added_date);
+        return $this->_db->query($query, $data);
     }
 
     public function pending_today(){
