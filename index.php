@@ -10,6 +10,7 @@
 	$vehicle = new Vehicle();
 	$vehicles = $vehicle->get_count();
 	$count = $vehicle->dashboard_count();
+	$average = $vehicle->total_average_count();
 
 	$maint = new Maintainance();
 	$maints = $maint->get_count();
@@ -90,7 +91,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">156.9 KM/Lit</span><br />
+							<span style="font-size:2.0em;"><?php echo $average[0]['average'] ?> KM/Lit</span><br />
 							<b>Average Fuel Consumption</b>
 							<br />
 							<br />
