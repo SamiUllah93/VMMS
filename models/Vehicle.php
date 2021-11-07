@@ -68,6 +68,18 @@ class Vehicle extends QueryManager
         return $this->_db->query($query, $data);
     }
 
+    public function vehicle_usage($id){
+        $query = "Select * from fuel_records where vehicle_ID= ?";
+        $data = array($id);
+        return $this->_db->query($query, $data);
+    }
+
+    public function insert_usage($vehicle_id,$total_fuel_added,$total_running){
+        $query = "INSERT into parts (vehicle_id, total_fuel_added, total_running) VALUES(?, ?, ?)";
+        $data = array($vehicle_id,$total_fuel_added,$total_running);
+        $this->_db->query($query, $data);
+        }
+
 
     public function total_running(){
         $query = "SELECT SUM(`total_running`) as Total_Running ,BA_NO FROM `fuel_record` left join vehicle on fuel_record.vehicle_id = vehicle.Vehicle_ID GROUP by BA_NO";
@@ -104,6 +116,11 @@ class Vehicle extends QueryManager
         ";
         $data = array($vehicle_id);
         return  $this->_db->query($query, $data);
+    }
+
+    public function dashboard_count(){
+        $query ="Select SUM(total_running) as dashboard_count FROM fuel_record";       
+        return  $this->_db->query($query);
     }
 
 

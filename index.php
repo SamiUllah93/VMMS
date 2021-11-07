@@ -9,6 +9,7 @@
 
 	$vehicle = new Vehicle();
 	$vehicles = $vehicle->get_count();
+	$count = $vehicle->dashboard_count();
 
 	$maint = new Maintainance();
 	$maints = $maint->get_count();
@@ -102,7 +103,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">2000 KM</span><br />
+							<span style="font-size:2.0em;"><?php echo $count[0]['dashboard_count'] ?> KM</span><br />
 							<b>Total Running</b>
 							<br />
 							<br />
