@@ -62,6 +62,10 @@ class Vehicle extends QueryManager
         return $this->_db->query($query);
     }
 
+    public function fuel_average(){
+        $query = "SELECT SUM(`total_fuel_added`) AS total_fuel_added, SUM(total_running) AS total_running, total_fuel_added / total_running AS fuel_average, vehicle.BA_NO FROM vehicle, fuel_record WHERE vehicle.Vehicle_ID = fuel_record.vehicle_id GROUP BY vehicle.BA_NO";
+        return $this->_db->query($query);
+    }
 
     public function process_maintenance($veh_m_id, $odo){
         $query = "INSERT INTO process_maintenance (maintenance_vehicleid, odometer_reading) VALUES(?, ?)";

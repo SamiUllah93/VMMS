@@ -4,6 +4,9 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
+	$vehicle = new Vehicle(); 
+	$pending = $vehicle->fuel_average();
+	
 	
 ?>
 <!doctype html>
@@ -47,36 +50,18 @@
 								<th>Fuel Average</th>
 
 							</tr>
-						
+							<?php 
+						$c = 1;
+						foreach($pending as $veh){  ?>
 							<tr>
-								<td>1</td>
-								<td>RLG-456</td>
-								<td>15 l</td>
-								<td>500 KM</td>								
-								<td>20.6 Km/l</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>RLA-489</td>
-								<td>150 l</td>
-								<td>2500 KM</td>								
-								<td>15.8 Km/l</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>RLC-563</td>
-								<td>100 l</td>
-								<td>1500 KM</td>								
-								<td>18.6 Km/l</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>RL-12-236</td>
-								<td>75 l</td>
-								<td>1000 KM</td>								
-								<td>20.6 Km/l</td>
+								<td><?php echo $c; ?></td>
+								<td><?php echo $veh['BA_NO'] ?></td>
+								<td><?php echo $veh['total_fuel_added'] ?> litres</td>
+								<td><?php echo $veh['total_running'] ?>km </td>								
+								<td><?php echo $veh['fuel_average'] ?>Km/l</td>
 							</tr>
 							
+							<?php $c++; } ?>	
 						  </table>
 						  </div>
 
