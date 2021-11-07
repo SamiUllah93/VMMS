@@ -44,6 +44,12 @@ class Vehicle extends QueryManager
         }
     }
 
+    public function insert_part($title,$Vehicle_ID,$added_date){
+    $query = "INSERT into parts (title, vehicle_ID, Added_date) VALUES(?, ?, ?)";
+    $data = array($title,$Vehicle_ID,$added_date);
+    $this->_db->query($query, $data);
+    }
+
     public function pending_today(){
         $query = "SELECT mv.maintenance_vehicle_ID as ID,CURRENT_DATE-Date(`next_due`) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()
         ";
@@ -52,6 +58,12 @@ class Vehicle extends QueryManager
 
     public function pending_today_by_id($id){
         $query = "SELECT mv.maintenance_vehicle_ID as ID, name,BA_NO,v1.Make_Type, title FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.maintenance_vehicle_ID = ?";
+        $data = array($id);
+        return $this->_db->query($query, $data);
+    }
+
+    public function get_vehicle_parts($id){
+        $query = "Select * from parts where vehicle_ID= ?";
         $data = array($id);
         return $this->_db->query($query, $data);
     }
