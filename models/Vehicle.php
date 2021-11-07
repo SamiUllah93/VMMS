@@ -147,5 +147,10 @@ class Vehicle extends QueryManager
         return  $this->_db->query($query);
     }
 
+    public function total_average_count(){
+        $query ="SELECT SUM(`total_fuel_added`) / SUM(`total_running`) as average from fuel_record";       
+        return  $this->_db->query($query);
+    }
+
 
 }
