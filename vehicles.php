@@ -63,7 +63,7 @@
 								<td><?php echo $veh['Issued_On']; ?></td>
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
 								<td><?php echo $veh['created']; ?></td>
-								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">History</button></a></th>
+								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Maintenance History</button></a></th>
 								<th><a href="parts.php"><button class="btn btn-sm btn-primary">Parts</button></a></th>
 								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<td>Edit</a></td>

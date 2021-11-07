@@ -5,8 +5,16 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
-	$vehicle = new Vehicle();
-	$vehicles = $vehicle->get_all();
+	if(isset($_GET['id'])){
+		
+		$vehicle = new Vehicle();
+		$vehicles = $vehicle->get_vehicle_maintenance_history(addslashes(($_GET['id'])));
+		
+	}else{
+		header("location: vehicles.php");
+	}
+
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -42,6 +50,7 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
+								<th>BA NO</th>
 								<th>Maintenance Type</th>
 								<th>Process Date</th>
 								<th>Process ODO Meter Reading</th>
@@ -51,15 +60,9 @@
 							<tr>
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['BA_NO']; ?></td>
-								<td><?php echo $veh['Make_Type']; ?></td>
-								<td><?php echo $veh['Issued_On']; ?></td>
-								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
-								<td><?php echo $veh['created']; ?></td>
-								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">History</button></a></th>
-								<th><a href="parts.php"><button class="btn btn-sm btn-primary">Parts</button></a></th>
-								<th><a href="vehcile_usage.php"><button class="btn btn-sm btn-primary">Usages</button></a></th>
-								<td>Edit</a></td>
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td><?php echo $veh['title']; ?></td>
+								<td><?php echo $veh['Process_Date']; ?></td>
+								<td><?php echo $veh['odometer_reading']; ?></td>
 							</tr>
 							<?php $c++; } ?>
 						
