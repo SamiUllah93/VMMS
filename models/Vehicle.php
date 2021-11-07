@@ -86,4 +86,13 @@ class Vehicle extends QueryManager
         $fetch = $this->_db->query($query, $data);
         return $fetch[0]['duration_In_days']; 
     }
+
+    public function get_vehicle_maintenance_history($vehicle_id){
+        $query = "SELECT DATE(pm.created) AS Process_Date, `odometer_reading`, title, NAME, BA_NO FROM process_maintenance AS pm LEFT JOIN maintenance_vehicle AS mv ON mv.maintenance_vehicle_ID = pm.maintenance_vehicleid LEFT JOIN maintenance AS mv1 ON mv1.maintenance_ID = mv.maintenance_id LEFT JOIN vehicle AS v ON mv.vehicle_ID = v.Vehicle_ID LEFT JOIN driver AS d ON d.driver_id = v.Driver_ID WHERE v.Vehicle_ID = ?
+        ";
+        $data = array($vehicle_id);
+        return  $this->_db->query($query, $data);
+    }
+
+
 }

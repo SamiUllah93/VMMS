@@ -1,6 +1,20 @@
+<<<<<<< HEAD
 Time : 21:36:02
 SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT SUM(`total_fuel_added`) AS total_fuel_added, SUM(total_running) A...' at line 1
 Raw SQL : SELECT SUM(`total_fuel_added`) AS total_fuel_added, SUM(total_running) AS total_running, total_fuel_added / total_running AS fuel_average, vehicle.BA_NO FROM vehicle, fuel_record WHERE vehicle.Vehicle_ID = fuel_record.vehicle_id GROUP BY vehicle.BA_NO
+=======
+Time : 21:37:43
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+Raw SQL : SELECT DATE(pm.created) AS Process_Date, `odometer_reading`, title, NAME, BA_NO FROM process_maintenance AS pm LEFT JOIN maintenance_vehicle AS mv ON mv.maintenance_vehicle_ID = pm.maintenance_vehicleid LEFT JOIN maintenance AS mv1 ON mv1.maintenance_ID = mv.maintenance_id LEFT JOIN vehicle AS v ON mv.vehicle_ID = v.Vehicle_ID LEFT JOIN driver AS d ON d.driver_id = v.Driver_ID WHERE v.Vehicle_ID = ?
+
+Time : 21:37:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '?' at line 1
+Raw SQL : SELECT DATE(pm.created) AS Process_Date, `odometer_reading`, title, NAME, BA_NO FROM process_maintenance AS pm LEFT JOIN maintenance_vehicle AS mv ON mv.maintenance_vehicle_ID = pm.maintenance_vehicleid LEFT JOIN maintenance AS mv1 ON mv1.maintenance_ID = mv.maintenance_id LEFT JOIN vehicle AS v ON mv.vehicle_ID = v.Vehicle_ID LEFT JOIN driver AS d ON d.driver_id = v.Driver_ID WHERE v.Vehicle_ID = ?
+
+Time : 21:37:22
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT DATE(pm.created) AS Process_Date, `odometer_reading`, title, NAME,' at line 1
+Raw SQL : SELECT DATE(pm.created) AS Process_Date, `odometer_reading`, title, NAME, BA_NO FROM process_maintenance AS pm LEFT JOIN maintenance_vehicle AS mv ON mv.maintenance_vehicle_ID = pm.maintenance_vehicleid LEFT JOIN maintenance AS mv1 ON mv1.maintenance_ID = mv.maintenance_id LEFT JOIN vehicle AS v ON mv.vehicle_ID = v.Vehicle_ID LEFT JOIN driver AS d ON d.driver_id = v.Driver_ID WHERE v.Vehicle_ID = ?
+>>>>>>> 0562bf6928d052f85556687867855132f66a3f32
 
 Time : 20:15:18
 SQLSTATE[42S22]: Column not found: 1054 Unknown column 'maintenance_vehicle_IDPrimary' in 'where clause'
