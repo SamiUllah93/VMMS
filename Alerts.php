@@ -62,7 +62,11 @@
 								<td><?php echo $veh['BA_NO'];  ?></td>
 								<td><?php echo $veh['name'];  ?></td>								
 								<td><?php echo $veh['pending_on'] ?></td>
-								<td><?php echo $veh['Remaing_days'] ?></td>
+								<td><?php 
+									 $months = floor($veh['Remaing_days'] / 30);
+									 $days = 144 - ($months*30);
+									 echo  $months ." Months " . $days ." days";
+								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>
 						<?php $c++;	} ?>		
