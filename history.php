@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  
+	<title>Vehicle Maintenance History</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -32,10 +32,9 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Vehicles</h4>
+										<h4 style="color:#449D44;">Vehicle Maintenance History</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_vehicles.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Vehicle</button></a>
 									</div>
 								</div>
 							</div>
@@ -43,16 +42,9 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>BA.NO</th>
-								<th>Make Type</th>
-								<th>Make</th>
-								<th>Year of Mfr</th>
-								<th>Added On</th>
-								<th>History</th>
-								<th>Parts</th>
-								<th>Usages</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th>Maintenance Type</th>
+								<th>Process Date</th>
+								<th>Process ODO Meter Reading</th>
 							</tr>
 							<?php $c= 1;
 							foreach($vehicles as $veh){ ?>

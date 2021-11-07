@@ -1,3 +1,11 @@
+Time : 20:15:18
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'maintenance_vehicle_IDPrimary' in 'where clause'
+Raw SQL : UPDATE maintenance_vehicle SET next_due = DATE_ADD(next_due , INTERVAL ? DAY) WHERE maintenance_vehicle_IDPrimary = ?
+
+Time : 20:15:09
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vmss.classes' doesn't exist
+Raw SQL : UPDATE classes SET next_due = DATE_ADD(next_due , INTERVAL ? DAY) WHERE maintenance_vehicle_IDPrimary = ?
+
 Time : 00:10:32
 SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`process_maintenance`, CONSTRAINT `process_maintenance_ibfk_1` FOREIGN KEY (`maintenance_vehicleid`) REFERENCES `maintenance_vehicle` (`maintenance_vehicle_ID`) ON DELETE CASCADE ON UPD)
 Raw SQL : INSERT INTO process_maintenance (maintenance_vehicleid, odometer_reading) VALUES(?, ?)

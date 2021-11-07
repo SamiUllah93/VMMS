@@ -66,6 +66,20 @@ class Vehicle extends QueryManager
     public function process_maintenance($veh_m_id, $odo){
         $query = "INSERT INTO process_maintenance (maintenance_vehicleid, odometer_reading) VALUES(?, ?)";
         $data = array($veh_m_id, $odo);
-        return $this->_db->query($query, $data);
+        if ($this->_db->query($query, $data)){
+            // update next due date
+            $days_to_add = $this->get_vehicle_maintenance_type_days($veh_m_id);
+            
+            $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(next_due , INTERVAL ? DAY) WHERE maintenance_vehicle_ID = ? ";
+            $data = array($days_to_add, $veh_m_id);
+            return $this->_db->query($query, $data);
+        }
+    }
+
+    public function get_vehicle_maintenance_type_days($veh_m_id){
+        $query = "SELECT duration_In_days from maintenance_vehicle WHERE maintenance_vehicle_ID= ?";
+        $data = array($veh_m_id);
+        $fetch = $this->_db->query($query, $data);
+        return $fetch[0]['duration_In_days']; 
     }
 }
