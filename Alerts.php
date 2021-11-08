@@ -31,7 +31,7 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Pending Today</h4>
+										<h4 style="color:#449D44;">Alerts</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
 
@@ -63,9 +63,7 @@
 								<td><?php echo $veh['name'];  ?></td>								
 								<td><?php echo $veh['pending_on'] ?></td>
 								<td><?php 
-									 $months = floor($veh['Remaing_days'] / 30);
-									 $days = 144 - ($months*30);
-									 echo  $months ." Months " . $days ." days";
+								echo $veh['Remaing_days']
 								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>

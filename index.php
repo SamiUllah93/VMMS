@@ -11,6 +11,8 @@
 	$vehicles = $vehicle->get_count();
 	$count = $vehicle->dashboard_count();
 	$average = $vehicle->total_average_count();
+	$pending_count = $vehicle->pending_today_count();
+	$alert_count = $vehicle->alerts_count();
 
 	$maint = new Maintainance();
 	$maints = $maint->get_count();
@@ -75,7 +77,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">10</span><br />
+							<span style="font-size:2.0em;"><?php echo $alert_count; ?></span><br />
 							<b>Alerts</b>
 							<br />
 							<br />
@@ -91,7 +93,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $average[0]['average'] ?> KM/Lit</span><br />
+							<span style="font-size:2.0em;"><?php echo $average[0]['average'] ?> Km/Lit</span><br />
 							<b>Average Fuel Consumption</b>
 							<br />
 							<br />
@@ -104,7 +106,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $count[0]['dashboard_count'] ?> KM</span><br />
+							<span style="font-size:2.0em;"><?php echo $count[0]['dashboard_count'] ?> kms</span><br />
 							<b>Total Running</b>
 							<br />
 							<br />
@@ -117,7 +119,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">12</span><br />
+							<span style="font-size:2.0em;"><?php echo $pending_count; ?></span><br />
 							<b>Pending Today</b>
 							<br />
 							<br />
@@ -126,7 +128,7 @@
 						
 						</div></a>
 					</div>
-					<a href="vehcile_usage.php">
+					
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>

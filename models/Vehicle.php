@@ -54,7 +54,7 @@ class Vehicle extends QueryManager
             $this->Vehicle_ID = $this->_db->lastInsertId();
             foreach ($this->maint_data as $maint_id => $data_arr){
                
-                $query = "INSERT maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance) VALUES(?, ?, ?, ?)";
+                $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY))";
                 $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$data_arr['kms']);
                 $this->_db->query($query, $data);
             }
@@ -75,17 +75,30 @@ class Vehicle extends QueryManager
     }
 
     public function pending_today(){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,CURRENT_DATE-Date(`next_due`) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()
         ";
         return $this->_db->query($query);
+    }
+
+    public function pending_today_count(){
+        $query = "SELECT Count(*) as pending_count FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()
+        ";
+        $data = $this->_db->query($query);
+        return $data[0]['pending_count'];
+    }
+
+    public function alerts_count(){
+        $query = "SELECT Count(*) as alert_count FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID 
+        ";
+        $data = $this->_db->query($query);
+        return $data[0]['alert_count'];
     }
 
     public function alerts(){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,CURRENT_DATE-Date(`next_due`) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID 
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID
         ";
         return $this->_db->query($query);
     }
-
 
 
     public function pending_today_by_id($id){
@@ -129,10 +142,11 @@ class Vehicle extends QueryManager
         if ($this->_db->query($query, $data)){
             // update next due date
             $days_to_add = $this->get_vehicle_maintenance_type_days($veh_m_id);
-            
-            $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(next_due , INTERVAL ? DAY) WHERE maintenance_vehicle_ID = ? ";
-            $data = array($days_to_add, $veh_m_id);
-            return $this->_db->query($query, $data);
+            ($days_to_add);
+           
+             $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(next_due , INTERVAL '$days_to_add' DAY) WHERE maintenance_vehicle_ID = $veh_m_id ";
+            //$data = array($days_to_add, $veh_m_id);
+            return $this->_db->query($query);
         }
     }
 
