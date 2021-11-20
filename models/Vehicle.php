@@ -144,7 +144,7 @@ class Vehicle extends QueryManager
             $days_to_add = $this->get_vehicle_maintenance_type_days($veh_m_id);
             ($days_to_add);
            
-             $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(next_due , INTERVAL '$days_to_add' DAY) WHERE maintenance_vehicle_ID = $veh_m_id ";
+             $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(now() , INTERVAL '$days_to_add' DAY) WHERE maintenance_vehicle_ID = $veh_m_id ";
             //$data = array($days_to_add, $veh_m_id);
             return $this->_db->query($query);
         }
