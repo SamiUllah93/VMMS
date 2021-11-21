@@ -39,7 +39,7 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;"><?php echo $vehicles; ?></span><br />
-							<b>Vehicles</b>
+							<b>VEHS</b>
 							<br />
 							<br />
 							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-car"></i>
@@ -51,7 +51,7 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;"><?php echo $drivers; ?></span><br />
-							<b>Drivers</b>
+							<b>Drvrs</b>
 							<br />
 							<br />
 							
@@ -65,7 +65,7 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;"><?php echo $maints; ?></span><br />
-							<b>Maintenance</b>
+							<b>Maint</b>
 							<br />
 							<br />
 							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>

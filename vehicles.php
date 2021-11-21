@@ -61,15 +61,15 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>BA.NO</th>
-								<th>Make Type</th>
-								<th>Make</th>
+								<th>BA.No</th>
+								<th>Make & Type</th>
+								<th>Issued On</th>
 								<th>Year of Mfr</th>
 								<th>Company</th>
-								<th>Driver</th>
+								<th>Drvr</th>
 								<th>Added On</th>
 								<th>History</th>
-								<th>Parts</th>
+								<th>Items</th>
 								<th>Usages</th>
 								<!-- <th>Edit</th> -->
 								<th>Delete</th>
@@ -101,8 +101,8 @@
 									?>
 								</td>
 								<td><?php echo $veh['created']; ?></td>
-								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maintenance History</button></a></th>
-								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Parts Changed/Installed</button></a></th>
+								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maint History</button></a></th>
+								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Items Changed/Installed</button></a></th>
 								<th><a href="vehcile_usage.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<!-- <td>Edit</a></td> -->
 								<td>

@@ -46,7 +46,7 @@
 						
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>BA.NO</b>
+								<b>BA.No</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
@@ -57,7 +57,7 @@
 						
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Make Type </b>
+								<b>Make & Type</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
@@ -78,7 +78,7 @@
 						</div>
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Year of Manufacturer</b>
+								<b>Year of Mfr</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
