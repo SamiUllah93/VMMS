@@ -15,6 +15,13 @@
 		}
 	}
 
+	if (isset($_GET['del'])){
+		$vehicle->pk_value = addslashes($_GET['del']);
+		if($vehicle->remove()){
+			header('location: vehicles.php');
+		}
+	}
+
 
 ?>
 <!doctype html>
@@ -88,7 +95,9 @@
 								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Parts Changed/Installed</button></a></th>
 								<th><a href="vehcile_usage.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<!-- <td>Edit</a></td> -->
-								<td><i class="fa fa-close" style="color:red;"></i></a></td>
+								<td>
+									<a onclick="return confirm_alert(this);" href="vehicles.php?del=<?php echo $veh['Vehicle_ID']; ?>" title="Delete Vegicle" ><i class="fa fa-close" style="color:red;"></i></a>
+								</td>
 							</tr>
 							<?php $c++; } ?>
 						

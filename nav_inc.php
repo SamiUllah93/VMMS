@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default" style="padding:10px;"> 
   <div class="container-fluid">
-  <img src="static/img/logo.png" width="120" >
+  <img src="static/img/logo.png" width="120" > <b><span style=font-size:1.5em;> MT Maint Mgmt Sys </span> </b>
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
