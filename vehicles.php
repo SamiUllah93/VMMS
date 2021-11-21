@@ -6,7 +6,7 @@
 	require_once('login_check.php');
 	
 	$vehicle = new Vehicle();
-	$vehicles = $vehicle->get_all();
+	$vehicles = $vehicle->get_vehicle_details();
 	$msg_rec = false;
 	if (isset($_GET['compat']))	{
 		if($_GET['compat']=='1'){
@@ -76,8 +76,8 @@
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
 								<td>
 									<?php 
-									 if($veh['company_id']){
-											echo $veh['company_id'];
+									 if($veh['title']){
+											echo $veh['title'];
 									 }else{
 											echo "<a href='attach_company.php?VehID=".$veh['Vehicle_ID']."'>Attach Company</a>";
 									 }
