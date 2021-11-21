@@ -180,6 +180,17 @@ class Vehicle extends QueryManager
         return $this->_db->query($query, $data );
     }
 
+    public function attach_driver_to_vehicle($driver_id, $veh_id){
+        $query = "UPDATE ".$this->TableName." SET Driver_ID = ? WHERE vehicle_ID = ? ";
+        $data = array($driver_id, $veh_id);
+        if($this->_db->query($query, $data)){
+            $dr = new Driver($driver_id);
+            return $dr->set_driver_assigned();
+        }else{
+            return false;
+        }
+    }
+
     public function get_vehicle_details(){
         $query = "SELECT `BA_NO`, `Make_Type`, `Issued_On`, `Year_of_Manufacturer`, v.`Driver_ID`, d.name, c.title, v.Vehicle_ID, v.created FROM `vehicle` AS v LEFT JOIN company AS c ON v.`company_id` = c.company_id LEFT JOIN `driver` AS d ON v.Driver_ID = d.Driver_ID";
         return $this->_db->query($query); 

@@ -66,6 +66,7 @@
 								<th>Make</th>
 								<th>Year of Mfr</th>
 								<th>Company</th>
+								<th>Driver</th>
 								<th>Added On</th>
 								<th>History</th>
 								<th>Parts</th>
@@ -82,11 +83,20 @@
 								<td><?php echo $veh['Issued_On']; ?></td>
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
 								<td>
-									<?php 
-									 if($veh['title']){
-											echo $veh['title'];
-									 }else{
+									<?php  if($veh['title']){ ?>
+											<?php echo $veh['title']; ?> &nbsp; <a href="attach_company.php?VehID=<?php echo $veh['Vehicle_ID']; ?>"><i class="fa fa-edit" title="Change Company"></i></a>
+									<?php
+									}else{
 											echo "<a href='attach_company.php?VehID=".$veh['Vehicle_ID']."'>Attach Company</a>";
+									 }
+									?>
+								</td>
+								<td>
+									<?php  if($veh['name']){ ?>
+											<?php echo $veh['name']; ?> &nbsp; <a href="attach_driver.php?VehID=<?php echo $veh['Vehicle_ID']; ?>"><i class="fa fa-edit" title="Change Driver"></i></a>
+									<?php
+									}else{
+											echo "<a href='attach_driver.php?VehID=".$veh['Vehicle_ID']."'>Attach Driver</a>";
 									 }
 									?>
 								</td>
