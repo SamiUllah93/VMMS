@@ -7,6 +7,15 @@
 	
 	$vehicle = new Vehicle();
 	$vehicles = $vehicle->get_all();
+	$msg_rec = false;
+	if (isset($_GET['compat']))	{
+		if($_GET['compat']=='1'){
+			$msg = "Company Attached to vehicle.";
+			$msg_rec = true;
+		}
+	}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,9 +33,11 @@
             <div class="container-fluid">
 				
 				<div class="row">
-					
+				
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
-						
+					<?php if($msg_rec){ ?>
+						<div class="alert alert-info" role="alert" style="width:40%;"><?php echo $msg; ?></div>
+					<?php } ?>
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
 						  <div class="panel-heading">
@@ -47,6 +58,7 @@
 								<th>Make Type</th>
 								<th>Make</th>
 								<th>Year of Mfr</th>
+								<th>Company</th>
 								<th>Added On</th>
 								<th>History</th>
 								<th>Parts</th>
@@ -62,6 +74,15 @@
 								<td><?php echo $veh['Make_Type']; ?></td>
 								<td><?php echo $veh['Issued_On']; ?></td>
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
+								<td>
+									<?php 
+									 if($veh['company_id']){
+											echo $veh['company_id'];
+									 }else{
+											echo "<a href='attach_company.php?VehID=".$veh['Vehicle_ID']."'>Attach Company</a>";
+									 }
+									?>
+								</td>
 								<td><?php echo $veh['created']; ?></td>
 								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maintenance History</button></a></th>
 								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Parts Changed/Installed</button></a></th>

@@ -174,5 +174,11 @@ class Vehicle extends QueryManager
         return  $this->_db->query($query);
     }
 
+    public function attach_company_to_vehicle($comp_id, $veh_id){
+        $query = "UPDATE ".$this->TableName." SET company_id = ? WHERE vehicle_ID = ? ";
+        $data = array($comp_id, $veh_id);
+        return $this->_db->query($query, $data );
+    }
+
 
 }
