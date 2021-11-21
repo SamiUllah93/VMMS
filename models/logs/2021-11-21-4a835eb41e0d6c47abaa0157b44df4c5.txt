@@ -1,3 +1,43 @@
+Time : 21:45:03
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:44:52
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:43:33
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:43:14
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:43:07
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:43:05
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:42:47
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:42:06
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:41:53
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
+Time : 21:38:37
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : UPDATE vehicle SET Driver_ID = ? WHERE vehicle_ID = ?
+
 Time : 19:40:31
 SQLSTATE[HY000]: General error: 2031 
 Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?

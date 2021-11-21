@@ -28,6 +28,7 @@ class Driver extends QueryManager
         
         if (sizeof($data) == 1) {
             $this->pk_value = $data[0]['driver_id'];
+            $this->driver_id = $data[0]['driver_id'];
             $this->name = $data[0]['name'];
             $this->armyno = $data[0]['armyno'];
             $this->created = $data[0]['created'];
