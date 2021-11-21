@@ -17,6 +17,7 @@
         <li><a href="alertsToday.php">Pending Today</a></li>
         <li><a href="vehicles.php">Vehicles</a></li>
         <li><a href="drivers.php">Drivers</a></li>
+        <li><a href="company.php">Company</a></li>
         <li><a href="Maintainance.php">Add Maintainance</a></li>
         <li><a href="fuelconsumption.php">Fuel Records</a></li>
         <li><a href="account.php"> My Account</a></li>

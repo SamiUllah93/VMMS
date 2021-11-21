@@ -1,0 +1,43 @@
+Time : 19:40:31
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:39:41
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:38:44
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:38:17
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:38:13
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:38:10
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:37:08
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:36:43
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 19:36:10
+SQLSTATE[HY000]: General error: 2031 
+Raw SQL : UPDATE vehicle SET company_id = ? WHERE vehicle_ID = ?
+
+Time : 18:55:59
+SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+Raw SQL : INSERT company (title) VALUES(?, ?)
+
+Time : 18:55:45
+SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+Raw SQL : INSERT company (title) VALUES(?, ?)
