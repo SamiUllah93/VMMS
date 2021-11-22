@@ -18,6 +18,13 @@
         <li><a href="vehicles.php">VEHS</a></li>
         <li><a href="drivers.php">Drivers</a></li>
         <li><a href="company.php">Company</a></li>
+        <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Checklists <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="quarterly.php">Quarterly</a></li>
+                  <li><a href="yearly.php">Yearly</a></li>
+                </ul>
+          </li>
         <li><a href="Maintainance.php">Add Maint</a></li>
         <li><a href="fuelconsumption.php">Fuel Records</a></li>
         <li><a href="account.php"> My Account</a></li>

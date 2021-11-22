@@ -4,46 +4,7 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	$Driver = new Driver();
-	$vehicle = new Vehicle();
-	$vehicles = $vehicle->get_vehicle_details();
-	$msg_rec = false;
-
-	if (isset($_GET['compat']))	{
-		if($_GET['compat']=='1'){
-			$msg = "Company Attached to vehicle.";
-			$msg_rec = true;
-		}else if($_GET['compat']=='2'){
-			$msg = "Vehicle added successfully.";
-			$msg_rec = true;
-		}else if($_GET['compat']=='3'){
-			$msg = "Vehicle deleted successfully.";
-			$msg_rec = true;
-		}else if($_GET['compat']=='4'){
-			$msg = "Driver attached successfully.";
-			$msg_rec = true;
-		}else if($_GET['compat']=='7'){
-			$msg = "Quarterly Maintenance checklist submitted successfully.";
-			$msg_rec = true;
-		}else if($_GET['compat']=='8'){
-			$msg = "Yearly Maintenance checklist submitted successfully.";
-			$msg_rec = true;
-		}
-	}
-
-
-	if (isset($_GET['del'])){
-		$vehicle->pk_value = addslashes($_GET['del']);
-		$drv_id = addslashes($_GET['drid']);;
-		
-		if($vehicle->remove() && $drv_id!=""){
-			$Driver->pk_value = $drv_id;
-			$Driver->set_driver_unassigned();
-			header('location: vehicles.php?compat=3');
-		}else{
-			header('location: vehicles.php?compat=3');
-		}
-	}
+	
 
 
 ?>
@@ -51,7 +12,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  
+	<title>Checklists</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -128,7 +89,7 @@
 								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maint History</button></a></th>
 								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Items Changed/Installed</button></a></th>
 								<td>
-									<a href="vehquarterly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Quarterly</button></a> &nbsp;  <a href="vehyearly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Yearly</button></a>
+									<a href="quarterly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Quarterly</button></a> &nbsp;  <a href="yearly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Yearly</button></a>
 								</td>
 								<th><a href="vehcile_usage.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<!-- <td>Edit</a></td> -->
