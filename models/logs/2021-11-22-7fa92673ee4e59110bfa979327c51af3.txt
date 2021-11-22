@@ -1,0 +1,27 @@
+Time : 21:15:04
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:14:15
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:14:00
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE SET NULL ON UPDATE SET NULL)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:11:52
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:11:12
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:09:57
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)
+
+Time : 21:08:59
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`vehicle`, CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`Driver_ID`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT vehicle (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)

@@ -8,19 +8,31 @@
 	$vehicle = new Vehicle();
 	$vehicles = $vehicle->get_vehicle_details();
 	$msg_rec = false;
+
 	if (isset($_GET['compat']))	{
 		if($_GET['compat']=='1'){
 			$msg = "Company Attached to vehicle.";
 			$msg_rec = true;
+		}else if($_GET['compat']=='2'){
+			$msg = "Vehicle added successfully.";
+			$msg_rec = true;
+		}else if($_GET['compat']=='3'){
+			$msg = "Vehicle deleted successfully.";
+			$msg_rec = true;
 		}
 	}
 
+
 	if (isset($_GET['del'])){
 		$vehicle->pk_value = addslashes($_GET['del']);
-		$Driver->pk_value = addslashes($_GET['drid']);
-		if($vehicle->remove()){
-			if($Driver->set_driver_unassigned()) 
-			header('location: vehicles.php');
+		$drv_id = addslashes($_GET['drid']);;
+		
+		if($vehicle->remove() && $drv_id!=""){
+			$Driver->pk_value = $drv_id;
+			$Driver->set_driver_unassigned();
+			header('location: vehicles.php?compat=3');
+		}else{
+			header('location: vehicles.php?compat=3');
 		}
 	}
 
