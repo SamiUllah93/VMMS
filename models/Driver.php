@@ -58,6 +58,12 @@ class Driver extends QueryManager
         return $this->_db->query($query, $data);
     }
 
+    public function set_driver_unassigned(){
+        $query = "UPDATE ".$this->TableName." SET status=0 WHERE driver_id=?";
+        $data = array($this->driver_id);
+        return $this->_db->query($query, $data);
+    }
+
     public function get_drivers(){
         $query = "select driver.*, (select BA_NO from vehicle where vehicle.Driver_ID = driver.driver_id) as BA_NO from driver";
         return $this->_db->query($query);

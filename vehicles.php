@@ -4,7 +4,7 @@
 	
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
-	
+	$Driver = new Driver();
 	$vehicle = new Vehicle();
 	$vehicles = $vehicle->get_vehicle_details();
 	$msg_rec = false;
@@ -17,7 +17,9 @@
 
 	if (isset($_GET['del'])){
 		$vehicle->pk_value = addslashes($_GET['del']);
+		$Driver->pk_value = addslashes($_GET['drid']);
 		if($vehicle->remove()){
+			if($Driver->set_driver_unassigned()) 
 			header('location: vehicles.php');
 		}
 	}
@@ -106,7 +108,7 @@
 								<th><a href="vehcile_usage.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<!-- <td>Edit</a></td> -->
 								<td>
-									<a onclick="return confirm_alert(this);" href="vehicles.php?del=<?php echo $veh['Vehicle_ID']; ?>" title="Delete Vegicle" ><i class="fa fa-close" style="color:red;"></i></a>
+									<a onclick="return confirm_alert(this);" href="vehicles.php?del=<?php echo $veh['Vehicle_ID']; ?>&drid=<?php echo $veh['Driver_ID']; ?>" title="Delete Vegicle" ><i class="fa fa-close" style="color:red;"></i></a>
 								</td>
 							</tr>
 							<?php $c++; } ?>
