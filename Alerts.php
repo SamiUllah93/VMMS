@@ -60,7 +60,16 @@
 
 						
 							<tr>
-								<td><?php echo $c ?></td>
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $c;  
+										}
+										
+									?>
+								</td>
 								<td>
 									<?php
 										if($veh['BA_NO']==$prev){
@@ -71,7 +80,16 @@
 										
 									?>
 								</td>
-								<td><?php echo $veh['name'];  ?></td>								
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $veh['name'];  
+										}
+										
+									?>
+								</td>								
 								<td><?php echo $veh['title'];  ?></td>
 								
 								<td><?php echo $veh['pending_on'] ?></td>
@@ -80,7 +98,13 @@
 								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>
-						<?php $c++;	$prev = $veh['BA_NO']; } ?>		 
+						<?php
+								
+							if($veh['BA_NO']!=$prev){
+								$c++;
+							}
+							$prev = $veh['BA_NO']; } 
+							?>		 
 							
 																		
 							
