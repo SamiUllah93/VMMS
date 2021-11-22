@@ -10,13 +10,25 @@
 	if (isset($_GET['del'])){
 		$driver->pk_value = addslashes($_GET['del']);
 		if($driver->remove()){
-			header('location: drivers.php');
+			header('location: drivers.php?compat=3');
 		}
 	}
 
 	$all_drivers = $driver->get_drivers();
+	$msg_rec = "";
+	if (isset($_GET['compat']))	{
+		if($_GET['compat']=='1'){
+			$msg = "Driver added successfully.";
+			$msg_rec = true;
+		}else if($_GET['compat']=='2'){
+			$msg = "Driver updated successfully.";
+			$msg_rec = true;
+		}else if($_GET['compat']=='3'){
+			$msg = "Driver deleted successfully.";
+			$msg_rec = true;
+		}
+	}
 
-	
 
 ?>
 <!doctype html>
@@ -37,16 +49,18 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
-						
+					<?php if($msg_rec){ ?>
+						<div class="alert alert-info" role="alert" style="width:40%;"><?php echo $msg; ?></div>
+					<?php } ?>
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Drvr</h4>
+									<h4 class=" text-primary">Drvr</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_drivers.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Driver</button></a>
+										<a  href="add_drivers.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add Driver</button></a>
 									</div>
 								</div>
 							</div>
@@ -76,7 +90,7 @@
 									<?php
 										if($driver_array['status']=="0"){
 									?>
-									<a href="drivers.php?del=<?php echo $driver_array['driver_id']; ?>" title="Delete Driver" ><i class="fa fa-close" style="color:red;"></i></a>
+									<a onclick="return confirm_alert(this);" href="drivers.php?del=<?php echo $driver_array['driver_id']; ?>" title="Delete Driver" ><i class="fa fa-close" style="color:red;"></i></a>
 									<?php } ?>
 								</td>
 							</tr>
@@ -101,7 +115,11 @@
             </div>
         </div>
 
-	
+		<script>
+		function confirm_alert(node) {
+			return confirm("This company might be linked to Vehicles. Delete company will clear the vehicle company relation as well.");
+		}
+		</script>
 	<?php require_once('foot_inc.php'); ?>  
 </body>
 </html>

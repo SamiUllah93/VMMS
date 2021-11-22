@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					Password: <br />
 					<input type="password" placeholder="password" name="pass" id="pass" required class="form-control" />
 					<br />
-					<button class="btn btn-success" type="submit" style="width: 100%;">Sign In</button>
+					<button class="btn btn-primary" type="submit" style="width: 100%;">Sign In</button>
 					<br><br>
 				<?php
 					if($post==true){

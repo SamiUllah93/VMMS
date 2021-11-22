@@ -5,6 +5,24 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	
+	$post = false;
+    $success = false;
+
+    if( isset($_POST['password_current']) && isset($_POST['password_new']) && isset($_POST['password_new_r']) ){
+        $post = true;
+        $old_pass = addslashes($_POST['password_current']);
+
+        if($_POST['password_new'] == $_POST['password_new_r']){
+            $new_pass = addslashes($_POST['password_new']);
+            if($user->UpdatePassword($old_pass, $new_pass)){
+                $success = true;
+            }else{
+                $success = false;
+            }
+        }  else{
+            $user->Message = "New passwords do not match.";
+        }
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,7 +38,11 @@
             <div class="container">
 
 				<div class="row">
-
+					<?php if($post){ ?>
+                            <div class="alert alert-<?php if($success){ print('success'); }else{ print('danger'); } ?>" role="alert">
+                                <?php print($user->Message); ?>
+                            </div>
+                        <?php } ?>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
 						<span style="font-size:0.95em;color:#449D44;"><b>Update Account</b></span>
 						<form method="POST" action="" >
@@ -30,7 +52,7 @@
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 
-								<input type="text" class="form-control" value="465" disabled  />
+								<input type="text" class="form-control" value="<?php echo $user->UserID; ?>" disabled  />
 							</div>
 
 						</div>
@@ -40,7 +62,7 @@
 								<b>Email</b>
 							</div>
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-								<input type="text" name="email" class="form-control" value="rizwan@gmail.com" disabled  />
+								<input type="text" name="email" class="form-control" value="<?php echo $user->Email; ?>" disabled  />
 							</div>
 						</div>
 
@@ -49,7 +71,7 @@
 								<b>Name</b>
 							</div>
 							<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-								<input type="text" name="f_name" class="form-control" value="Muhammad Rizwan" disabled  />
+								<input type="text" name="f_name" class="form-control" value="<?php echo $user->Name; ?>" disabled  />
 							</div>
 						</div>
 
@@ -85,7 +107,7 @@
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom:5px;text-align:right;">
 
-								 <input type="submit" name="submit" class="btn btn-success" value="Update" onClick="" />
+								 <input type="submit" name="submit" class="btn btn-primary" value="Update" onClick="" />
 							</div>
 						</div>
 						</form>

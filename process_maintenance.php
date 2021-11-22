@@ -44,7 +44,7 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-						<span style="font-size:0.95em;color:#449D44;"><b>Process Maintenance</b></span>
+						<h4 class=" text-primary">Process Maintenance</h4>
 						<hr />
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						<div class="row" style="padding-top:10px;">
@@ -112,7 +112,7 @@
 						<div class="row" style="padding-top:10px;margin-right:5px">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right:5px;text-align:right;">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" class="btn btn-success" value="Add Maintenance"   />
+								 <input type="submit"  name="submit" class="btn btn-primary" value="Add Maintenance"   />
 							</div>
 							
 						</div>

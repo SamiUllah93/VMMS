@@ -123,15 +123,14 @@ class User extends QueryManager
     }
 
 
-    public function Authenticate(): bool
-    {
+    public function Authenticate(): bool{
         if (empty($this->Email) || empty($this->Password)) {
             $this->Message = 'Empty email/password!';
             return false;
         } else {
             $query = "SELECT * FROM " . $this->TableName . " WHERE email = ? and password = ? ";
             $auth_data = $this->_db->query($query, array($this->Email, $this->Password));
-            print_r($auth_data);
+            
             if (sizeof($auth_data) == 1) {
                 Debug::Show("Auth: Creating Sessions");
                 $Sm = SessionManager::GetSessionManager();
@@ -159,5 +158,24 @@ class User extends QueryManager
             return false;
         }
     }
+
+
+    public function UpdatePassword($a, $b){
+        $this->SetPassword($a);
+        if($this->Authenticate()){
+            $this->SetPassword($b);
+            $query = "UPDATE " . $this->TableName . " SET password=?";
+            $data = $this->_db->query($query, array($this->Password));
+            if($data>0 && $data!=NULL){
+                $this->Message = "Password updated.";
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            $this->Message = "Invalid current password.";
+            return False;
+        }
+     }
 
 }

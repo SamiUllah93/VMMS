@@ -71,7 +71,7 @@
 						<div class="row" style="padding-top:10px;margin-right:5px">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right:5px;text-align:right;">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" class="btn btn-success" value="Update"   />
+								 <input type="submit"  name="submit" class="btn btn-primary" value="Update"   />
 							</div>
 							
 						</div>

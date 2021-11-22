@@ -39,10 +39,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Vehicle Items Changed/Installed</h4>
+									<h4 class=" text-primary">Vehicle Items Changed/Installed</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_parts.php?id=<?php echo addslashes(($_GET['id'])); ?>"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Items Change/Insall Record</button></a>
+										<a  href="add_parts.php?id=<?php echo addslashes(($_GET['id'])); ?>"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add Items Change/Insall Record</button></a>
 									</div>
 								</div>
 							</div>

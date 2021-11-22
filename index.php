@@ -31,18 +31,18 @@
        <div id="page-content-wrapper">
             <div class="container-fluid">
 			
-				<h4 style="text-align:center;font-size:2.0em;color:#7cc15a;">Dashboard Information & Statistics</h4>
+				<h4 style="text-align:center;font-size:2.0em;" class="text-primary">Dashboard Information & Statistics</h4>
 				<BR>
 				<div class="row box">
 					<a href="vehicles.php">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $vehicles; ?></span><br />
+							<span style="font-size:2.0em;" class="text-primary"><?php echo $vehicles; ?></span><br />
 							<b>VEHS</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-car"></i>
+							<i style="font-size:2.4em;" class="fa fa-car text-primary"></i>
 						</p>
 						</div>
 					</div></a>
@@ -55,7 +55,7 @@
 							<br />
 							<br />
 							
-							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-drivers-license"></i>
+							<i style="font-size:2.4em;"class="fa fa-drivers-license text-primary"></i>
 						</p></a>
 						
 						</div>
@@ -68,7 +68,7 @@
 							<b>Maint</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-wrench" aria-hidden="true"></i>
+							<i style="font-size:2.4em;" class="fa fa-wrench color:#7cc15a;" aria-hidden="true"></i>
 						</p>
 						
 						</div></a>
@@ -81,7 +81,7 @@
 							<b>Alerts</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+							<i style="font-size:2.4em;" class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>
 						</p>
 						
 						</div>
@@ -97,7 +97,7 @@
 							<b>Average Fuel Consumption</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-tachometer"></i>
+							<i style="font-size:2.4em;" class="fa fa-tachometer  text-primary" ></i>
 						</p>
 						
 						</div>
@@ -110,7 +110,7 @@
 							<b>Total Running</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;"class="fa fa-calculator"></i>
+							<i style="font-size:2.4em;"class="fa fa-calculator  text-primary"></i>
 						</p></a>
 						
 						</div>
@@ -123,7 +123,7 @@
 							<b>Pending Today</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-hourglass" aria-hidden="true"></i>
+							<i style="font-size:2.4em;" class="fa fa-hourglass  text-primary" aria-hidden="true"></i>
 						</p>
 						
 						</div></a>
@@ -136,7 +136,7 @@
 							<b>Users</b>
 							<br />
 							<br />
-							<i style="font-size:2.4em;color:#7cc15a;" class="fa fa-user" aria-hidden="true"></i>
+							<i style="font-size:2.4em;" class="fa fa-user  text-primary" aria-hidden="true"></i>
 						</p>
 						
 						</div>

@@ -15,7 +15,7 @@
 		$driver->armyno = addslashes($_POST['armyno']);
 
 		if($driver->update()){
-			header('location:drivers.php');
+			header('location:drivers.php?compat=2');
 		}else{
 			$msg = "All fields are required.";
 		}
@@ -80,7 +80,7 @@
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-bottom:5px;text-align:right;">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" class="btn btn-success" value="Update Driver"   />
+								 <input type="submit"  name="submit" class="btn btn-primary" value="Update Driver"   />
 							</div>
 							
 						</div>

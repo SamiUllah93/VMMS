@@ -31,7 +31,7 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Pending Today</h4>
+										<h4 class=" text-primary">Pending Today</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
 
@@ -53,19 +53,57 @@
 							</tr>
 						<?php 
 						$c = 1;
-						foreach($pending as $veh){  ?>
+						foreach($pending as $veh){ 
+							 
+							?>
 
 						
 							<tr>
-								<td><?php echo $c ?></td>
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $c;  
+										}
+										
+									?>
+								</td>
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $veh['BA_NO'];  
+										}
+										
+									?>
+								</td>
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $veh['name'];  
+										}
+										
+									?>
+								</td>								
 								<td><?php echo $veh['title'];  ?></td>
-								<td><?php echo $veh['BA_NO'];  ?></td>
-								<td><?php echo $veh['name'];  ?></td>								
+								
 								<td><?php echo $veh['pending_on'] ?></td>
-								<td><?php echo $veh['Remaing_days'] ?></td>
-								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
+								<td><?php 
+								echo $veh['Remaing_days']
+								?></td>
+								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
 							</tr>
-						<?php $c++;	} ?>		
+						<?php
+								
+							if($veh['BA_NO']!=$prev){
+								$c++;
+							}
+							$prev = $veh['BA_NO']; } 
+							?>		 
 							
 																		
 							

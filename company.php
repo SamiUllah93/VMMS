@@ -40,10 +40,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Companies</h4>
+									<h4 class=" text-primary">Companies</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_company.php"><button style="float:right"class="btn btn-success"><i class="fa fa-plus-circle" ></i> Add Company</button></a>
+										<a  href="add_company.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add Company</button></a>
 									</div>
 								</div>
 							</div>

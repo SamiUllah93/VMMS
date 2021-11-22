@@ -39,7 +39,7 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-						<span style="font-size:0.95em;color:#449D44;"><b>Add Company</b></span>
+						<h4 class=" text-primary">Add Company</h4>
 						<hr />
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						
