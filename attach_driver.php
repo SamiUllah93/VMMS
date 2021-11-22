@@ -31,7 +31,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>Attach Driver</title>
+	<title>Attach Drvr</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -45,13 +45,13 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-							<span style="font-size:0.95em;color:#449D44;"><b>Attach Driver</b></span>
+							<span style="font-size:0.95em;color:#449D44;"><b>Attach Drvr</b></span>
 							<hr />
 						<form method="POST" action=""  >
 							
 							<div class="row" style="padding-top:10px;">
 								<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-									<b>Vehicle BA/NO</b>
+									<b>Vehicle BA.No</b>
 								</div>
 								<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 									<input type="text" readonly class="form-control" name="title" value="<?php echo $veh->BA_NO; ?>" required  />
@@ -71,7 +71,7 @@
 							</div>
 							<div class="row" style="padding-top:10px;">
 								<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-									<b>Make Type</b>
+									<b>Make & Type</b>
 								</div>
 								<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 									<input type="text" readonly class="form-control" name="title" value="<?php echo $veh->Make_type; ?>" required  />
@@ -80,7 +80,7 @@
 							</div>
 							<div class="row" style="padding-top:10px;">
 								<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-									<b>Company</b>
+									<b>Drvr</b>
 								</div>
 								<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 									<select name="driver_id" required class="form-control">

@@ -43,9 +43,9 @@
 							<tr>
 
 								<th>#</th>
+								<th>BA.No</th>
+								<th>Drvr</th>
 								<th>Maintainance Type</th>
-								<th>BA NO</th>
-								<th>Driver</th>
 								<th>Pending On</th>
 								<th>Remaining Days</th>
 								<th>Action</th>
@@ -53,21 +53,34 @@
 							</tr>
 						<?php 
 						$c = 1;
-						foreach($pending as $veh){  ?>
+						$prev = "";
+						foreach($pending as $veh){ 
+							 
+							?>
 
 						
 							<tr>
 								<td><?php echo $c ?></td>
-								<td><?php echo $veh['title'];  ?></td>
-								<td><?php echo $veh['BA_NO'];  ?></td>
+								<td>
+									<?php
+										if($veh['BA_NO']==$prev){
+											echo "";
+										}else{
+											echo $veh['BA_NO'];  
+										}
+										
+									?>
+								</td>
 								<td><?php echo $veh['name'];  ?></td>								
+								<td><?php echo $veh['title'];  ?></td>
+								
 								<td><?php echo $veh['pending_on'] ?></td>
 								<td><?php 
 								echo $veh['Remaing_days']
 								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>
-						<?php $c++;	} ?>		
+						<?php $c++;	$prev = $veh['BA_NO']; } ?>		
 							
 																		
 							

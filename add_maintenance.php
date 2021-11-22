@@ -39,13 +39,13 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-						<span style="font-size:0.95em;color:#449D44;"><b>Add New Maintenance</b></span>
+						<span style="font-size:0.95em;color:#449D44;"><b>Add New Maint</b></span>
 						<hr />
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Maintainance Type</b>
+								<b>Maint Type</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
@@ -63,7 +63,7 @@
 						<div class="row" style="padding-top:10px;margin-right:5px">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right:5px;text-align:right;">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" class="btn btn-success" value="Add Maintenance"   />
+								 <input type="submit"  name="submit" class="btn btn-success" value="Add Maint"   />
 							</div>
 							
 						</div>

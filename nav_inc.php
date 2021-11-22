@@ -15,10 +15,10 @@
 	<ul class="nav navbar-nav navbar-right" style="margin-top: 35px;font-size: 1.25em;">
         <li><a href="index.php">Dashboard</a></li>
         <li><a href="alertsToday.php">Pending Today</a></li>
-        <li><a href="vehicles.php">Vehicles</a></li>
+        <li><a href="vehicles.php">VEHS</a></li>
         <li><a href="drivers.php">Drivers</a></li>
         <li><a href="company.php">Company</a></li>
-        <li><a href="Maintainance.php">Add Maintainance</a></li>
+        <li><a href="Maintainance.php">Add Maint</a></li>
         <li><a href="fuelconsumption.php">Fuel Records</a></li>
         <li><a href="account.php"> My Account</a></li>
         <li><a href="logout.php"> Log Out</a></li>
