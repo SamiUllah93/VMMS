@@ -15,7 +15,7 @@ class Vehicle extends QueryManager
     public $Driver_ID = "";
     public $created = "";
     public $status = 1;
-
+    public $msg = "";
     public $maint_data = [];
 
     public function __CONSTRUCT($id = null)
@@ -49,6 +49,9 @@ class Vehicle extends QueryManager
 
     public function save(){
         $query = "INSERT ".$this->TableName." (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)";
+        if($this->Driver_ID == "NULL"){
+            $this->Driver_ID = null;
+        }
         $data = array($this->BA_NO, $this->Make_type , $this->Issued_On , $this->Year_of_Manufacturer, $this->Driver_ID);
         if($this->_db->query($query, $data) == 1){
             $this->Vehicle_ID = $this->_db->lastInsertId();
@@ -57,13 +60,21 @@ class Vehicle extends QueryManager
                 $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY))";
                 $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$data_arr['kms']);
                 $this->_db->query($query, $data);
+               
             }
 
             // Update driver as assgined
             $driver = new Driver();
-            $driver->driver_id = $this->Driver_ID;
-            return $driver->set_driver_assigned();
+            if ($this->Driver_ID == null){
+                return true;
+            }else{
+                $driver->driver_id = $this->Driver_ID;
+                return $driver->set_driver_assigned();
+            }
+            
+            
         }else{
+            $this->msg = "Faield to add maintenances";
             return false;
         }
     }

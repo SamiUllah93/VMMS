@@ -18,7 +18,10 @@
 		$vehicle->Issued_On = addslashes($_POST['IssuedOn']);
 		$vehicle->maint_data = $_POST['maintenance'];
 
-		$vehicle->save();
+		if($vehicle->save()){
+			
+			header("location: vehicles.php?compat=2");
+		}
 	}
 
 
@@ -91,8 +94,8 @@
 								<b>Driver</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<select name="driver_id"  class="form-control" required >
-									<option value="" selected disabled >Select Driver</option>
+								<select name="driver_id"  class="form-control"  >
+									<option value="NULL" selected  >Select Driver</option>
 									<?php 
 									foreach($drivers as $drv){
 									?>
