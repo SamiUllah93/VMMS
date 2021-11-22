@@ -19,6 +19,9 @@
 		}else if($_GET['compat']=='3'){
 			$msg = "Vehicle deleted successfully.";
 			$msg_rec = true;
+		}else if($_GET['compat']=='4'){
+			$msg = "Driver attached successfully.";
+			$msg_rec = true;
 		}
 	}
 

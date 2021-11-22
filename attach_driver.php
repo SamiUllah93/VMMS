@@ -21,7 +21,7 @@
 		$VehID = addslashes($_POST['veh_id']);
 		print_r($driver_id);
 		if($veh->attach_driver_to_vehicle($driver_id, $VehID)){
-			header('location:vehicles.php?compat=1');
+			header('location:vehicles.php?compat=4');
 		}else{
 			$msg = "All fields are required.";
 		}
