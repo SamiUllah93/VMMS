@@ -80,7 +80,7 @@
 								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-success btn-sm">Process</button></a></td>
 							</tr>
-						<?php $c++;	$prev = $veh['BA_NO']; } ?>		
+						<?php $c++;	$prev = $veh['BA_NO']; } ?>		 
 							
 																		
 							
