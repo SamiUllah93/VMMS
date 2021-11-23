@@ -1,7 +1,23 @@
 From Me to Everyone 02:43 AM
+date only
 SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between '2012-03-11 00:00:00' and '2012-05-11 23:59:00'
+
 if date and company then 
 SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between '2012-03-11 00:00:00' and '2012-05-11 23:59:00' and v1.company_id = 5;
+
+if date and Maint
+SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between '2021-12-04' and '2021-12-26'and m.maintenance_id = 1
+
+if maint only 
+SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where m.maintenance_id = 1
+
+if company only
+SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = 5;
+
+if maint and company
+SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = 5 and m.maintenance_id = 1;
+
+
 if date ,company and maint type then 
 SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between '2012-03-11 00:00:00' and '2012-05-11 23:59:00' and v1.company_id = 5 and m.maintenance_id = 3
 From Me to Everyone 02:46 AM
