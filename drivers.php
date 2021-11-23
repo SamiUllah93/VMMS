@@ -70,7 +70,7 @@
 								<th>#</th>
 								<th>ARMY NO</th>
 								<th>Drvr Name </th>
-								<th>Car Assigned to</th>
+								<th>Vehs Assigned to</th>
 								<th>Added On</th>
 								<th>Edit</th>
 								<th>Delete</th>
@@ -84,7 +84,7 @@
 								<td><?php echo $driver_array['armyno']; ?></td>
 								<td><?php echo $driver_array['name']; ?></td>
 								<td><?php echo $driver_array['BA_NO']; ?></td>
-								<td><?php echo $driver_array['created']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($driver_array['created'])); ?></td>
 								<td><a href="edit_drivers.php?id=<?php echo $driver_array['driver_id']; ?>">Edit</a></td>
 								<td>
 									<?php

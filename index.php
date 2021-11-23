@@ -93,7 +93,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $average[0]['average'] ?> Km/Lit</span><br />
+							<span style="font-size:2.0em;"><?php echo number_format($average[0]['average'],2) ?> Km/Lit</span><br />
 							<b>Average Fuel Consumption</b>
 							<br />
 							<br />

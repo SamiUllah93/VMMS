@@ -57,8 +57,8 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['BA_NO'] ?></td>
 								<td><?php echo $veh['total_fuel_added'] ?> litres</td>
-								<td><?php echo $veh['total_running'] ?>km </td>								
-								<td><?php echo $veh['fuel_average'] ?>Km/l</td>
+								<td><?php echo $veh['total_running'] ?> km </td>								
+								<td><?php echo number_format($veh['fuel_average'],2) ?> Km/l</td>
 							</tr>
 							
 							<?php $c++; } ?>	
