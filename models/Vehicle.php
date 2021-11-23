@@ -38,6 +38,8 @@ class Vehicle extends QueryManager
             $this->Year_of_Manufacturer = $data[0]['Year_of_Manufacturer'];
             $this->created = $data[0]['created'];
             $this->status = $data[0]['Status'];
+            $this->Driver_ID = $data[0]['Driver_ID'];
+            
             return True;
         } else {
             $this->Message = "No entry with provided email.";
@@ -191,15 +193,24 @@ class Vehicle extends QueryManager
         return $this->_db->query($query, $data );
     }
 
+    public function release_vehicle_driver($veh_id){
+        $veh = new Vehicle($veh_id);
+        $driver =  new Driver($veh->Driver_ID);
+        return $driver->set_driver_unassigned();
+    }
+
     public function attach_driver_to_vehicle($driver_id, $veh_id){
-        $query = "UPDATE ".$this->TableName." SET Driver_ID = ? WHERE vehicle_ID = ? ";
-        $data = array($driver_id, $veh_id);
-        if($this->_db->query($query, $data)){
-            $dr = new Driver($driver_id);
-            return $dr->set_driver_assigned();
-        }else{
-            return false;
+        if($this->release_vehicle_driver($veh_id)){
+            $query = "UPDATE ".$this->TableName." SET Driver_ID = ? WHERE vehicle_ID = ? ";
+            $data = array($driver_id, $veh_id);
+            if($this->_db->query($query, $data)){
+                $dr = new Driver($driver_id);
+                return  $dr->set_driver_assigned();
+            }else{
+                return false;
+            }
         }
+       
     }
 
     public function get_vehicle_details(){
