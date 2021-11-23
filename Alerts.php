@@ -78,49 +78,46 @@
 				
 				<div class="row">
 				<form action="Alerts.php" method="POST">
-					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
-				
-				<select name="company" id="company" class="form-control" >
-									<option value="" selected  >Select company</option>
-									<?php 
-									
+					<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+						Company: 
+						<select name="company" id="company" class="form-control"  >
+							<option value="" selected  >Select company</option>
+								<?php 
 									$company = new Company();
 									$res = $company->get_all();
 									foreach($res as $data){
-									?>
+								?>
 										
-									<option value="<?php echo $data['company_id']; ?>"> <?php echo $data['title']; ?></option>
-									<?php }?>	
-				</select>
+							<option value="<?php echo $data['company_id']; ?>"> <?php echo $data['title']; ?></option>
+								<?php }?>	
+						</select>
 					</div>
-
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
-				<select name="Maintainance" id="Maintainance" class="form-control" >
-					<option value="" selected  >Select maintenance</option>
-					<?php 			
-						$Maintainance = new Maintainance();
-						$res = $Maintainance->get_all();
-						foreach($res as $data){
-					?>					
-					<option value="<?php echo $data['maintenance_id']; ?>"> <?php echo $data['title']; ?></option>
-					<?php }?>	
-				</select>
+					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3" >
+					Maintenanec:<select name="Maintainance" id="Maintainance" class="form-control" >
+						<option value="" selected  >Select maintenance</option>
+						<?php 			
+							$Maintainance = new Maintainance();
+							$res = $Maintainance->get_all();
+							foreach($res as $data){
+						?>					
+						<option value="<?php echo $data['maintenance_id']; ?>"> <?php echo $data['title']; ?></option>
+						<?php }?>	
+					</select>
 					</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
-					<label for="From">From:</label>
-					<input type="date" id="from" name="from" class="form-control"> 
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="display: inline-block;">
+						 From: <input type="date" id="from" name="from" class="form-control"> 
+						
+					</div>	
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
+						To: <input type="date" id="to" name="to" class="form-control">
+					</div>						
 					
-					<label for="To">To:</label>
-					<input type="date" id="to" name="to" class="form-control"> 						
-				
-				</div>						
-					
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-					<input type="submit"  name="submit" id="submit" class="btn btn-primary" value="Search Alerts" />
-					 <hr>
-				</div>							
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+						<br /> &nbsp; <input type="submit"  name="submit" id="submit" class="btn btn-primary" value="Search Alerts" />
+					</div>							
 				</div>
 				</form>
+				<hr>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
 					
@@ -140,7 +137,6 @@
 						  <div class="panel-body">
 							<table class="table" width="100%">
 							<tr>
-
 								<th>#</th>
 								<th>BA.No</th>
 								<th>Drvr</th>
