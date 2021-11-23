@@ -86,6 +86,12 @@ class Vehicle extends QueryManager
     }
 
     public function pending_today(){
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) < CURRENT_DATE()"
+        ";
+        return $this->_db->query($query);
+    }
+
+    public function overdue(){
         $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) = CURRENT_DATE()
         ";
         return $this->_db->query($query);
@@ -206,6 +212,8 @@ class Vehicle extends QueryManager
         $query = "SELECT `BA_NO`, `Make_Type`, `Issued_On`, `Year_of_Manufacturer`, v.`Driver_ID`, d.name, c.title, v.Vehicle_ID, v.created FROM `vehicle` AS v LEFT JOIN company AS c ON v.`company_id` = c.company_id LEFT JOIN `driver` AS d ON v.Driver_ID = d.Driver_ID";
         return $this->_db->query($query); 
     } 
+
+
 
 
 }

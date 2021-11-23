@@ -5,7 +5,50 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	$vehicle = new Vehicle(); 
-	$pending = $vehicle->alerts();
+	//$pending = $vehicle->alerts();
+
+
+	if(Isset($_POST['submit'])) {
+		
+		if(Isset($_POST['from']) && Isset($_POST['to']) && !isset($_POST['Maintainance']) && !isset($_POST['company']) ){
+			// call method which takes date only 
+			echo 'only date';
+		}
+		
+		else if (Isset($_POST['from']) && Isset($_POST['to']) && isset($_POST['Maintainance']) && !isset($_POST['company']) ) {
+			echo 'date and maint';
+
+		} 
+		else if (($_POST['from'] != '')  && ($_POST['to'] != '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '' ) {
+			echo 'date and company';
+
+		} 
+		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) != '') {
+			echo 'maints and company';
+
+		} 
+		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '') {
+			echo 'company only';
+
+		}
+		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) == '') {
+			echo 'Maints only';
+
+		}
+		else if (Isset($_POST['from']) && Isset($_POST['to']) && isset($_POST['Maintainance']) && isset($_POST['company']) ) {
+			echo 'all three';
+
+		}
+		
+		
+	} 
+	
+	else{
+
+		$pending = $vehicle->alerts();
+	}
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,9 +66,61 @@
             <div class="container-fluid">
 				
 				<div class="row">
+				<form action="Alerts.php" method="POST">
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
+				
+				<select name="company" id="company" class="form-control" >
+									<option value="" selected  >Select company</option>
+									<?php 
+									
+									$company = new Company();
+									$res = $company->get_all();
+									foreach($res as $data){
+										
+										
+									?>
+										
+									<option value="<?php echo $data['company_id']; ?>"> <?php echo $data['title']; ?></option>
+									<?php }?>	
+				</select>
+					</div>
+
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
+				
+				<select name="Maintainance" id="Maintainance" class="form-control" >
+									<option value="" selected  >Select maintenance</option>
+									<?php 
+									
+									$Maintainance = new Maintainance();
+									$res = $Maintainance->get_all();
+									foreach($res as $data){
+										
+										
+									?>
+										
+									<option value="<?php echo $data['maintenance_id']; ?>"> <?php echo $data['title']; ?></option>
+									<?php }?>	
+				</select>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
+					<label for="From">From:</label>
+					<input type="date" id="from" name="from"> 
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<label for="To">To:</label>
+					<input type="date" id="to" name="to"> 						
+				
+					</div>						
 					
+					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+								<span style="color:red;"></span><br />
+								 <input type="submit"  name="submit" id="submit" class="btn btn-success" value="Search Alerts" />
+								 <hr>
+							</div>							
+				</div>
+				</form>
+				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
-						
+					
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
 						  <div class="panel-heading">
@@ -38,6 +133,7 @@
 									</div>
 								</div>
 							</div>
+							
 						  <div class="panel-body">
 							<table class="table" width="100%">
 							<tr>
@@ -117,7 +213,7 @@
 						</div>
 					</div>
 					
-					 
+					</div> 
 					 
 				</div>
                 <br />
