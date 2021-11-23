@@ -68,7 +68,7 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>ARMY NO</th>
+								<th>ARMY No</th>
 								<th>Drvr Name </th>
 								<th>Vehs Assigned to</th>
 								<th>Added On</th>
