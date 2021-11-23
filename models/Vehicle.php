@@ -88,7 +88,7 @@ class Vehicle extends QueryManager
     }
 
     public function pending_today(){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) < CURRENT_DATE()"
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) < CURRENT_DATE()
         ";
         return $this->_db->query($query);
     }
