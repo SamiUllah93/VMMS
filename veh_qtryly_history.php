@@ -6,21 +6,19 @@
 	require_once('login_check.php');
 	
 	if(isset($_GET['id'])){
-		
 		$vehicle = new Vehicle();
-		$vehicles = $vehicle->get_vehicle_maintenance_history(addslashes(($_GET['id'])));
+		$maint_history = $vehicle->get_vehicle_qrtrly_maint_data(addslashes(($_GET['id'])));
 		
 	}else{
 		header("location: vehicles.php");
 	}
 
-	
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>Vehicle Maint History</title>
+	<title>Vehicle Quarterly History</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -37,14 +35,13 @@
 						
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
-						  	<div class="panel-heading">
+						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 class=" text-primary">Vehicle Maint History</h4>
+										<h4 class=" text-primary">Vehicle Quarterly History</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
-										<a href="veh_qtryly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Quarterly Chechlist History</button></a> &nbsp; 
-										<a href="veh_yrly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Yearly Chechlist History</button></a>
+										
 									</div>
 								</div>
 							</div>
@@ -52,19 +49,18 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>BA NO</th>
-								<th>Maint Type</th>
+								<th>Maintenance Type</th>
+								<th>Remakrs</th>
 								<th>Process Date</th>
-								<th>Process ODO Meter Reading</th>
 							</tr>
 							<?php $c= 1;
-							foreach($vehicles as $veh){ ?>
+							foreach($maint_history as $veh){ ?>
+							
 							<tr>
 								<td><?php echo $c; ?></td>
-								<td><?php echo $veh['BA_NO']; ?></td>
-								<td><?php echo $veh['title']; ?></td>
-								<td><?php echo $veh['Process_Date']; ?></td>
-								<td><?php echo $veh['odometer_reading']; ?></td>
+								<td><?php echo $veh['maintenance_name']; ?></td>
+								<td><?php echo $veh['Remarks']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['created'])) ?>
 							</tr>
 							<?php $c++; } ?>
 						

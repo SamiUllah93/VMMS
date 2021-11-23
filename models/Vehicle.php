@@ -272,7 +272,17 @@ class Vehicle extends QueryManager
     }
 
     
+    public function get_vehicle_qrtrly_maint_data($veh){
+        $query = "SELECT qmc.*,qc.maintenance_name FROM `quarterly_maintenance_vehicle` as qmc, quarterly_checklist as qc WHERE qmc.`quarterly_checklist_ID` = qc.`quarterly_checklist_ID` and vehicle_ID = ? ";
+        $data = array($veh);
+        return $this->_db->query($query,$data);
+    }
 
+    public function get_vehicle_yearly_maint_data($veh){
+        $query = "SELECT ymc.*,yc.maintenance_name FROM `yearly_checklist_maintenance` as ymc,yearly_checklist as yc WHERE ymc.yearly_checklist_ID = yc.`yearly_checklist_ID` and `vehicle_ID` = ? ";
+        $data = array($veh);
+        return $this->_db->query($query,$data);
+    }
     
 
 

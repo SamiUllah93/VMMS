@@ -1,3 +1,7 @@
+Time : 21:37:53
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '` = ?' at line 1
+Raw SQL : SELECT *,qc.maintenance_name FROM `quarterly_maintenance_vehicle` as qmc,quarterly_checklist as qc WHERE qmc.`quarterly_checklist_ID` = qc.`quarterly_checklist_ID` and vehicle_ID` = ?
+
 Time : 00:03:25
 SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`yearly_checklist_maintenance`, CONSTRAINT `YCID` FOREIGN KEY (`yearly_checklist_ID`) REFERENCES `yearly_checklist` (`yearly_checklist_ID`) ON DELETE CASCADE ON UPDATE CASCADE)
 Raw SQL : INSERT INTO yearly_checklist_maintenance (yearly_checklist_ID, vehicle_ID, Remarks) VALUES (?, ?, ?)
