@@ -56,7 +56,8 @@
 							<tr>
 								<td><?php echo $c; ?></td>
 								<td><?php echo $maint_['title'];?></td>
-								<td><?php echo $maint_['created'];?></td>
+								<td><?php echo date('d-m-Y', strtotime($maint_['created'])) ?>
+</td>
 								<td><a href="EditMaintenance.php?id=<?php echo $maint_['maintenance_id']; ?>">Edit</a></td>
 							</tr>
 							<?php $c++; } ?>

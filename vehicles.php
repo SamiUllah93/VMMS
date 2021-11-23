@@ -124,7 +124,8 @@
 									 }
 									?>
 								</td>
-								<td><?php echo $veh['created']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['created'])) ?>
+</td>
 								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maint History</button></a></th>
 								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Items Changed/Installed</button></a></th>
 								<td>
