@@ -19,7 +19,6 @@
 		 
 		$driver_id = addslashes($_POST['driver_id']);
 		$VehID = addslashes($_POST['veh_id']);
-		print_r($driver_id);
 		if($veh->attach_driver_to_vehicle($driver_id, $VehID)){
 			header('location:vehicles.php?compat=4');
 		}else{
