@@ -87,8 +87,6 @@
 									$company = new Company();
 									$res = $company->get_all();
 									foreach($res as $data){
-										
-										
 									?>
 										
 									<option value="<?php echo $data['company_id']; ?>"> <?php echo $data['title']; ?></option>
@@ -105,8 +103,6 @@
 									$Maintainance = new Maintainance();
 									$res = $Maintainance->get_all();
 									foreach($res as $data){
-										
-										
 									?>
 										
 									<option value="<?php echo $data['maintenance_id']; ?>"> <?php echo $data['title']; ?></option>
@@ -115,16 +111,16 @@
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="padding-top:10px;">
 					<label for="From">From:</label>
-					<input type="date" id="from" name="from"> 
+					<input type="date" id="from" name="from" class="form-control"> 
 					&nbsp;&nbsp;&nbsp;&nbsp;
 					<label for="To">To:</label>
-					<input type="date" id="to" name="to"> 						
+					<input type="date" id="to" name="to" class="form-control"> 						
 				
 					</div>						
 					
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" id="submit" class="btn btn-success" value="Search Alerts" />
+								 <input type="submit"  name="submit" id="submit" class="btn btn-primary" value="Search Alerts" />
 								 <hr>
 							</div>							
 				</div>
