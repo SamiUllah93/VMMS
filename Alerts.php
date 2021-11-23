@@ -10,33 +10,44 @@
 
 	if(Isset($_POST['submit'])) {
 		
-		if(Isset($_POST['from']) && Isset($_POST['to']) && !isset($_POST['Maintainance']) && !isset($_POST['company']) ){
+		if (($_POST['from'] != '') && ($_POST['to'] !='') && ($_POST['Maintainance'] == '') && ($_POST['company'] =='') ){
 			// call method which takes date only 
-			echo 'only date';
-		}
+			
+			$pending = $vehicle->dateonly_alerts($_POST['from'],$_POST['to']);
+			
+		} 
 		
-		else if (Isset($_POST['from']) && Isset($_POST['to']) && isset($_POST['Maintainance']) && !isset($_POST['company']) ) {
-			echo 'date and maint';
+		else if (($_POST['from'] !='') && ($_POST['to'] !='') && ($_POST['Maintainance'] !='') && ($_POST['company']) == '') {
+			$pending = $vehicle->dateandmain_alert($_POST['from'],$_POST['to'],$_POST['Maintainance']);
+			
 
 		} 
 		else if (($_POST['from'] != '')  && ($_POST['to'] != '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '' ) {
-			echo 'date and company';
+			$pending = $vehicle->dateandcompany_alert($_POST['from'],$_POST['to'],$_POST['company']);
+			
 
 		} 
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) != '') {
-			echo 'maints and company';
+			$pending = $vehicle->maintandcompany_alert($_POST['Maintainance'],$_POST['company']);
+			
 
 		} 
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '') {
-			echo 'company only';
+			$pending = $vehicle->company_alert($_POST['company']);
+			
+			
 
 		}
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) == '') {
-			echo 'Maints only';
+			
+			$pending = $vehicle->maint_alert($_POST['Maintainance']);
+			
 
 		}
-		else if (Isset($_POST['from']) && Isset($_POST['to']) && isset($_POST['Maintainance']) && isset($_POST['company']) ) {
-			echo 'all three';
+		else if (($_POST['from'] != '') && ($_POST['to'] != '') && ($_POST['Maintainance'] != '') && ($_POST['company'] !='') ) {
+			
+			$pending = $vehicle->allfilter_alert($_POST['from'],$_POST['to'],$_POST['Maintainance'],$_POST['company']);
+			
 
 		}
 		
