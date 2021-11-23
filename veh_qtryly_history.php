@@ -60,7 +60,7 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['maintenance_name']; ?></td>
 								<td><?php echo $veh['Remarks']; ?></td>
-								<td><?php echo date('d-m-Y', strtotime($veh['created'])) ?>
+								<td><?php echo date('d-m-Y', strtotime($veh['created'])) ?></td>
 							</tr>
 							<?php $c++; } ?>
 						
