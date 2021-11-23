@@ -94,7 +94,7 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;"><?php echo number_format($average[0]['average'],2) ?> Km/Lit</span><br />
-							<b>Average Fuel Consumption</b>
+							<b>Avg Fuel Consumption</b>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-tachometer  text-primary" ></i>

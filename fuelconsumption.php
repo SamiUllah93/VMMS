@@ -47,7 +47,7 @@
 								<th>BA NO</th>
 								<th>Total Fuel Added</th>
 								<th>Total Running</th>
-								<th>Fuel Average</th>
+								<th>Fuel Avg</th>
 
 							</tr>
 							<?php 
