@@ -50,7 +50,9 @@
 			
 
 		}
-		
+		else{
+			$pending = $vehicle->alerts();
+		}
 		
 	} 
 	
@@ -188,9 +190,19 @@
 								<td><?php echo $veh['title'];  ?></td>
 								
 								<td><?php echo $veh['pending_on'] ?></td>
-								<td><?php 
-								echo $veh['Remaing_days']
-								?></td>
+								<td>
+								<?php 
+									if($veh['Remaing_days'] < 30 ) 
+									{ 
+								?>
+									<span style="color:red;"> <?php echo $veh['Remaing_days']; ?> </span>
+
+								<?php }
+
+								else {
+									echo $veh['Remaing_days'];
+								
+								}?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
 							</tr>
 						<?php
