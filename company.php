@@ -20,7 +20,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Companies</title>
+  <title>Coy</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -40,10 +40,10 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-									<h4 class=" text-primary">Companies</h4>
+									<h4 class=" text-primary">Coy</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_company.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add Company</button></a>
+										<a  href="add_company.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add Coy</button></a>
 									</div>
 								</div>
 							</div>
@@ -51,7 +51,7 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>Company Name</th>
+								<th>Coy Name</th>
 								<th>Added On</th>
 								<th>Delete</th>
 							</tr>
@@ -64,7 +64,7 @@
 								<td><?php echo $comp['title']; ?></td>
 								<td><?php echo $comp['created']; ?></td>
 								<td>
-									<a onclick="return confirm_alert(this);" href="company.php?del=<?php echo $comp['company_id']; ?>" title="Delete Company" ><i class="fa fa-close" style="color:red;"></i></a>
+									<a onclick="return confirm_alert(this);" href="company.php?del=<?php echo $comp['company_id']; ?>" title="Delete Coy" ><i class="fa fa-close" style="color:red;"></i></a>
 								</td>
 							</tr>
 							<?php
@@ -90,7 +90,7 @@
 		
 		<script>
 		function confirm_alert(node) {
-			return confirm("This company might be linked to Vehicles. Delete company will clear the vehicle company relation as well.");
+			return confirm("This coy might be linked to veh. Deleting coy will clear the veh coy relation as well.");
 		}
 		</script>
 	<?php require_once('foot_inc.php'); ?>  

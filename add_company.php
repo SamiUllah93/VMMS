@@ -25,7 +25,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>Add Company</title>
+	<title>Add Coy</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -39,13 +39,13 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-						<h4 class=" text-primary">Add Company</h4>
+						<h4 class=" text-primary">Add Coy</h4>
 						<hr />
 						<form method="POST" action="" name="addprodform" id="addprodform" >
 						
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Company Title</b>
+								<b>Coy Title</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
@@ -63,7 +63,7 @@
 						<div class="row" style="padding-top:10px;margin-right:5px">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right:5px;text-align:right;">
 								<span style="color:red;"></span><br />
-								 <input type="submit"  name="submit" class="btn btn-primary" value="Add Company"   />
+								 <input type="submit"  name="submit" class="btn btn-primary" value="Add Coy"   />
 							</div>
 							
 						</div>

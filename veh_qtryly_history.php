@@ -38,7 +38,7 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 class=" text-primary">Vehicle Quarterly History</h4>
+										<h4 class=" text-primary">Veh Qtly Hist</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
 										
@@ -49,8 +49,8 @@
 							<table class="table" width="100%">
 							<tr>
 								<th>#</th>
-								<th>Maintenance Type</th>
-								<th>Remakrs</th>
+								<th>Maint Type</th>
+								<th>Remarks</th>
 								<th>Process Date</th>
 							</tr>
 							<?php $c= 1;

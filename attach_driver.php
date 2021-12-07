@@ -13,14 +13,16 @@
 	
 	$dvr = new Driver();
 	$all_dvr =  $dvr->get_all_keyval('status', '0'); 
+	
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$veh = new Vehicle();
+		$vehR = new Vehicle();
 		$post = true;
 		 
 		$driver_id = addslashes($_POST['driver_id']);
 		$VehID = addslashes($_POST['veh_id']);
-		if($veh->attach_driver_to_vehicle($driver_id, $VehID)){
+		if($vehR->attach_driver_to_vehicle($driver_id, $VehID)){
 			header('location:vehicles.php?compat=4');
+
 		}else{
 			$msg = "All fields are required.";
 		}
@@ -30,7 +32,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-	<title>Attach Drvr</title>
+	<title>Attach Dvr</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -44,7 +46,7 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box" style="padding-top:10px;">
-							<span style="font-size:0.95em;color:#449D44;"><b>Attach Drvr</b></span>
+							<span style="font-size:0.95em;color:#449D44;"><b>Attach Dvr</b></span>
 							<hr />
 						<form method="POST" action=""  >
 							
@@ -79,7 +81,7 @@
 							</div>
 							<div class="row" style="padding-top:10px;">
 								<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-									<b>Drvr</b>
+									<b>Dvr</b>
 								</div>
 								<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 									<select name="driver_id" required class="form-control">
@@ -102,7 +104,7 @@
 							<div class="row" style="padding-top:10px;margin-right:5px">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-right:5px;text-align:right;">
 									<span style="color:red;"></span><br />
-									<button type="submit"   class="btn btn-primary">Attach Company</button>
+									<button type="submit"   class="btn btn-primary">Attach Dvr</button>
 								</div>
 								
 							</div>

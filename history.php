@@ -40,11 +40,11 @@
 						  	<div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 class=" text-primary">Vehicle Maint History</h4>
+										<h4 class=" text-primary">Veh Maint Hist</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="text-align:right;" >
-										<a href="veh_qtryly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Quarterly Chechlist History</button></a> &nbsp; 
-										<a href="veh_yrly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Yearly Chechlist History</button></a>
+										<a href="veh_qtryly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Qtly Checklist Hist</button></a> &nbsp; 
+										<a href="veh_yrly_history.php?id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Yr Checklist Hist</button></a>
 									</div>
 								</div>
 							</div>

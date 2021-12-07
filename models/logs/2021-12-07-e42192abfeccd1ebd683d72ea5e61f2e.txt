@@ -1,0 +1,7 @@
+Time : 21:53:09
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`quarterly_maintenance_vehicle`, CONSTRAINT `FK 1` FOREIGN KEY (`vehicle_ID`) REFERENCES `vehicle` (`Vehicle_ID`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO quarterly_maintenance_vehicle (quarterly_checklist_ID, vehicle_ID, Remarks) VALUES (?, ?, ?)
+
+Time : 21:52:29
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vmss`.`yearly_checklist_maintenance`, CONSTRAINT `VCID` FOREIGN KEY (`vehicle_ID`) REFERENCES `vehicle` (`Vehicle_ID`) ON DELETE CASCADE ON UPDATE CASCADE)
+Raw SQL : INSERT INTO yearly_checklist_maintenance (yearly_checklist_ID, vehicle_ID, Remarks) VALUES (?, ?, ?)

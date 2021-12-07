@@ -6,6 +6,16 @@
 	require_once('login_check.php');
 	$vehicle = new Vehicle(); 
 	$pending = $vehicle->pending_today();
+
+	$msg_rec = "";
+	if (isset($_GET['compat']))	{
+		if($_GET['compat']=='1'){
+			$msg = "Veh Maint processed successfully.";
+			$msg_rec = true;
+		}
+	}
+	
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +35,9 @@
 				<div class="row">
 					
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
-						
+					<?php if($msg_rec){ ?>
+						<div class="alert alert-info" role="alert" style="width:40%;"><?php echo $msg; ?></div>
+					<?php } ?>
 						<div class="panel panel-default">
 						  <!-- Default panel contents -->
 						  <div class="panel-heading">
@@ -53,6 +65,7 @@
 							</tr>
 						<?php 
 						$c = 1;
+						$prev = Null;
 						foreach($pending as $veh){ 
 							 
 							?>

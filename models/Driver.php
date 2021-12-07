@@ -61,7 +61,8 @@ class Driver extends QueryManager
     public function set_driver_unassigned(){
         $query = "UPDATE ".$this->TableName." SET status=0 WHERE driver_id=?";
         $data = array($this->driver_id);
-        return $this->_db->query($query, $data);
+        $this->_db->query($query, $data);
+        return true;
     }
 
     public function get_drivers(){

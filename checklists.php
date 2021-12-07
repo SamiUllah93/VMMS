@@ -50,7 +50,7 @@
 								<th>Issued On</th>
 								<th>Year of Mfr</th>
 								<th>Company</th>
-								<th>Drvr</th>
+								<th>Dvr</th>
 								<th>Added On</th>
 								<th>History</th>
 								<th>Items</th>

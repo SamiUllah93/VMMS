@@ -48,8 +48,8 @@
 
 								<th>#</th>
 								<th>BA.No</th>
-								<th>Drvr</th>
-								<th>Maintainance Type</th>
+								<th>Dvr</th>
+								<th>Maint Type</th>
 								<th>Due On</th>
 								<th>Days Passed</th>
 								<th>Action</th>

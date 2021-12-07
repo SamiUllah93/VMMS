@@ -1,63 +1,56 @@
 <?php
 	require_once('config.php');
 	Debug::$Debug_Mode = false;
-	
+	date_default_timezone_set("Asia/Karachi");
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	$vehicle = new Vehicle(); 
 	//$pending = $vehicle->alerts();
 
 
+	/*
+		Set dates here
+	*/
+
+	$c_year = date("Y");
+	$today = date("Y-m-d");
+	//$dateTime = date('Y-m-d', $c_year."-12-1");
+	$q1_dt = date_create($c_year."-12-8");
+	$q2_dt = date_create($c_year."-7-1");
+	$q3_dt = date_create($c_year."-10-1");
+	$yr_dt = date_create($c_year."-12-8");
+	$today_dt = new DateTime($today);
+
+
 	if(Isset($_POST['submit'])) {
 		
 		if (($_POST['from'] != '') && ($_POST['to'] !='') && ($_POST['Maintainance'] == '') && ($_POST['company'] =='') ){
-			// call method which takes date only 
-			
+			// call method which takes date only
 			$pending = $vehicle->dateonly_alerts($_POST['from'],$_POST['to']);
-			
 		} 
-		
 		else if (($_POST['from'] !='') && ($_POST['to'] !='') && ($_POST['Maintainance'] !='') && ($_POST['company']) == '') {
 			$pending = $vehicle->dateandmain_alert($_POST['from'],$_POST['to'],$_POST['Maintainance']);
-			
-
 		} 
 		else if (($_POST['from'] != '')  && ($_POST['to'] != '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '' ) {
 			$pending = $vehicle->dateandcompany_alert($_POST['from'],$_POST['to'],$_POST['company']);
-			
-
 		} 
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) != '') {
 			$pending = $vehicle->maintandcompany_alert($_POST['Maintainance'],$_POST['company']);
-			
-
 		} 
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '') {
 			$pending = $vehicle->company_alert($_POST['company']);
-			
-			
-
 		}
 		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) == '') {
 			
 			$pending = $vehicle->maint_alert($_POST['Maintainance']);
-			
-
 		}
 		else if (($_POST['from'] != '') && ($_POST['to'] != '') && ($_POST['Maintainance'] != '') && ($_POST['company'] !='') ) {
-			
 			$pending = $vehicle->allfilter_alert($_POST['from'],$_POST['to'],$_POST['Maintainance'],$_POST['company']);
-			
-
 		}
 		else{
 			$pending = $vehicle->alerts();
 		}
-		
-	} 
-	
-	else{
-
+	}else{
 		$pending = $vehicle->alerts();
 	}
 
@@ -81,9 +74,9 @@
 				<div class="row">
 				<form action="Alerts.php" method="POST">
 					<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
-						Company: 
+						Coy: 
 						<select name="company" id="company" class="form-control"  >
-							<option value="" selected  >Select company</option>
+							<option value="" selected  >Select Coy</option>
 								<?php 
 									$company = new Company();
 									$res = $company->get_all();
@@ -95,8 +88,8 @@
 						</select>
 					</div>
 					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3" >
-					Maintenanec:<select name="Maintainance" id="Maintainance" class="form-control" >
-						<option value="" selected  >Select maintenance</option>
+					Maint:<select name="Maintainance" id="Maintainance" class="form-control" >
+						<option value="" selected  >Select Maint</option>
 						<?php 			
 							$Maintainance = new Maintainance();
 							$res = $Maintainance->get_all();
@@ -141,10 +134,20 @@
 							<tr>
 								<th>#</th>
 								<th>BA.No</th>
-								<th>Drvr</th>
+								<th>Dvr</th>
 								<th>Maintainance Type</th>
 								<th>Pending On</th>
 								<th>Remaining Days</th>
+								<?php
+								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ ?>
+									<th>Qtly Check</th>
+								<?php }
+								?>
+								<?php
+								if ($today_dt == $yr_dt){ ?>
+									<th>Yr Check</th>
+								<?php }
+								?>
 								<th>Action</th>
 
 							</tr>
@@ -155,7 +158,6 @@
 							 
 							?>
 
-						
 							<tr>
 								<td>
 									<?php
@@ -203,6 +205,32 @@
 									echo $veh['Remaing_days'];
 								
 								}?></td>
+								<?php
+								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 
+									if ($veh['BA_NO']!=$prev){ ?>
+										
+											<td>
+												<a href="vehquarterly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Qtly Checklist</button></a>
+											</td>
+								<?php 	} 
+								else{
+									echo "<td></td>"; 
+							   } 
+									}
+								?>
+								<?php
+								if ($today_dt == $yr_dt){
+									if ($veh['BA_NO']!=$prev){
+										 ?>
+											<td>
+											<a href="vehyearly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Yr Checklist</button></a>
+											</td>
+									<?php }
+									else{
+										echo "<td></td>"; 
+								   } 
+									}
+								?>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
 							</tr>
 						<?php

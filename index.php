@@ -51,7 +51,7 @@
 						<div class="well">
 						<p>
 							<span style="font-size:2.0em;"><?php echo $drivers; ?></span><br />
-							<b>Drvrs</b>
+							<b>Dvrs</b>
 							<br />
 							<br />
 							
