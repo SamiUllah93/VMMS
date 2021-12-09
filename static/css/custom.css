@@ -37,3 +37,13 @@ body{
   }
   
 }
+
+.tab{
+  background-color: #d4d4d4; padding: 5px;font-size: 1.4em;
+  border: 1px solid grey;;
+}
+
+.active{
+  background-color: rgb(51, 122, 183) !important;
+  color: #fff;
+}

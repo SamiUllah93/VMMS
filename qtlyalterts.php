@@ -5,23 +5,15 @@
 	// $user obj is created in the inc below.
 	require_once('login_check.php');
 	$vehicle = new Vehicle(); 
-	//$pending = $vehicle->alerts();
+	$pending = $vehicle->get_vehicle_detailalerts_qtly();
 
 
 	/*
 		Set dates here
 	*/
 
-	$c_year = date("Y");
-	$today = date("Y-m-d");
-	//$dateTime = date('Y-m-d', $c_year."-12-1");
-	$q1_dt = date_create($c_year."-12-8");
-	$q2_dt = date_create($c_year."-7-1");
-	$q3_dt = date_create($c_year."-10-1");
-	$yr_dt = date_create($c_year."-12-8");
-	$today_dt = new DateTime($today);
-
-
+	
+	/*
 	if(Isset($_POST['submit'])) {
 		
 		if (($_POST['from'] != '') && ($_POST['to'] !='') && ($_POST['Maintainance'] == '') && ($_POST['company'] =='') ){
@@ -54,6 +46,15 @@
 		$pending = $vehicle->alerts();
 	}
 
+	*/
+	$msg  = "";
+	$msg_rec = false;
+	if (isset($_GET['compat']))	{
+		if($_GET['compat']=='8'){
+			$msg = "Qtly checklist updated.";
+			$msg_rec = true;
+		}
+	}
 
 ?>
 <!doctype html>
@@ -67,14 +68,17 @@
 </head>
 <body>
 	<?php require_once('nav_inc.php'); ?> 
-	
+
 	        <div>
             <div class="container-fluid">
+			<?php if($msg_rec){ ?>
+						<div class="alert alert-info" role="alert" style="width:40%;"><?php echo $msg; ?></div>
+					<?php } ?>
 				<div class="row">
-					<a href="Alerts.php"><div class="col-lg-4 col-md-4 text-center tab active" >
+					<a href="Alerts.php"><div class="col-lg-4 col-md-4 text-center tab " >
 						Regular Maint
 					</div></a>
-					<a href="qtlyalterts.php"><div class="col-lg-4 col-md-4 text-center tab" >
+					<a href="qtlyalterts.php"><div class="col-lg-4 col-md-4 text-center tab active" >
 						Qtly Maint
 					</div></a>
 					<a href="yralterts.php"><div class="col-lg-4 col-md-4 text-center tab">
@@ -84,7 +88,7 @@
 				<br /><br />
 				
 				<div class="row">
-				<form action="Alerts.php" method="POST">
+				<!-- <form action="Alerts.php" method="POST">
 					<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
 						Coy: 
 						<select name="company" id="company" class="form-control"  >
@@ -124,6 +128,7 @@
 					</div>							
 				</div>
 				</form>
+							-->
 				<hr>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">
@@ -133,7 +138,7 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Alerts</h4>
+										<h4 style="color:#449D44;">Qtly Checklist</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
 
@@ -147,21 +152,9 @@
 								<th>#</th>
 								<th>BA.No</th>
 								<th>Dvr</th>
-								<th>Maintainance Type</th>
 								<th>Pending On</th>
 								<th>Remaining Days</th>
-								<?php
-								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ ?>
-									<th>Qtly Check</th>
-								<?php }
-								?>
-								<?php
-								if ($today_dt == $yr_dt){ ?>
-									<th>Yr Check</th>
-								<?php }
-								?>
 								<th>Action</th>
-
 							</tr>
 						<?php 
 						$c = 1;
@@ -201,49 +194,25 @@
 										
 									?>
 								</td>								
-								<td><?php echo $veh['title'];  ?></td>
+								 
 								
 								<td><?php echo $veh['pending_on'] ?></td>
 								<td>
 								<?php 
-									if($veh['Remaing_days'] < 30 ) 
+									$rem_days = $veh['Remaing_days'] + 90;
+									if($rem_days < 0 ) 
 									{ 
 								?>
-									<span style="color:red;"> <?php echo $veh['Remaing_days']; ?> </span>
+									<span style="color:red;"> <?php echo $rem_days; ?> </span>
 
 								<?php }
 
 								else {
-									echo $veh['Remaing_days'];
+									echo $rem_days;
 								
 								}?></td>
-								<?php
-								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 
-									if ($veh['BA_NO']!=$prev){ ?>
-										
-											<td>
-												<a href="vehquarterly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Qtly Checklist</button></a>
-											</td>
-								<?php 	} 
-								else{
-									echo "<td></td>"; 
-							   } 
-									}
-								?>
-								<?php
-								if ($today_dt == $yr_dt){
-									if ($veh['BA_NO']!=$prev){
-										 ?>
-											<td>
-											<a href="vehyearly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Yr Checklist</button></a>
-											</td>
-									<?php }
-									else{
-										echo "<td></td>"; 
-								   } 
-									}
-								?>
-								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
+								
+								<td><a href="vehquarterly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Qtly</button></a></td>
 							</tr>
 						<?php
 								
