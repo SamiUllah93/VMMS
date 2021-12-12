@@ -125,8 +125,7 @@ class Vehicle extends QueryManager
     }
 
     public function alerts(){
-        $query = "SELECT v1.Vehicle_ID as veh_id,mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID
-        ";
+        $query = "SELECT v1.Vehicle_ID as veh_id,mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID";
         return $this->_db->query($query);
     }
 
@@ -297,12 +296,12 @@ class Vehicle extends QueryManager
     
 
     public function get_vehicle_detailalerts_qtly(){
-        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , DATE_ADD(qtrly_service_date, INTERVAL 90 DAY) as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
+        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , qtrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
         return $this->_db->query($query);
     }
 
     public function get_vehicle_detailalerts_yrly(){
-        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , DATE_ADD(yrly_service_date, INTERVAL 365 DAY) as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
+        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
         return $this->_db->query($query);
     }
 }

@@ -1,0 +1,11 @@
+Time : 19:03:43
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ehicle.vehicle_id' in 'where clause'
+Raw SQL : INSERT INTO quarterly_maintenance_vehicle (quarterly_checklist_ID, vehicle_ID, Remarks) VALUES (?, ?, ?)
+
+Time : 18:48:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ';, INTERVAL 90 DAY) WHERE Vehicle_ID = ?' at line 1
+Raw SQL : UPDATE vehicle set qtrly_service_date = DATE_ADD(now();, INTERVAL 90 DAY) WHERE Vehicle_ID = ?
+
+Time : 18:01:49
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'vehicle.Vehicle_ID' in 'where clause'
+Raw SQL : INSERT into fuel_record (vehicle_id, total_fuel_added, total_running) VALUES(?, ?, ?)

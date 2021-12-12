@@ -210,7 +210,7 @@
 								
 								}?></td>
 								
-								<td><a href="vehyearly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Qtly</button></a></td>
+								<td><a href="vehyearly.php?vid=<?php echo $veh['veh_id']; ?>"><button class="btn btn-primary btn-sm">Process Yr</button></a></td>
 							</tr>
 						<?php
 								

@@ -7,7 +7,7 @@ class User extends QueryManager
     public $UserID = 0;
     public $Name = '';
     public $Email = '';
-    private $Password = '';
+    public $Password = '';
     public $isAdmin = false;
     public $CreatedAt = '';
     public $UpdatedAt = '';
@@ -48,9 +48,12 @@ class User extends QueryManager
 
     public function Save(): bool
     {
+        
         if ($this->Validate()) {
+            
             if (!$this->Exists()) {
                 $this->Message = "Profile created.";
+                
                 if($this->Insert()){
                     return true;
                 }else{
@@ -62,7 +65,7 @@ class User extends QueryManager
                 return false;
             }
         } else {
-            $this->Message = "Fields with * are required.";
+           $this->Message = "Fields with * are required.";
             return false;
         }
     }
@@ -87,10 +90,8 @@ class User extends QueryManager
 
     private function Insert(): bool
     {
-        $query = "INSERT INTO " . $this->TableName . " (first_name, surname, middle_name, utr_number, ni_number, 
-        street_address, address_line_2, city, postal_code, phone, email, password) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        $data_items = array($this->FirstName, $this->Surname, $this->MiddleName,  $this->UTRNumber, $this->NINumber,
-            $this->StreetAddress, $this->AddressLine2,  $this->City, $this->PostalCode, $this->Phone, $this->Email, $this->Password);
+        $query = "INSERT INTO " . $this->TableName . " (name, email, password) VALUES (?,?,?)";
+        $data_items = array($this->Name,$this->Email, $this->Password);
         $insert_status = $this->_db->query($query, $data_items);
         if ($insert_status) {
             return true;
@@ -108,10 +109,12 @@ class User extends QueryManager
             || empty($this->Name)
             || empty($this->Email)
             || empty($this->Password)
-            || empty($this->isAdmin)
+            
             ) {
-            return False;
+                
+                return False;
         } else {
+          
             return true;
         }
     }

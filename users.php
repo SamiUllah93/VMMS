@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Drivers</title>
+  <title>Users</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
@@ -41,7 +41,7 @@
 									<h4 class=" text-primary">Users</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<a  href="add_drivers.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add User</button></a>
+										<a  href="add_user.php"><button style="float:right"class="btn btn-primary"><i class="fa fa-plus-circle" ></i> Add User</button></a>
 									</div>
 								</div>
 							</div>

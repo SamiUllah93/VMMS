@@ -150,6 +150,9 @@
 								<th>Maintainance Type</th>
 								<th>Pending On</th>
 								<th>Remaining Days</th>
+								<th>Current ODO Meter Reading</th>
+								<th>Maintenance Distance</th>
+								<th>Next process reading </th> 
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ ?>
 									<th>Qtly Check</th>
@@ -204,6 +207,7 @@
 								<td><?php echo $veh['title'];  ?></td>
 								
 								<td><?php echo $veh['pending_on'] ?></td>
+							
 								<td>
 								<?php 
 									if($veh['Remaing_days'] < 30 ) 
@@ -217,6 +221,9 @@
 									echo $veh['Remaing_days'];
 								
 								}?></td>
+								<td><?php echo $veh['current_reading'] ?></td>
+								<td><?php echo $veh['distance'] ?></td>
+								<td> <?php echo $veh['current_reading']+$veh['distance'] ?>  </td>
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 
 									if ($veh['BA_NO']!=$prev){ ?>
