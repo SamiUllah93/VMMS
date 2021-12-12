@@ -150,7 +150,7 @@
 								<th>Maintainance Type</th>
 								<th>Pending On</th>
 								<th>Remaining Days</th>
-								<th>Current ODO Meter Reading</th>
+								<th>Current ODO Meter-Reading</th>
 								<th>Maintenance Distance</th>
 								<th>Next process reading </th> 
 								<?php
