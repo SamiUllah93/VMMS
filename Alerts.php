@@ -15,10 +15,10 @@
 	$c_year = date("Y");
 	$today = date("Y-m-d");
 	//$dateTime = date('Y-m-d', $c_year."-12-1");
-	$q1_dt = date_create($c_year."-12-8");
+	$q1_dt = date_create($c_year."-4-1");
 	$q2_dt = date_create($c_year."-7-1");
 	$q3_dt = date_create($c_year."-10-1");
-	$yr_dt = date_create($c_year."-12-8");
+	$yr_dt = date_create($c_year."-12-31");
 	$today_dt = new DateTime($today);
 
 

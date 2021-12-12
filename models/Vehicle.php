@@ -151,7 +151,7 @@ class Vehicle extends QueryManager
     }
 
     public function fuel_average(){
-        $query = "SELECT SUM(`total_fuel_added`) AS total_fuel_added, SUM(total_running) AS total_running, total_running/total_fuel_added  AS fuel_average, vehicle.BA_NO FROM vehicle, fuel_record WHERE vehicle.Vehicle_ID = fuel_record.vehicle_id GROUP BY vehicle.BA_NO";
+        $query = "SELECT SUM(`total_running`)/SUM(`total_fuel_added`) AS fuel_average, vehicle.BA_NO , SUM(`total_fuel_added`) as total_fuel_added ,SUM(`total_running`) as total_running FROM vehicle, fuel_record WHERE vehicle.Vehicle_ID = fuel_record.vehicle_id GROUP BY vehicle.BA_NO";
         return $this->_db->query($query);
     }
 
