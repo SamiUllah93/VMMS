@@ -8,6 +8,8 @@
 	$main_all = $maint->get_all();
 	$driver = new Driver();
 	$drivers = $driver->get_all_keyval('status', '0');
+	$comp = new Company();
+	$comps = $comp->get_all();
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$vehicle = new Vehicle();
@@ -17,6 +19,12 @@
 		$vehicle->Driver_ID = addslashes($_POST['driver_id']);
 		$vehicle->Issued_On = addslashes($_POST['IssuedOn']);
 		$vehicle->maint_data = $_POST['maintenance'];
+		$vehicle->company_id = $_POST['company_id'];
+		$vehicle->qtrly_service_date = $_POST['qtrly_service_date'];
+		$vehicle->yrly_service_date = $_POST['yrly_service_date'];
+		$vehicle->odo_reading = $_POST['odo_reading'];
+
+		 
 
 		if($vehicle->save()){
 			
@@ -46,7 +54,23 @@
 					<h4 class=" text-primary">Add New Vehicle</h4>
 						<hr />
 						<form method="POST" action="" >
-						
+						<div class="row" style="padding-top:10px;">
+							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
+								<b>Coy</b>
+							</div>
+							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+								<select name="company_id"  class="form-control"  >
+									<option value="NULL" selected  >Select Coy</option>
+									<?php 
+									foreach($comps as $cmp){
+									?>
+									<option value="<?php echo $cmp['company_id']; ?>"><?php echo $cmp['title']; ?></option>
+									<?php } ?>
+									
+								</select>
+							</div>
+							
+						</div>
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
 								<b>BA.No</b>
@@ -68,10 +92,19 @@
 							</div>
 							
 						</div>
-						
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Issues On</b>
+								<b>Manufacture Year</b>
+							</div>
+							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+								
+								<input type="number" class="form-control" name="year" placeholder="Manufacture Year"  required  />
+							</div>
+							
+						</div>
+						<div class="row" style="padding-top:10px;">
+							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
+								<b>Issued On</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
@@ -81,14 +114,36 @@
 						</div>
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
-								<b>Year of Mfr</b>
+								<b>Last Qtly Service Date</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
 								
-								<input type="text" class="form-control" name="year" placeholder="2010,2011,2012"  required  />
+								<input type="date" class="form-control" name="qtrly_service_date" placeholder="Select Date"  required  />
 							</div>
 							
 						</div> 
+						<div class="row" style="padding-top:10px;">
+							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
+								<b>Last Yrly Service Date</b>
+							</div>
+							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12"> 
+								
+								<input type="date" class="form-control" name="yrly_service_date" placeholder="Select Date"  required  />
+							</div>
+							
+						</div> 
+
+						<div class="row" style="padding-top:10px;">
+							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
+								<b>ODO Reading</b>
+							</div>
+							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12"> 
+								
+								<input type="number" class="form-control" name="odo_reading" placeholder="Enter ODO Reading"  required  />
+							</div>
+							
+						</div> 
+
 						<div class="row" style="padding-top:10px;">
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" style="padding-top:6px;text-align:right;">
 								<b>Driver</b>

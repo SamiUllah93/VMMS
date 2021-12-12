@@ -64,6 +64,10 @@ class Yearly extends QueryManager
             }
             
         }
+        // Update qtly date
+        $query = "UPDATE vehicle set yrly_service_date = DATE_ADD(yrly_service_date, INTERVAL 365 DAY) WHERE Vehicle_ID = ?";
+        $arr = array($veh_id);
+        $this->_db->query($query, $arr);
         return true;
     }
 

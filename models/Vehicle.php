@@ -17,6 +17,10 @@ class Vehicle extends QueryManager
     public $status = 1;
     public $msg = "";
     public $maint_data = [];
+    public $company_id = "";
+    public $qtrly_service_date = "";
+    public $yrly_service_date = "";
+    public $odo_reading = "";
 
     public function __CONSTRUCT($id = null)
     {   
@@ -39,6 +43,10 @@ class Vehicle extends QueryManager
             $this->created = $data[0]['created'];
             $this->status = $data[0]['Status'];
             $this->Driver_ID = $data[0]['Driver_ID'];
+            $this->company_id = $data[0]['company_id'];
+            $this->qtrly_service_date = $data[0]['qtrly_service_date'];
+            $this->yrly_service_date = $data[0]['yrly_service_date'];
+            $this->odo_reading = $data[0]['odo_reading'];
             
             return True;
         } else {
@@ -50,11 +58,14 @@ class Vehicle extends QueryManager
 
 
     public function save(){
-        $query = "INSERT ".$this->TableName." (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID) VALUES(?, ?, ?, ?, ?)";
+        $query = "INSERT ".$this->TableName." (BA_NO, Make_type, Issued_On, Year_of_Manufacturer, Driver_ID, company_id, qtrly_service_date, yrly_service_date, odo_reading) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         if($this->Driver_ID == "NULL"){
             $this->Driver_ID = null;
         }
-        $data = array($this->BA_NO, $this->Make_type , $this->Issued_On , $this->Year_of_Manufacturer, $this->Driver_ID);
+        if($this->company_id == "NULL"){
+            $this->company_id = null;
+        }
+        $data = array($this->BA_NO, $this->Make_type , $this->Issued_On , $this->Year_of_Manufacturer, $this->Driver_ID, $this->company_id, $this->qtrly_service_date, $this->yrly_service_date, $this->odo_reading);
         if($this->_db->query($query, $data) == 1){
             $this->Vehicle_ID = $this->_db->lastInsertId();
             foreach ($this->maint_data as $maint_id => $data_arr){
@@ -285,7 +296,14 @@ class Vehicle extends QueryManager
     }
     
 
+    public function get_vehicle_detailalerts_qtly(){
+        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , DATE_ADD(qtrly_service_date, INTERVAL 90 DAY) as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
+        return $this->_db->query($query);
+    }
 
-
+    public function get_vehicle_detailalerts_yrly(){
+        $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , DATE_ADD(yrly_service_date, INTERVAL 365 DAY) as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
+        return $this->_db->query($query);
+    }
 }
 

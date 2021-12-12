@@ -63,6 +63,10 @@ class Quarterly extends QueryManager
             }
             
         }
+        // Update qtly date
+        $query = "UPDATE vehicle set qtrly_service_date = DATE_ADD(qtrly_service_date, INTERVAL 90 DAY) WHERE Vehicle_ID = ?";
+        $arr = array($veh_id);
+        $this->_db->query($query, $arr);
         return true;
     }
 

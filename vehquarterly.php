@@ -31,7 +31,7 @@
 			$data = $_POST['quarterly'];
 			$veh_id = $_POST['veh_id'];
 			if ($qtr_main->add_vehilce_qtrly_data($veh_id, $data)){
-				header('location: vehicles.php?compat=8');
+				header('location: qtlyalterts.php?compat=8');
 			}
 		}else{
 			$msg = "Select at least one item.";
