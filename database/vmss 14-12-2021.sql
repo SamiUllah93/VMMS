@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 10:03 PM
+-- Generation Time: Dec 13, 2021 at 11:00 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -138,20 +138,12 @@ CREATE TABLE `maintenance_vehicle` (
   `maintenance_vehicle_ID` bigint(50) NOT NULL,
   `maintenance_ID` bigint(50) NOT NULL,
   `vehicle_ID` bigint(50) NOT NULL,
-  `duration_In_days` int(50) NOT NULL,
-  `distance` int(50) NOT NULL,
+  `duration_In_days` int(50) DEFAULT NULL,
+  `distance` int(50) DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
-  `next_due` date NOT NULL,
+  `next_due` date DEFAULT NULL,
   `next_distance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `maintenance_vehicle`
---
-
-INSERT INTO `maintenance_vehicle` (`maintenance_vehicle_ID`, `maintenance_ID`, `vehicle_ID`, `duration_In_days`, `distance`, `status`, `next_due`, `next_distance`) VALUES
-(29, 1, 31, 30, 1000, 0, '2022-01-13', 0),
-(30, 2, 31, 20, 500, 0, '2022-01-03', 0);
 
 -- --------------------------------------------------------
 
@@ -308,13 +300,6 @@ CREATE TABLE `vehicle` (
   `created` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
   `Status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `vehicle`
---
-
-INSERT INTO `vehicle` (`Vehicle_ID`, `BA_NO`, `Make_Type`, `Issued_On`, `Year_of_Manufacturer`, `odo_reading`, `qtrly_service_date`, `yrly_service_date`, `Driver_ID`, `company_id`, `created`, `Status`) VALUES
-(31, 'A-235', '5ton', '2021-12-01', 2010, 5000, '2021-12-01', '2021-12-01', 6, 2, '2021-12-13 21:01:25.819549', 0);
 
 -- --------------------------------------------------------
 
@@ -487,7 +472,7 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `fuel_record`
 --
 ALTER TABLE `fuel_record`
-  MODIFY `fuel_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `fuel_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `maintenance`
@@ -499,7 +484,7 @@ ALTER TABLE `maintenance`
 -- AUTO_INCREMENT for table `maintenance_vehicle`
 --
 ALTER TABLE `maintenance_vehicle`
-  MODIFY `maintenance_vehicle_ID` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `maintenance_vehicle_ID` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `parts`
@@ -511,7 +496,7 @@ ALTER TABLE `parts`
 -- AUTO_INCREMENT for table `process_maintenance`
 --
 ALTER TABLE `process_maintenance`
-  MODIFY `process_maintenance_id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `process_maintenance_id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `quarterly_checklist`
@@ -535,7 +520,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `Vehicle_ID` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Vehicle_ID` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `yearly_checklist`

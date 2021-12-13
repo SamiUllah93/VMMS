@@ -1,3 +1,13 @@
+Time : 22:34:05
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'next_due' cannot be null
+Raw SQL : INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due,next_distance) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL NULL DAY),?)
+
+<<<<<<< HEAD
 Time : 22:06:14
 SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '))' at line 1
 Raw SQL : INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL  DAY))
+=======
+Time : 22:25:01
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'next_due' cannot be null
+Raw SQL : INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL NULL DAY))
+>>>>>>> 22ccd900c0f47661cbe2022af0a18885169a1bc6

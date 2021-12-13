@@ -11,7 +11,7 @@
 		$veh_m_id = addslashes($_POST['veh_m_id']);
 		$odo = addslashes($_POST['odo']);
 		if($veh->process_maintenance($veh_m_id, $odo)){
-			header("location: alertsToday.php?compat=1");
+			header("location: alerts.php?compat=1");
 		}else{
 			$msg = "All fields are required.";
 		}

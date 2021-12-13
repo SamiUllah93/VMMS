@@ -64,33 +64,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <?php require_once('head_inc.php'); ?>  
-	<style>
-		@media print
-{    
-    .no-print, .no-print *
-    {
-        display: none !important;
-    }
-}
-	</style>
 </head>
 <body>
-	<?php require_once('nav_inc.php'); ?> 
 	
-	        <div>
-            <div class="container-fluid">
-				<div class="row no-print">
-					<a href="Alerts.php"><div class="col-lg-4 col-md-4 text-center tab active" >
-						Regular Maint
-					</div></a>
-					<a href="qtlyalterts.php"><div class="col-lg-4 col-md-4 text-center tab" >
-						Qtly Maint
-					</div></a>
-					<a href="yralterts.php"><div class="col-lg-4 col-md-4 text-center tab">
-						Yr Maint
-					</div></a>
-				</div>
-				<br /><br />
 				
 				<div class="row">
 				<form action="Alerts.php" method="POST">
@@ -130,7 +106,7 @@
 					
 					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
 						<br /> &nbsp; <input type="submit"  name="submit" id="submit" class="btn btn-primary" value="Search Alerts" />
-						
+						 &nbsp; <a href="alerts_print.php"><input type="button"  name="print" id="print" class="btn btn-primary" value="print" /></a>
 					</div>							
 				</div>
 				</form>
@@ -262,7 +238,7 @@
 								   } 
 									}
 								?>
-								<td><a class="no-print" href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm no-print">Process</button></a></td>
+								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
 							</tr>
 						<?php
 								

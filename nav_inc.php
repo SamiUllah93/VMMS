@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" style="padding:10px;"> 
+<nav class="navbar navbar-default no-print" style="padding:10px;"> 
   <div class="container-fluid">
   <img src="static/img/logo.png" width="120" > <b><span style=font-size:1.5em;>MT Maint Mgmt Sys </span> </b>
     <!-- Brand and toggle get grouped for better mobile display -->

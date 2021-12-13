@@ -93,7 +93,7 @@
 								<th>Added On</th>
 								<th>History</th>
 								<th>Items</th>
-								<th>Checklists</th>
+								
 								<th>Usages</th>
 								<!-- <th>Edit</th> -->
 								<th>Delete</th>
@@ -128,9 +128,7 @@
 </td>
 								<th><a href="history.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-calendar"></i> Maint History</button></a></th>
 								<th><a href="parts.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i> Items Changed/Installed</button></a></th>
-								<td>
-									<a href="vehquarterly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Qtly</button></a> &nbsp;  <a href="vehyearly.php?vid=<?php echo  $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Yr</button></a>
-								</td>
+								
 								<th><a href="vehcile_usage.php?id=<?php echo $veh['Vehicle_ID']; ?>"><button class="btn btn-sm btn-primary">Usages</button></a></th>
 								<!-- <td>Edit</a></td> -->
 								<td>
