@@ -152,6 +152,7 @@
 								<th>Remaining Days</th>
 								<th>Current ODO Meter-Reading</th>
 								<th>Maintenance Distance</th>
+								
 								<th>Next process reading </th> 
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ ?>
@@ -223,6 +224,7 @@
 								}?></td>
 								<td><?php echo $veh['current_reading'] ?></td>
 								<td><?php echo $veh['distance'] ?></td>
+								
 								<td> <?php echo $veh['current_reading']+$veh['distance'] ?>  </td>
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 

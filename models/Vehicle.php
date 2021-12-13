@@ -105,7 +105,7 @@ class Vehicle extends QueryManager
     }
 
     public function overdue(){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,Date(`next_due`) - CURRENT_DATE AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) < CURRENT_DATE()
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,datediff(Date(`next_due`),CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where Date(`next_due`) < CURRENT_DATE()
         ";
         return $this->_db->query($query);
     }
@@ -236,46 +236,46 @@ class Vehicle extends QueryManager
 
 
     public function dateonly_alerts($from,$to){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ?
         ";
         $data = array($from, $to);
         return $this->_db->query($query,$data);
     }
     public function dateandmain_alert($from,$to,$maint){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and m.maintenance_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and m.maintenance_id = ?
         ";
         $data = array($from, $to,$maint);
         return $this->_db->query($query,$data);
     }
     public function dateandcompany_alert($from,$to,$comp){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and  v1.company_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and  v1.company_id = ?
         ";
         $data = array($from, $to,$comp);
         return $this->_db->query($query,$data);
     }
     public function maintandcompany_alert($maint,$comp){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = ? and m.maintenance_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = ? and m.maintenance_id = ?
         ";
         $data = array($comp,$maint);
         return $this->_db->query($query,$data);
     } 
 
     public function company_alert($comp){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  v1.company_id = ?
         ";
         $data = array($comp);
         return $this->_db->query($query,$data);
     } 
 
     public function maint_alert($maint){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  m.maintenance_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where  m.maintenance_id = ?
         ";
         $data = array($maint);
         return $this->_db->query($query,$data);
     } 
 
     public function allfilter_alert($from,$to,$maint,$comp){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and v1.company_id = ? and m.maintenance_id = ?
+        $query = "SELECT mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.next_due between ? and ? and v1.company_id = ? and m.maintenance_id = ?
         ";
         $data = array($from, $to,$comp,$maint);
         return $this->_db->query($query,$data);

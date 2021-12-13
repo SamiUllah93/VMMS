@@ -13,6 +13,8 @@
 	$average = $vehicle->total_average_count();
 	$pending_count = $vehicle->pending_today_count();
 	$alert_count = $vehicle->alerts_count();
+	$user = new User();
+	$user_count = $user->get_count();
 
 	$maint = new Maintainance();
 	$maints = $maint->get_count();
@@ -132,7 +134,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;">1</span><br />
+							<span style="font-size:2.0em;"><?php echo $user_count; ?></span><br />
 							<b>Users</b>
 							<br />
 							<br />

@@ -197,7 +197,7 @@
 								<td><?php echo $veh['pending_on'] ?></td>
 								<td>
 								<?php 
-									$rem_days = $veh['Remaing_days'] + 365;
+									$rem_days = $veh['Remaing_days'];
 									if($rem_days < 0 ) 
 									{ 
 								?>

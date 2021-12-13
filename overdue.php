@@ -98,7 +98,7 @@
 								
 								<td><?php echo $veh['pending_on'] ?></td>
 								<td><?php 
-								echo $veh['Remaing_days'] * -1 ;
+								echo $veh['Remaing_days'] * -1;
 								?></td>
 								<td><a href="process_maintenance.php?id=<?php echo $veh['ID']; ?>"><button class="btn btn-primary btn-sm">Process</button></a></td>
 							</tr>
