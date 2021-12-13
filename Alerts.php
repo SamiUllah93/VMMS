@@ -225,7 +225,7 @@
 								<td><?php echo $veh['current_reading'] ?></td>
 								<td><?php echo $veh['distance'] ?></td>
 								
-								<td> <?php echo $veh['current_reading']+$veh['distance'] ?>  </td>
+								<td> <?php echo $veh['next_distance']; ?>  </td>
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 
 									if ($veh['BA_NO']!=$prev){ ?>

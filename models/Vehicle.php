@@ -70,7 +70,7 @@ class Vehicle extends QueryManager
             $this->Vehicle_ID = $this->_db->lastInsertId();
             foreach ($this->maint_data as $maint_id => $data_arr){
                
-                $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY))";
+                $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due,) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY))";
                 $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$data_arr['kms']);
                 $this->_db->query($query, $data);
                
@@ -125,7 +125,7 @@ class Vehicle extends QueryManager
     }
 
     public function alerts(){
-        $query = "SELECT v1.Vehicle_ID as veh_id,mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID";
+        $query = "SELECT mv.next_distance , v1.Vehicle_ID as veh_id,mv.maintenance_vehicle_ID as ID,v1.odo_reading as current_reading,mv.distance,DATEDIFF(`next_due`,CURRENT_DATE) AS Remaing_days , name,BA_NO,title,`next_due` as pending_on FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID";
         return $this->_db->query($query);
     }
 
