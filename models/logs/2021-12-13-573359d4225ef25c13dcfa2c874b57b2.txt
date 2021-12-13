@@ -1,0 +1,3 @@
+Time : 22:25:01
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'next_due' cannot be null
+Raw SQL : INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL NULL DAY))

@@ -69,7 +69,12 @@ class Vehicle extends QueryManager
         if($this->_db->query($query, $data) == 1){
             $this->Vehicle_ID = $this->_db->lastInsertId();
             foreach ($this->maint_data as $maint_id => $data_arr){
-               
+                if($data_arr['kms']==null){
+                    $data_arr['kms']="NULL";
+                }
+                if($data_arr['days']==null){
+                    $data_arr['days']="NULL";
+                }
                 $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY))";
                 $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$data_arr['kms']);
                 $this->_db->query($query, $data);
