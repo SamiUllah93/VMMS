@@ -234,7 +234,18 @@
 								}?></td>
 								<td><?php echo $veh['current_reading'] ?></td>
 								<td><?php echo $veh['distance'] ?></td>
-								<td><?php echo $veh['next_distance']-$veh['current_reading']; ?></td>
+								<td><?php 
+									if($veh['next_distance']==null){
+										echo "";
+									}else{
+										if($veh['next_distance']-$veh['current_reading'] < 0){
+											echo "<span style='color:red;'>".($veh['next_distance']-$veh['current_reading'])."</span>";
+										}else{
+											echo $veh['next_distance']-$veh['current_reading'];
+										}
+									}
+									
+								?></td>
 								<td><?php echo $veh['next_distance']; ?> </td>
 								<?php
 								if ($today_dt == $q1_dt || $today_dt == $q2_dt || $today_dt == $q3_dt ){ 

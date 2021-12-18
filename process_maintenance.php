@@ -104,7 +104,7 @@
 								<b>ODO Meter Reading</b>
 							</div>
 							<div class="col-lg-10 col-md-9 col-sm-9 col-xs-12">
-								<input type="number" class="form-control" name="odo" placeholder="Meter Reading"  required  />
+								<input type="number" readonly value="<?php echo $data[0]['odo_reading']; ?>"  class="form-control" name="odo" placeholder="Meter Reading"  required  />
 							</div>
 							
 						</div>

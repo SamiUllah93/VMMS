@@ -65,18 +65,28 @@ class Vehicle extends QueryManager
         if($this->company_id == "NULL"){
             $this->company_id = null;
         }
-        $data = array($this->BA_NO, $this->Make_type , $this->Issued_On , $this->Year_of_Manufacturer, $this->Driver_ID, $this->company_id, $this->qtrly_service_date, $this->yrly_service_date, $this->odo_reading);
+        $mamlaat = date('Y-m-d', strtotime("+90 day", strtotime($this->qtrly_service_date)));
+        $mamlaat2 = date('Y-m-d', strtotime("+365 day", strtotime($this->yrly_service_date)));
+        $data = array($this->BA_NO, $this->Make_type , $this->Issued_On , $this->Year_of_Manufacturer, $this->Driver_ID, $this->company_id, $mamlaat, $mamlaat2, $this->odo_reading);
         if($this->_db->query($query, $data) == 1){
             $this->Vehicle_ID = $this->_db->lastInsertId();
             foreach ($this->maint_data as $maint_id => $data_arr){
+                $next_due_val = 'NULL';
+                $maint_dist = "NULL";
                 if($data_arr['kms']==null){
-                    $data_arr['kms']= 0; 
+                    $next_due_val = NULL;
+                    $maint_dist = NULL;
+                }else{
+                    $next_due_val = $data_arr['kms']+$this->odo_reading; 
+                    $maint_dist = $data_arr['kms'];
                 }
+
                 if($data_arr['days']==null){
                     $data_arr['days']="NULL";
                 }
-                $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due,next_distance) VALUES(?, ?, ?, ?,DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY),?)";
-                $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$data_arr['kms'],$data_arr['kms']+$this->odo_reading);
+                $query = "INSERT into maintenance_vehicle (maintenance_ID, vehicle_ID, duration_In_days, distance,next_due,next_distance) VALUES(?, ?, ?, ?, DATE_ADD(now() , INTERVAL ".$data_arr['days']." DAY),?)";
+                $data = array($maint_id, $this->Vehicle_ID , $data_arr['days'] ,$maint_dist, $next_due_val);
+                
                 $this->_db->query($query, $data);
                
             }
@@ -136,7 +146,7 @@ class Vehicle extends QueryManager
 
 
     public function pending_today_by_id($id){
-        $query = "SELECT mv.maintenance_vehicle_ID as ID, name,BA_NO,v1.Make_Type, title FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.maintenance_vehicle_ID = ?";
+        $query = "SELECT v1.odo_reading, mv.maintenance_vehicle_ID as ID, name,BA_NO,v1.Make_Type, title FROM maintenance_vehicle as mv left join vehicle as v1 on v1.Vehicle_ID = mv.vehicle_ID left join maintenance as m on mv.maintenance_ID = m.maintenance_id left join driver as d on d.driver_id = v1.Driver_ID where mv.maintenance_vehicle_ID = ?";
         $data = array($id);
         return $this->_db->query($query, $data);
     }
@@ -176,9 +186,10 @@ class Vehicle extends QueryManager
         if ($this->_db->query($query, $data)){
             // update next due date
             $days_to_add = $this->get_vehicle_maintenance_type_days($veh_m_id);
-            ($days_to_add);
+            
            
              $query = "UPDATE maintenance_vehicle SET next_due = DATE_ADD(now() , INTERVAL '$days_to_add' DAY) WHERE maintenance_vehicle_ID = $veh_m_id ";
+             
             //$data = array($days_to_add, $veh_m_id);
             return $this->_db->query($query);
         }
