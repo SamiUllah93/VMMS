@@ -34,7 +34,7 @@
 						  <div class="panel-heading">
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
-										<h4 style="color:#449D44;">Overdue</h4>
+										<h4 class=" text-primary">Overdue</h4>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" >
 
@@ -96,7 +96,7 @@
 								</td>								
 								<td><?php echo $veh['title'];  ?></td>
 								
-								<td><?php echo $veh['pending_on'] ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['pending_on'])); ?></td>
 								<td><?php 
 								echo $veh['Remaing_days'] * -1;
 								?></td>

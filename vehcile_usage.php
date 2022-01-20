@@ -56,7 +56,7 @@
 							foreach($vehicles as $veh){ ?>
 							<tr>
 								<td><?php echo $c; ?></td>
-								<td><?php echo $veh['created']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['created'])); ?></td>
 								<td><?php echo $veh['total_running']; ?></td>
 								<td><?php echo $veh['total_fuel_added']; ?> Liters</td>
 								

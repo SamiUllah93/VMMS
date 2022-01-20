@@ -40,8 +40,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;" class="text-primary"><?php echo $vehicles; ?></span><br />
-							<b>VEHS</b>
+							<span style="font-size:2.0em;" class="text-primary"><?php echo $vehicles; ?><br />
+							Vehs</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-car text-primary"></i>
@@ -52,8 +52,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $drivers; ?></span><br />
-							<b>Dvrs</b>
+							<span style="font-size:2.0em;"><?php echo $drivers; ?><br />
+							Dvrs</span>
 							<br />
 							<br />
 							
@@ -66,8 +66,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $maints; ?></span><br />
-							<b>Maint</b>
+							<span style="font-size:2.0em;"><?php echo $maints; ?><br />
+							Maint</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-wrench color:#7cc15a;" aria-hidden="true"></i>
@@ -79,8 +79,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $alert_count; ?></span><br />
-							<b>Alerts</b>
+							<span style="font-size:2.0em;"><?php echo $alert_count; ?><br />
+							Alerts</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-exclamation-triangle text-primary" aria-hidden="true"></i>
@@ -95,8 +95,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo number_format($average[0]['average'],2) ?> Km/Lit</span><br />
-							<b>Avg Fuel Consumption</b>
+							<span style="font-size:2.0em;"><?php echo number_format($average[0]['average'],2) ?> Km/Lit<br />
+							Avg Fuel Consumption</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-tachometer  text-primary" ></i>
@@ -108,8 +108,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $count[0]['dashboard_count'] ?> kms</span><br />
-							<b>Total Running</b>
+							<span style="font-size:2.0em;"><?php echo $count[0]['dashboard_count'] ?> kms<br />
+							Total Running</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;"class="fa fa-calculator  text-primary"></i>
@@ -121,8 +121,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $pending_count; ?></span><br />
-							<b>Pending Today</b>
+							<span style="font-size:2.0em;"><?php echo $pending_count; ?><br />
+							Pending Today</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-hourglass  text-primary" aria-hidden="true"></i>
@@ -134,8 +134,8 @@
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="text-align:center;padding-top:10px;">
 						<div class="well">
 						<p>
-							<span style="font-size:2.0em;"><?php echo $user_count; ?></span><br />
-							<b>Users</b>
+							<span style="font-size:2.0em;"><?php echo $user_count; ?><br />
+							Users</span>
 							<br />
 							<br />
 							<i style="font-size:2.4em;" class="fa fa-user  text-primary" aria-hidden="true"></i>

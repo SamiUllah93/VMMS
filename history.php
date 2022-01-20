@@ -63,7 +63,7 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['BA_NO']; ?></td>
 								<td><?php echo $veh['title']; ?></td>
-								<td><?php echo $veh['Process_Date']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['Process_Date'])); ?></td>
 								<td><?php echo $veh['odometer_reading']; ?></td>
 							</tr>
 							<?php $c++; } ?>

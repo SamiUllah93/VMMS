@@ -62,7 +62,7 @@
 							<tr>
 								<td><?php echo $c; ?></td>
 								<td><?php echo $comp['title']; ?></td>
-								<td><?php echo $comp['created']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($comp['created'])); ?></td>
 								<td>
 									<a onclick="return confirm_alert(this);" href="company.php?del=<?php echo $comp['company_id']; ?>" title="Delete Coy" ><i class="fa fa-close" style="color:red;"></i></a>
 								</td>

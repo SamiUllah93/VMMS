@@ -58,7 +58,7 @@
 							<tr>
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['title']; ?></td>
-								<td><?php echo $veh['Added_date']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['Added_date'])); ?></td>
 							</tr>
 							<?php $c++; } ?>
 						
