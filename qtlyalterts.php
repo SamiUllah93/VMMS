@@ -13,40 +13,27 @@
 	*/
 
 	
-	/*
+	
 	if(Isset($_POST['submit'])) {
 		
-		if (($_POST['from'] != '') && ($_POST['to'] !='') && ($_POST['Maintainance'] == '') && ($_POST['company'] =='') ){
+		if (($_POST['from'] != '') && ($_POST['to'] !='') && ($_POST['company'] =='') ){
 			// call method which takes date only
-			$pending = $vehicle->dateonly_alerts($_POST['from'],$_POST['to']);
+			$pending = $vehicle->quarterly_dateonly_alerts($_POST['from'],$_POST['to']);
 		} 
-		else if (($_POST['from'] !='') && ($_POST['to'] !='') && ($_POST['Maintainance'] !='') && ($_POST['company']) == '') {
-			$pending = $vehicle->dateandmain_alert($_POST['from'],$_POST['to'],$_POST['Maintainance']);
+		else if (($_POST['from'] != '')  && ($_POST['to'] != '')  && ($_POST['company']) != '' ) {
+			$pending = $vehicle->qrtly_dateandcompany_alert($_POST['from'],$_POST['to'],$_POST['company']);
 		} 
-		else if (($_POST['from'] != '')  && ($_POST['to'] != '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '' ) {
-			$pending = $vehicle->dateandcompany_alert($_POST['from'],$_POST['to'],$_POST['company']);
-		} 
-		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) != '') {
-			$pending = $vehicle->maintandcompany_alert($_POST['Maintainance'],$_POST['company']);
-		} 
-		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] == '') && ($_POST['company']) != '') {
-			$pending = $vehicle->company_alert($_POST['company']);
-		}
-		else if (($_POST['from'] == '' )  && ($_POST['to'] == '') && ($_POST['Maintainance'] != '') && ($_POST['company']) == '') {
-			
-			$pending = $vehicle->maint_alert($_POST['Maintainance']);
-		}
-		else if (($_POST['from'] != '') && ($_POST['to'] != '') && ($_POST['Maintainance'] != '') && ($_POST['company'] !='') ) {
-			$pending = $vehicle->allfilter_alert($_POST['from'],$_POST['to'],$_POST['Maintainance'],$_POST['company']);
+		else if (($_POST['from'] == '' )  && ($_POST['to'] == '')  && ($_POST['company']) != '') {
+			$pending = $vehicle->qrtly_company_alert($_POST['company']);
 		}
 		else{
-			$pending = $vehicle->alerts();
+			$pending = $vehicle->get_vehicle_detailalerts_qtly();
 		}
 	}else{
-		$pending = $vehicle->alerts();
+		$pending = $vehicle->get_vehicle_detailalerts_qtly();
 	}
 
-	*/
+	
 	$msg  = "";
 	$msg_rec = false;
 	if (isset($_GET['compat']))	{
@@ -88,7 +75,7 @@
 				<br /><br />
 				
 				<div class="row">
-				<!-- <form action="Alerts.php" method="POST">
+				 <form action="" method="POST">
 					<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
 						Coy: 
 						<select name="company" id="company" class="form-control"  >
@@ -103,18 +90,7 @@
 								<?php }?>	
 						</select>
 					</div>
-					<div class="col-lg-2 col-md-2 col-sm-3 col-xs-3" >
-					Maint:<select name="Maintainance" id="Maintainance" class="form-control" >
-						<option value="" selected  >Select Maint</option>
-						<?php 			
-							$Maintainance = new Maintainance();
-							$res = $Maintainance->get_all();
-							foreach($res as $data){
-						?>					
-						<option value="<?php echo $data['maintenance_id']; ?>"> <?php echo $data['title']; ?></option>
-						<?php }?>	
-					</select>
-					</div>
+
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="display: inline-block;">
 						 From: <input type="date" id="from" name="from" class="form-control"> 
 						
@@ -128,7 +104,7 @@
 					</div>							
 				</div>
 				</form>
-							-->
+							
 				<hr>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:10px;">

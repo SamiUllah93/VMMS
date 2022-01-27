@@ -320,5 +320,49 @@ class Vehicle extends QueryManager
         $query = "SELECT v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID ";
         return $this->_db->query($query);
     }
+
+    public function quarterly_dateonly_alerts($from,$to){
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , qtrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where qtrly_service_date BETWEEN ? and ?
+        ";
+        $data = array($from, $to);
+        return $this->_db->query($query,$data);
+    }
+
+    public function qrtly_dateandcompany_alert($from,$to,$comp){
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , qtrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where c.company_id = ? and qtrly_service_date BETWEEN ? and ? ";
+        $data = array($from, $to,$comp);
+        return $this->_db->query($query,$data);
+    }
+
+    public function qrtly_company_alert($comp){
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`qtrly_service_date`, CURRENT_DATE) AS Remaing_days , qtrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where c.company_id = ? "
+        ;
+        $data = array($comp);
+        return $this->_db->query($query,$data);
+    } 
+
+
+    public function yearly_dateonly_alerts($from,$to){
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id and yrly_service_date BETWEEN ? and ?
+        ";
+        $data = array($from, $to);
+        return $this->_db->query($query,$data);
+    }
+
+    public function yearly_dateandcompany_alert($from,$to,$comp){
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where c.company_id = ? and yrly_service_date BETWEEN ? and ? ";
+        $data = array($comp,$from, $to);
+        return $this->_db->query($query,$data);
+    }
+
+    public function yearly_company_alert($comp){
+         $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where c.company_id = ? "
+        ;
+        $data = array($comp);
+        return $this->_db->query($query,$data);
+    } 
+
+
 }
 
+ 
