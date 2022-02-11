@@ -170,7 +170,7 @@
 								</td>								
 								 
 								
-								<td><?php echo $veh['pending_on'] ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['pending_on'])); ?></td>
 								<td>
 								<?php 
 									$rem_days = $veh['Remaing_days'];

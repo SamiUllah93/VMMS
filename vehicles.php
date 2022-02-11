@@ -104,7 +104,7 @@
 								<td><?php echo $c; ?></td>
 								<td><?php echo $veh['BA_NO']; ?></td>
 								<td><?php echo $veh['Make_Type']; ?></td>
-								<td><?php echo $veh['Issued_On']; ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['Issued_On'])); ?></td>
 								<td><?php echo $veh['Year_of_Manufacturer']; ?></td>
 								<td>
 									<?php  if($veh['title']){ ?>

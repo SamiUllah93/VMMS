@@ -217,7 +217,7 @@
 								</td>								
 								<td><?php echo $veh['title'];  ?></td>
 								
-								<td><?php echo $veh['pending_on'] ?></td>
+								<td><?php echo date('d-m-Y', strtotime($veh['pending_on'])); ?></td>
 							
 								<td>
 								<?php 

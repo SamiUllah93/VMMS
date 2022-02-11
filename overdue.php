@@ -61,8 +61,6 @@
 						foreach($pending as $veh){ 
 							 
 							?>
-
-						
 							<tr>
 								<td>
 									<?php
