@@ -343,8 +343,7 @@ class Vehicle extends QueryManager
 
 
     public function yearly_dateonly_alerts($from,$to){
-        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id and yrly_service_date BETWEEN ? and ?
-        ";
+        $query = "SELECT c.title,v1.Vehicle_ID as veh_id, DATEDIFF(`yrly_service_date`, CURRENT_DATE) AS Remaing_days , yrly_service_date as pending_on, name,BA_NO FROM vehicle as v1 left join driver as d on d.driver_id = v1.Driver_ID left join company as c on v1.company_id = c.company_id where yrly_service_date BETWEEN '2021-02-02' and '2021-02-28'";
         $data = array($from, $to);
         return $this->_db->query($query,$data);
     }
